@@ -347,7 +347,7 @@ Bookmark 1
 			1-4
 Bookmark 2
 	January
-		Psalms
+		Psalm
 			1
 			2
 			3
@@ -374,7 +374,7 @@ Bookmark 2
 			22:12-31
 			23
 	February
-		Psalms
+		Psalm
 			24
 			25
 			26
@@ -401,7 +401,7 @@ Bookmark 2
 			46
 			47
 	March
-		Psalms
+		Psalm
 			48
 			49
 			50
@@ -428,7 +428,7 @@ Bookmark 2
 			70
 			71
 	April
-		Psalms
+		Psalm
 			72
 			73
 			74
@@ -455,7 +455,7 @@ Bookmark 2
 			93
 			94
 	May
-		Psalms
+		Psalm
 			95
 			96
 			97
@@ -482,7 +482,7 @@ Bookmark 2
 			117
 			118
 	June
-		Psalms
+		Psalm
 			119:1-9
 			119:9-16
 			119:17-24
@@ -509,7 +509,7 @@ Bookmark 2
 			121
 			122
 	July
-		Psalms
+		Psalm
 			123-124
 			125
 			126
