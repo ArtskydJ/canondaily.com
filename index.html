@@ -80,11 +80,14 @@
 			document.getElementById('next').onclick = function () { setPassage(1) }
 
 			function setPassage(offset) {
-				passageIndex = Math.min(3, Math.max(0, passageIndex + offset))
-				var passage = passages[passageIndex]
-				document.title = 'Bible In A Year - ' + passage
-				var iframe = document.getElementById('iframe')
-				iframe.src = 'https://www.biblegateway.com/passage/?version=NKJV&interface=print&search=' + encodeURIComponent(passage)
+				var nextPassageIndex = Math.min(3, Math.max(0, passageIndex + offset))
+				if (offset === 0 || nextPassageIndex !== passageIndex) {
+					passageIndex = nextPassageIndex
+					var passage = passages[passageIndex]
+					document.title = 'Bible In A Year - ' + passage
+					var iframe = document.getElementById('iframe')
+					iframe.src = 'https://www.biblegateway.com/passage/?version=NKJV&interface=print&search=' + encodeURIComponent(passage)
+				}
 			}
 		</script>
 	</body>
