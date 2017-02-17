@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const bookmarksTxt = fs.readFileSync('./bookmarks.txt', 'utf-8')
+const bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
 
 var result = bookmarksTxt.split('\n').reduce(function (memo, line) {
 	if (line.startsWith('\t\t\t')) { // passage
@@ -30,4 +30,4 @@ var result = bookmarksTxt.split('\n').reduce(function (memo, line) {
 }).result
 
 // console.log(result)
-fs.writeFileSync('./output.json', JSON.stringify(result))
+fs.writeFileSync(__dirname + '/../day-to-passages.json', JSON.stringify(result))
