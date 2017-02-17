@@ -79,8 +79,12 @@
 
 			setPassage(0)
 
-			;[].slice.call(document.querySelectorAll('.nav.previous')).forEach(e => { e.onclick = () => setPassage(-1) })
-			;[].slice.call(document.querySelectorAll('.nav.next')).forEach(e => { e.onclick = () => setPassage(1) })
+			;[].slice.call(document.querySelectorAll('.nav.previous')).forEach(function (e) {
+				e.onclick = function () { setPassage(-1) }
+			})
+			;[].slice.call(document.querySelectorAll('.nav.next')).forEach(function (e) {
+				e.onclick = function () { setPassage(1) }
+			})
 		</script>
 	</body>
 </html>
