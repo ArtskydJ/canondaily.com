@@ -4,7 +4,7 @@ const bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
 
 var result = bookmarksTxt.split('\n').reduce(function (memo, line) {
 	if (line.startsWith('\t\t\t')) { // passage
-		var dayString = memo.state.month + ' ' + memo.state.dayOfMonth
+		var dayString = memo.state.month + '/' + memo.state.dayOfMonth
 		if (!memo.result[dayString]) {
 			memo.result[dayString] = []
 		}
