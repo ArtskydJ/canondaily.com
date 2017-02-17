@@ -112,7 +112,7 @@ Bookmark 1
 			2-3
 			4
 	May
-		1 samuel
+		1 Samuel
 			1-2
 			3-5
 			6-8
@@ -126,7 +126,7 @@ Bookmark 1
 			24-25
 			26-28
 			29-31
-		2 samuel
+		2 Samuel
 			1-2
 			3-4
 			5-7
@@ -140,7 +140,7 @@ Bookmark 1
 			22
 			23-24
 	June
-		1 kings
+		1 Kings
 			1
 			2-3
 			4-5
@@ -154,7 +154,7 @@ Bookmark 1
 			17-18
 			16-20
 			21-22
-		2 kings
+		2 Kings
 			1-3
 			4-5
 			6-7
@@ -168,7 +168,7 @@ Bookmark 1
 			22-23
 			24-25
 	July
-		1 chronicles
+		1 Chronicles
 			1-2
 			3-4
 			5-6
@@ -181,7 +181,7 @@ Bookmark 1
 			23-25
 			26-28
 			29
-		2 chronicles
+		2 Chronicles
 			1-2
 			3-5
 			6-7
@@ -1079,7 +1079,7 @@ Bookmark 4
 			15:14-33
 			16
 	April
-		1 corinthians
+		1 Corinthians
 			1:1-17
 			1:18-31
 			2
@@ -1106,7 +1106,7 @@ Bookmark 4
 			15:29-58
 			16
 	May
-		2 corinthians
+		2 Corinthians
 			1:1-11
 			1:12-24
 			2
@@ -1172,7 +1172,7 @@ Bookmark 4
 			3:15-25
 			4:1-8
 			4:10-18
-		1 thessalonians
+		1 Thessalonians
 			1
 			2:1-9
 			2:10-20
@@ -1182,7 +1182,7 @@ Bookmark 4
 			4:11-18
 			5:1-11
 			5:12-28
-		2 thessalonians
+		2 Thessalonians
 			1
 			2:1-5
 			2:6-12
@@ -1191,7 +1191,7 @@ Bookmark 4
 			3:6-13
 			3:14-18
 	August
-		1 timothy
+		1 Timothy
 			1:1-11
 			1:12-20
 			2
@@ -1202,7 +1202,7 @@ Bookmark 4
 			5:16-25
 			6:1-10
 			6:11-21
-		2 timothy
+		2 Timothy
 			1
 			2:1-13
 			2:14-26
@@ -1261,7 +1261,7 @@ Bookmark 4
 			5:1-6
 			5:7-12
 			5:13-20
-		1 peter
+		1 Peter
 			1:1-9
 			1:10-16
 			1:17-25
@@ -1276,7 +1276,7 @@ Bookmark 4
 			5:1-7
 			5:8-14
 	November
-		2 peter
+		2 Peter
 			1:1-11
 			1:12-21
 			2:1-9
@@ -1284,7 +1284,7 @@ Bookmark 4
 			2:17-22
 			3:1-9
 			3:10-18
-		1 john
+		1 John
 			1
 			2:1-11
 			2:12-17
@@ -1298,14 +1298,14 @@ Bookmark 4
 			5:1-5
 			5:6-12
 			5:13-21
-		2 john
+		2 John
 			1
-		3 john
+		3 John
 			1
 		Jude
-		1:1-7
-		1:8-16
-		1:17-25
+			1:1-7
+			1:8-16
+			1:17-25
 	December
 		Revelation
 			1:1-8
