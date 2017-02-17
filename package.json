@@ -1,0 +1,20 @@
+{
+  "name": "bible-in-a-year",
+  "version": "1.0.0",
+  "description": "> A website to help you read the Bible in a year",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtskydJ/bible-in-a-year.git"
+  },
+  "author": "Joseph Dykstra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtskydJ/bible-in-a-year/issues"
+  },
+  "homepage": "https://github.com/ArtskydJ/bible-in-a-year#readme"
+}
