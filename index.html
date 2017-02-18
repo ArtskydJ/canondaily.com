@@ -21,7 +21,7 @@
 			}
 			.nav {
 				height: 12vh;
-				font-size: 30pt;
+				font-size: 50pt;
 				font-weight: bold;
 				flex: auto;
 			}
@@ -40,6 +40,8 @@
 			.nav-input {
 				height: calc(12vh - 2px);
 				border: 1px solid black;
+				background-color: #fff;
+				font-size: 18pt;
 			}
 			.nav-button.disabled {
 				background-color: #eee;
@@ -51,7 +53,7 @@
 		<div class="nav-container">
 			<a class="nav nav-button previous" href="javascript:setPassage(-1);">&lt;</a>
 			<form>
-				<input class="nav nav-input" id="date" type="date" name="date" onblur="document.querySelector('form').submit()">
+				<input class="nav nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
 			</form>
 			<a class="nav nav-button next" href="javascript:setPassage(1);">&gt;</a>
 		</div>
