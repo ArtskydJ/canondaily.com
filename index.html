@@ -10,6 +10,8 @@
 				margin: 0;
 				padding: 0;
 				overflow: hidden;
+				font-family: Segoe UI, Calibri, Arial, sans-serif;
+				font-size: 14pt;
 			}
 			iframe {
 				width: 100%;
@@ -21,7 +23,6 @@
 			}
 			.nav {
 				height: 12vh;
-				font-size: 50pt;
 				font-weight: bold;
 				flex: auto;
 			}
@@ -31,6 +32,7 @@
 				align-items: center;
 			}
 			.nav-button {
+				font-size: 35pt;
 				display: flex;
 				background-color: #ddd;
 				color: #000;
@@ -42,19 +44,23 @@
 			.nav-input {
 				border: 1px solid black;
 				background-color: #fff;
-				font-size: 18pt;
+				font-size: 14pt;
 			}
 			.nav-button.disabled {
 				background-color: #eee;
 				color: #888;
+			}
+			.column {
+				flex-direction: column;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="nav-container">
 			<a class="nav center-content nav-button previous" href="javascript:setPassage(-1);">&lt;</a>
-			<form class="nav center-content">
+			<form class="nav center-content column">
 				<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
+				<div id="passage"></div>
 			</form>
 			<a class="nav center-content nav-button next" href="javascript:setPassage(1);">&gt;</a>
 		</div>
@@ -79,17 +85,17 @@
 			function setPassage(offset) {
 				var prev = document.querySelector('.previous')
 				var next = document.querySelector('.next')
-				var iframe = document.getElementById('iframe')
-
-				document.title = 'Bible In A Year - ' + today
+				var iframeEle = document.getElementById('iframe')
+				var passageEle = document.getElementById('passage')
 
 				if (passages) {
 					var nextPassageIndex = Math.min(3, Math.max(0, passageIndex + offset))
 					if (offset === 0 || nextPassageIndex !== passageIndex) {
 						passageIndex = nextPassageIndex
 						var passage = passages[passageIndex]
-						document.title += ' - ' + passage
-						iframe.src = 'https://www.biblegateway.com/passage/?version=NKJV&interface=print&search=' + encodeURIComponent(passage)
+						passageEle.innerHTML = 'Bookmark ' + (passageIndex + 1)
+						document.title = 'Bible In A Year - ' + today + ' - ' + passage
+						iframeEle.src = 'https://www.biblegateway.com/passage/?version=NKJV&interface=print&search=' + encodeURIComponent(passage)
 					}
 
 					prev.classList.remove('disabled')
@@ -97,9 +103,10 @@
 					if (passageIndex === 0) prev.classList.add('disabled')
 					if (passageIndex === 3) next.classList.add('disabled')
 				} else {
-					document.title += ' - No passage found!'
+					passageEle.innerHTML = 'No passage found!'
+					document.title = 'Bible In A Year - ' + today + ' - No passage found!'
 
-					iframe.srcdoc = '<h1 style="font-family:Calibri,sans-serif;text-align:center;width:calc(100vw - 8px);position:absolute;top:45vh;">No passage found!</h1>'
+					iframeEle.srcdoc = '<h1 style="font-family:Calibri,sans-serif;text-align:center;width:calc(100vw - 8px);position:absolute;top:45vh;">No passage found!</h1>'
 
 					prev.classList.add('disabled')
 					next.classList.add('disabled')
