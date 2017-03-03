@@ -9,12 +9,16 @@ iframe {
 	width: 100%;
 	border: none;
 	height: 88vh;
+	display: none;
+}
+iframe.front {
+	display: block;
 }
 .nav-container {
 	display: flex;
 }
 .nav {
-	height: 12vh;
+	height: 10vh;
 	font-weight: bold;
 	flex: auto;
 }
@@ -41,6 +45,7 @@ iframe {
 .nav-button.disabled {
 	background-color: #eee;
 	color: #888;
+	cursor: default;
 }
 .column {
 	flex-direction: column;

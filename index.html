@@ -8,16 +8,20 @@
 		<link rel="stylesheet" type="text/css" href="./styles.css">
 	</head>
 	<body>
-		<div class="nav-container">
-			<a class="nav center-content nav-button previous" href="javascript:setPassage(-1);">&lt;</a>
-			<form class="nav center-content column">
-				<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
-				<div id="passage"></div>
-			</form>
-			<a class="nav center-content nav-button next" href="javascript:setPassage(1);">&gt;</a>
+		<form class="nav-container center-content">
+			<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
+		</form>
+		<div class="nav-container center-content">
+			<a class="nav center-content nav-button disabled" href="javascript:setPassage(0);">1</a>
+			<a class="nav center-content nav-button" href="javascript:setPassage(1);">2</a>
+			<a class="nav center-content nav-button" href="javascript:setPassage(2);">3</a>
+			<a class="nav center-content nav-button" href="javascript:setPassage(3);">4</a>
 		</div>
 
-		<iframe id="iframe"></iframe>
+		<iframe></iframe>
+		<iframe></iframe>
+		<iframe></iframe>
+		<iframe></iframe>
 
 		<script src="./dayToPassagesMap.js"></script>
 		<script src="./main.js"></script>
