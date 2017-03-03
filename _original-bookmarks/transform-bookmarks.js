@@ -29,10 +29,5 @@ var result = bookmarksTxt.split('\n').reduce(function (memo, line) {
 	}
 }).result
 
-// console.log(result)
-const indexHtml = fs.readFileSync(__dirname + '/../index.html', 'utf-8')
-const newIndexHtml = indexHtml.replace(
-	/\/\* auto-generated start \*\/.+\/\* auto-generated end \*\//,
-	'/* auto-generated start */' + JSON.stringify(result) + '/* auto-generated end */'
-)
-fs.writeFileSync(__dirname + '/../index.html', newIndexHtml)
+const newIndexHtml = 'window.dayToPassagesMap = ' + JSON.stringify(result)
+fs.writeFileSync(__dirname + '/../dayToPassagesMap.js', newIndexHtml)
