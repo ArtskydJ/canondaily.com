@@ -39,10 +39,9 @@ function setPassage(nextPassageIndex) {
 	} else if (!passages) {
 		document.title = 'Bible In A Year - ' + today + ' - No passage found!'
 
-		iframes[0].srcdoc = '<h1 style="font-family:Calibri,sans-serif;text-align:center;width:calc(100vw - 8px);position:absolute;top:45vh;">No passage found!</h1>'
-		iframes[0].classList.add('front')
-
 		buttons.forEach(function (ele) { ele.classList.add('disabled') })
+
+		document.getElementById('background-message').innerHTML = 'No passage found!'
 	}
 }
 

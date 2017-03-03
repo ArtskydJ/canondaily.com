@@ -13,6 +13,7 @@ iframe {
 }
 iframe.front {
 	display: block;
+	z-index: 1;
 }
 .nav-container {
 	display: flex;
@@ -49,4 +50,12 @@ iframe.front {
 }
 .column {
 	flex-direction: column;
+}
+#background-message {
+	font-family: Calibri, sans-serif;
+	text-align: center;
+	width: calc(100vw - 8px);
+	position: absolute;
+	top: 45vh;
+	z-index: -1;
 }
