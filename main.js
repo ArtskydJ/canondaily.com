@@ -1,6 +1,4 @@
 var dayToPassagesMap = window.dayToPassagesMap
-if (!dayToPassagesMap) throw new Error('uh oh......')
-
 
 var now = new Date()
 var dateInput = document.getElementById('date')
