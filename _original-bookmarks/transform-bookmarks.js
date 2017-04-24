@@ -25,7 +25,7 @@ var result = bookmarksTxt.split('\n').reduce(function (memo, line) {
 		dayOfMonth: 1
 	},
 	result: {
-		// 'January 1': [ 'Genesis 1-2', 'Psalms 1', 'Matthew 1:1-17', 'Acts 1:1-11' ]
+		// '1/1': [ 'Genesis 1-2', 'Psalms 1', 'Matthew 1:1-17', 'Acts 1:1-11' ]
 	}
 }).result
 
