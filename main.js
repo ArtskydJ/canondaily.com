@@ -1,9 +1,10 @@
 var dayToPassagesMap = window.dayToPassagesMap
 
-var now = new Date()
 var dateInput = document.getElementById('date')
 var buttons = Array.prototype.slice.call(document.querySelectorAll('.nav-button'))
 var iframes = Array.prototype.slice.call(document.querySelectorAll('iframe'))
+
+var now = new Date()
 var qsDate = /[?&]date=(\d{4}-\d\d-\d\d)/.exec(location.search)
 if (qsDate) {
 	now = new Date(qsDate[1])
