@@ -46,3 +46,9 @@ function setPassage(nextPassageIndex) {
 
 init()
 setPassage(0)
+
+navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+	console.log('ServiceWorker registration was successful')
+}, function(err) {
+	console.log('ServiceWorker registration failed: ', err)
+})
