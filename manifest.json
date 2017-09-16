@@ -9,5 +9,6 @@
     "type": "image/ico"
   }],
   "start_url": "./index.html",
-  "display": "standalone"
+  "display": "standalone",
+  "theme_color": "#404040"
 }
