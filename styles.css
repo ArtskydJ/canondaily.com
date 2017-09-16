@@ -10,15 +10,15 @@ form {
 	background-color: #404040;
 }
 .nav-input {
-	height: 25pt;
+	height: 20pt;
 	box-sizing: border-box;
 	border: none;
 	background-color: #fff;
 	font-size: 14pt;
-	margin-bottom: 5pt;
+	margin: 5pt 0;
 }
 .nav-button {
-	height: 40pt;
+	height: 35pt;
 	box-sizing: border-box;
 	font-weight: bold;
 	flex: auto;
@@ -45,7 +45,7 @@ iframe {
 	box-sizing: border-box;
 	width: 100%;
 	border: none;
-	height: calc(100vh - 70pt);
+	height: calc(100vh - 65pt);
 	display: none;
 }
 iframe.front {
