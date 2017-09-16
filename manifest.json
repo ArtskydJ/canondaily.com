@@ -3,12 +3,17 @@
   "short_name": "Bible in a Year",
   "name": "Bible in a Year",
   "description": "An app that shows different Bible passages each day, so you can read through the Bible in one year.",
-  "icons": [{
-    "src": "./bible.ico",
-    "sizes": "128x128",
-    "type": "image/ico"
-  }],
-  "start_url": "./index.html",
+  "icons": [
+    { "src":"icons/bible_256.png", "sizes":"256x256", "type":"image/png" },
+    { "src":"icons/bible_144.png", "sizes":"144x144", "type":"image/png" },
+    { "src":"icons/bible_128.png", "sizes":"128x128", "type":"image/png" },
+    { "src":"icons/bible_064.png", "sizes":"64x64", "type":"image/png" },
+    { "src":"icons/bible_032.png", "sizes":"32x32", "type":"image/png" },
+    { "src":"icons/bible_024.png", "sizes":"24x24", "type":"image/png" },
+    { "src":"icons/bible_016.png", "sizes":"16x16", "type":"image/png" },
+    { "src":"icons/bible.ico", "sizes":"16x16 24x24 32x32 64x64 128x128 256x256", "type":"image/x-icon" }
+  ],
+  "start_url": "https://artskydj.github.io/bible-in-a-year/",
   "display": "standalone",
   "theme_color": "#404040"
 }

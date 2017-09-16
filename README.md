@@ -1,1 +1,1 @@
-# [BibleRSS.com](http://www.biblerss.com)
+# [Bible in a Year](https://artskydj.github.io/bible-in-a-year/)

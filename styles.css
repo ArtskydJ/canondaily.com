@@ -26,8 +26,7 @@ form {
 	background-color: #888;
 	color: #fff;
 	text-decoration: none;
-}
-.nav-button {
+	-webkit-tap-highlight-color: transparent;
 	border-right: 5pt solid #404040;
 }
 .nav-button:first-child {
