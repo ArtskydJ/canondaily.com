@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	font-family: Segoe UI, Calibri, Arial, sans-serif;
+	font-family: "Helvetica Neue",Verdana,Helvetica,Arial,sans-serif;
 	font-size: 14pt;
 }
 
@@ -10,27 +10,27 @@ form {
 	background-color: #404040;
 }
 .nav-input {
-	height: 20pt;
+	height: 16pt;
 	box-sizing: border-box;
 	border: none;
 	background-color: #fff;
-	font-size: 14pt;
-	margin: 5pt 0;
+	font-size: 12pt;
+	margin: 2pt 0;
 }
 .nav-button {
-	height: 35pt;
+	height: 28pt;
 	box-sizing: border-box;
 	font-weight: bold;
 	flex: auto;
-	font-size: 28pt;
+	font-size: 24pt;
 	background-color: #888;
 	color: #fff;
 	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
-	border-right: 5pt solid #404040;
+	border-right: 4pt solid #404040;
 }
 .nav-button:first-child {
-	border-left: 5pt solid #404040;
+	border-left: 4pt solid #404040;
 }
 .nav-button:active {
 	background-color: #aaa;
@@ -45,7 +45,7 @@ iframe {
 	box-sizing: border-box;
 	width: 100%;
 	border: none;
-	height: calc(100vh - 65pt);
+	height: calc(100vh - 48pt);
 	display: none;
 }
 iframe.front {
