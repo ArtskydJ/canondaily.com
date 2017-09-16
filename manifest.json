@@ -1,0 +1,13 @@
+{
+  "lang": "en",
+  "short_name": "Bible in a Year",
+  "name": "Bible in a Year",
+  "description": "An app that shows different Bible passages each day, so you can read through the Bible in one year.",
+  "icons": [{
+    "src": "./bible.ico",
+    "sizes": "128x128",
+    "type": "image/ico"
+  }],
+  "start_url": "./index.html",
+  "display": "standalone"
+}
