@@ -47,6 +47,7 @@ iframe.front {
 .flex-center {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 #background-message {
 	font-family: Calibri, sans-serif;
