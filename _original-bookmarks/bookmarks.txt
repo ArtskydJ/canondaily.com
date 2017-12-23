@@ -315,8 +315,9 @@ Bookmark 1
 		Lamentations 4-5
 	November
 		Ezekiel 1-3
-		Ezekiel 4-8
-		Ezekiel 9-12
+		Ezekiel 4-6
+		Ezekiel 7-9
+		Ezekiel 10-12
 		Ezekiel 13-15
 		Ezekiel 16
 		Ezekiel 17-19
@@ -330,17 +331,16 @@ Bookmark 1
 		Ezekiel 35-37
 		Ezekiel 38-39
 		Ezekiel 40-41
-		Ezekiel 42-44
-		Ezekiel 45-47
+		Ezekiel 42-43
+		Ezekiel 44-45
+		Ezekiel 46-47
 		Ezekiel 48
 		Daniel 1-2
 		Daniel 3-4
 		Daniel 5-6
 		Daniel 7-8
-		Daniel 9
-		Daniel 10-12
-		x
-		x
+		Daniel 9-10
+		Daniel 11-12
 		x
 		x
 		x
@@ -435,9 +435,9 @@ Bookmark 2
 		Psalm 45
 		Psalm 46
 		Psalm 47
-
-
-
+		x
+		x
+		x
 	March
 		Psalm 48
 		Psalm 49
@@ -1179,7 +1179,7 @@ Bookmark 4
 		Acts 18:18-28
 		Acts 19:1-22
 		Acts 19:23-41
-		Acts 
+		x
 		Acts 20:1-12
 		Acts 20:13-28
 		Acts 21:1-26
@@ -1286,7 +1286,7 @@ Bookmark 4
 		Galations 2
 		Galations 3:1-14
 		Galations 3:15-29
-				x
+		x
 		Galations 4:1-20
 		Galations 4:21-31
 		Galations 5:1-12
