@@ -786,9 +786,8 @@ Bookmark 3
 		Matthew 9:18-26
 		Matthew 9:27-38
 		Matthew 10:1-20
-		x
-	February
 		Matthew 10:21-31
+	February
 		Matthew 10:32-42
 		Matthew 11:1-19
 		Matthew 11:20-30
@@ -816,9 +815,9 @@ Bookmark 3
 		Matthew 19:23-30
 		Matthew 20:1-16
 		Matthew 20:17-34
+		Matthew 21:1-11
 	March
-			-- Matthew 21:1-11
-			-- Matthew 21:12-22
+		Matthew 21:12-22
 		Matthew 21:23-32
 		Matthew 21:33-46
 		Matthew 22:1-14
@@ -849,7 +848,6 @@ Bookmark 3
 		Matthew 27:57-66
 		Matthew 28:1-10
 		Matthew 28:11-20
-			-- this month has too many... i moved matt 21:1-22 from feb to march
 	April
 		Mark 1:1-8
 		Mark 1:9-15
@@ -882,7 +880,8 @@ Bookmark 3
 		Mark 9:1-13
 		Mark 9:14-32
 	May
-		Mark 9:33-50
+		Mark 9:33-41
+		Mark 9:42-50
 		Mark 10:1-16
 		Mark 10:17-31
 		Mark 10:32-45
@@ -912,7 +911,6 @@ Bookmark 3
 		Mark 15:42-47
 		Mark 16:1-13
 		Mark 16:14-20
-		x
 	June
 		Luke 1:1-12
 		Luke 1:13-25
@@ -946,7 +944,8 @@ Bookmark 3
 		Luke 7:1-10
 	July
 		Luke 7:11-17
-		Luke 7:18-35
+		Luke 7:18-23
+		Luke 7:24-35
 		Luke 7:36-50
 		Luke 8:1-15
 		Luke 8:16-21
@@ -975,11 +974,11 @@ Bookmark 3
 		Luke 12:35-48
 		Luke 12:49-53
 		Luke 12:54-59
-		x
 	August
 		Luke 13:1-9
 		Luke 13:10-21
-		Luke 13:22-35
+		Luke 13:22-30
+		Luke 13:31-35
 		Luke 14:1-6
 		Luke 14:7-14
 		Luke 14:15-24
@@ -990,8 +989,7 @@ Bookmark 3
 		Luke 16:1-9
 		Luke 16:10-18
 		Luke 16:19-31
-		Luke 17:1-4
-		Luke 17:5-10
+		Luke 17:1-10
 		Luke 17:11-19
 		Luke 17:20-37
 		Luke 18:1-8
@@ -1007,102 +1005,101 @@ Bookmark 3
 		Luke 20:9-19
 		Luke 20:20-26
 		Luke 20:27-40
-		x
-	September
 		Luke 20:41-47
-		Luke 21:1-19
-		Luke 21:20-28
+	September
+		Luke 21:1-7
+		Luke 21:8-19
+		Luke 21:20-24
+		Luke 21:25-28
 		Luke 21:29-38
-			-- add two if possible
-		x
-		x
-		Luke 22:1-13
+		Luke 22:1-6
+		Luke 22:7-13
 		Luke 22:14-23
 		Luke 22:24-30
-		Luke 22:21-28
-		Luke 22:29-46
-		x
+		Luke 22:31-38
+		Luke 22:39-46
 		Luke 22:47-53
 		Luke 22:54-62
 		Luke 22:63-71
-		Luke 23:1-12
-		Luke 23:13-25
-		x
+		Luke 23:1-6
+		Luke 23:7-12
+		Luke 23:13-19
+		Luke 23:20-25
 		Luke 23:26-31
 		Luke 23:32-37
 		Luke 23:38-43
 		Luke 23:44-49
 		Luke 23:50-56
-		x
-		Luke 24:1-12
-		Luke 24:13-27
+		Luke 24:1-7
+		Luke 24:8-12
+		Luke 24:13-20
+		Luke 24:21-27
 		Luke 24:28-35
 		Luke 24:36-44
 		Luke 24:45-53
-		x
 	October
-		John 1:1-18
+		John 1:1-9
+		John 1:10-18
 		John 1:19-28
 		John 1:29-34
-		John 1:25-42
+		John 1:35-42
 		John 1:43-51
-		x
 		John 2:1-11
 		John 2:12-25
 		John 3:1-15
 		John 3:16-21
 		John 3:22-36
-		x
 		John 4:1-14
 		John 4:15-26
 		John 4:37-42
 		John 4:43-54
-		x
 		John 5:1-15
-		John 5:16-30
-		John 5:31-47
-		John 6:1-15
+		John 5:16-23
+		John 5:24-30
+		John 5:31-40
+		John 5:41-47
+		John 6:1-7
+		John 6:8-15
 		John 6:16-24
-		John 6:25-40
-		John 6:41-59
+		John 6:25-29
+		John 6:30-40
+		John 6:41-51
+		John 6:52-59
 		John 6:60-71
-		x
 		John 7:1-13
 		John 7:14-24
 		John 7:25-36
-		x
-		x
 	November
 		John 7:37-44
 		John 7:45-53
 		John 8:1-11
 		John 8:12-20
-		John 8:21-20
-		John 8:21-47
+		John 8:21-30
+		John 8:31-36
+		John 8:37-47
 		John 8:48-59
-		x
 		John 9:1-12
 		John 9:13-25
 		John 9:26-41
 		John 10:1-10
 		John 10:11-21
-		John 10:22-42
-		x
-		John 11:1-16
-		John 11:17-37
+		John 10:22-32
+		John 10:33-42
+		John 11:1-8
+		John 11:9-16
+		John 11:17-27
+		John 11:28-37
 		John 11:38-44
 		John 11:45-57
-		x
 		John 12:1-11
 		John 12:12-19
-		John 12:20-36
+		John 12:20-26
+		John 12:27-36
 		John 12:37-50
-		x
 		John 13:1-11
 		John 13:12-17
 		John 13:18-30
 		John 13:31-38
-		x
 	December
 		John 14:1-14
 		John 14:15-21
@@ -1110,31 +1107,31 @@ Bookmark 3
 		John 15:1-8
 		John 15:9-17
 		John 15:18-27
-		x
 		John 16:1-11
-		John 16:12-24
+		John 16:12-18
+		John 16:19-24
 		John 16:25-33
-		x
 		John 17:1-5
 		John 17:6-19
 		John 17:20-26
-		John 18:1-18
+		John 18:1-11
+		John 18:12-18
 		John 18:19-27
-		John 18:28-40
-		x
-		John 19:1-16
+		John 18:28-36
+		John 18:37-40
+		John 19:1-9
+		John 19:10-16
 		John 19:17-27
 		John 19:28-37
 		John 19:38-42
-		x
 		John 20:1-9
 		John 20:10-18
 		John 20:19-23
 		John 20:24-31
-		John 21:1-14
-		John 21:15-25
-		x
-		x
+		John 21:1-6
+		John 21:7-14
+		John 21:15-19
+		John 21:20-25
 Bookmark 4
 	January
 		Acts 1:1-11
