@@ -1258,27 +1258,30 @@ Bookmark 4
 		1 Corinthians 15:46-58
 		1 Corinthians 16
 	May
-			-- START HERE -- START HERE -- START HERE -- START HERE -- START HERE -- START HERE --
-			-- C:\Users\Joseph\Github\bible-in-a-year\tmpview>node server
-			-- http://localhost/?bookmark=4&month=5
 		2 Corinthians 1:1-11
 		2 Corinthians 1:12-24
 		2 Corinthians 2
 		2 Corinthians 3
 		2 Corinthians 4
-		2 Corinthians 5
+		2 Corinthians 5:1-11
+		2 Corinthians 5:12-21
 		2 Corinthians 6
-		2 Corinthians 7
-		2 Corinthians 8
+		2 Corinthians 7:1-7
+		2 Corinthians 7:8-16
+		2 Corinthians 8:1-15
+		2 Corinthians 8:16-24
 		2 Corinthians 9
-		2 Corinthians 10
+		2 Corinthians 10:1-11
+		2 Corinthians 10:12-17
 		2 Corinthians 11:1-15
 		2 Corinthians 11:16-33
 		2 Corinthians 12:1-10
 		2 Corinthians 12:11-21
 		2 Corinthians 13
-		Galatians 1
-		Galatians 2
+		Galatians 11:1-10
+		Galatians 1:11-24
+		Galatians 2:1-10
+		Galatians 2:11-21
 		Galatians 3:1-14
 		Galatians 3:15-29
 		Galatians 4:1-20
@@ -1287,19 +1290,24 @@ Bookmark 4
 		Galatians 5:13-26
 		Galatians 6
 	June
-		Ephesians 1:1-14
+		Ephesians 1:1-6
+		Ephesians 1:7-14
 		Ephesians 1:15-23
 		Ephesians 2:1-10
 		Ephesians 2:11-22
-		Ephesians 3:1-13
+		Ephesians 3:1-7
+		Ephesians 3:8-13
 		Ephesians 3:14-21
-		Ephesians 4:1-16
+		Ephesians 4:1-10
+		Ephesians 4:11-16
 		Ephesians 4:17-24
 		Ephesians 4:25-32
-		Ephesians 5:1-21
+		Ephesians 5:1-7
+		Ephesians 5:8-21
 		Ephesians 5:22-33
 		Ephesians 6:1-9
-		Ephesians 6:10-24
+		Ephesians 6:10-20
+		Ephesians 6:21-24
 		Philippians 1:1-11
 		Philippians 1:12-20
 		Philippians 1:21-30
@@ -1313,6 +1321,9 @@ Bookmark 4
 		Philippians 4:8-13
 		Philippians 4:14-23
 	July
+			-- START HERE -- START HERE -- START HERE -- START HERE -- START HERE -- START HERE --
+			-- C:\Users\Joseph\Github\bible-in-a-year\tmpview>node server
+			-- http://localhost/?bookmark=4&month=6
 		Colossians 1:1-14
 		Colossians 1:15-29
 		Colossians 2:1-7
