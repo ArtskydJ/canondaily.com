@@ -62,6 +62,7 @@ var server = http.createServer(function (req, res) {
 		var bookObj = require('./world-english-bible-json/' + book + '.json')
 
 		var lastChapterNumber = 0
+		var lastVerseNumber = 0
 		var bibleText = bookObj.filter(function (chunk) {
 			return (
 				chunk.chapterNumber >= startChapter &&
@@ -73,11 +74,16 @@ var server = http.createServer(function (req, res) {
 				)
 			)
 		}).map(function (chunk) {
+			var result = ''
 			if (lastChapterNumber != chunk.chapterNumber) {
 				lastChapterNumber = chunk.chapterNumber
-				return ' <b>' + chunk.chapterNumber + '</b> ' + chunk.value
+				result += ' <b>' + chunk.chapterNumber + '</b> '
 			}
-			return chunk.value
+			if (lastVerseNumber != chunk.verseNumber) {
+				lastVerseNumber = chunk.verseNumber
+				return ' <strong>' + chunk.verseNumber + '</strong> ' + chunk.value
+			}
+			return result + chunk.value
 		}).join(' ')
 
 		return `<div><b>${passage}</b> |${bibleText}</div>`
@@ -90,10 +96,10 @@ var server = http.createServer(function (req, res) {
 			font-family: calibri, arial, sans-serif;
 		}
 		body > div:first-child {
-			font-size: 10pt;
+			font-size: 12pt;
 		}
 		body > div {
-			font-size: 8pt;
+			font-size: 12pt;
 		}
 		body > div:nth-child(even) {
 			background-color: #bbb;
