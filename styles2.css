@@ -1,0 +1,41 @@
+body {
+	font-family: calibri, arial, sans-serif;
+	font-size: 18pt;
+	background-color: #fafafa;
+	line-height: 1.4;
+	font-weight: 300;
+}
+.section {
+	margin: 0 auto;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	max-width: 32em;
+}
+/*.section:nth-child(even) {
+	background-color: #7df;
+}
+.section:nth-child(odd) {
+	background-color: #7e7;
+}*/
+
+.reference {
+	font-size: 2em;
+	display: block;
+	text-align: center;
+}
+
+.chapter, .verse {
+	display: none;
+}
+/*.chapter {
+	font-size: 1.5em;
+}
+.verse {
+	font-size: 0.8em;
+}
+.chapter + .verse::before {
+	content: ':';
+}
+.chapter + .verse {
+	font-size: 18pt;
+}*/
