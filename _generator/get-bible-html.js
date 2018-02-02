@@ -38,3 +38,12 @@ module.exports = function getBibleHtml(passageReference) {
 		<span class="reference">${passageReference}</span> ${bibleText}
 	</div>`
 }
+
+// All formatting is lost. getBibleHtml() should read and pass along these types
+// - paragraph start
+// - paragraph end
+// - stanza start
+// - stanza end
+// - paragraph text
+// - line
+// - break
