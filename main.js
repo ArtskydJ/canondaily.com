@@ -1,427 +1,52 @@
-var dateInput = document.getElementById('date')
-var buttons = Array.prototype.slice.call(document.querySelectorAll('.nav-button'))
-var iframes = Array.prototype.slice.call(document.querySelectorAll('iframe'))
+(function () {
 
-var now = new Date()
-var qsDate = /[?&]date=(\d{4}-\d\d-\d\d)/.exec(location.search)
-if (qsDate) {
-	now = new Date(qsDate[1])
-}
-dateInput.value = now.toISOString().slice(0, 10)
-
-var today = (now.getUTCMonth() + 1) + '/' + now.getUTCDate()
-var passages = getPassages(today)
-var passageIndex = -1
-
-function init() {
-	if (passages) {
-		iframes.forEach(function (iframe, index) {
-			iframe.src = 'https://www.biblegateway.com/passage/?version=NKJV&interface=print&search=' + encodeURIComponent(passages[index])
-		})
+	var dateInput = document.getElementById('date')
+	var now = new Date()
+	var qsDate = /[?&]date=(\d{4}-\d\d-\d\d)/.exec(location.search)
+	if (qsDate) {
+		now = new Date(qsDate[1])
 	}
-}
+	dateInput.value = getLocalISODateString(now)
 
-function setPassage(nextPassageIndex) {
-	if (passages && nextPassageIndex !== passageIndex) {
-		passageIndex = nextPassageIndex
-		var passage = passages[passageIndex]
-		document.title = 'Bible In A Year - ' + today + ' - ' + passage
+	var today = pad(now.getMonth() + 1) + '/' + pad(now.getDate())
+	document.title = 'Bible In A Year - ' + today
 
-		buttons.forEach(function (button) { button.classList.remove('disabled') })
-		buttons[passageIndex].classList.add('disabled')
+	xhr('./passages/' + today + '.html', function (err, result) {
+		if (err) {
+			alert(err.message)
+			throw err
+		}
 
-		iframes.forEach(function (iframe) { iframe.classList.remove('front') })
-		iframes[passageIndex].classList.add('front')
+		document.getElementById('content').innerHTML = result.text
+	})
 
-	} else if (!passages) {
-		document.title = 'Bible In A Year - ' + today + ' - No passage found!'
 
-		buttons.forEach(function (ele) { ele.classList.add('disabled') })
-
-		document.getElementById('background-message').innerHTML = 'No passage found!'
+	function getLocalISODateString(date) {
+		var year = now.getFullYear()
+		var month = pad(now.getMonth() + 1)
+		var day = pad(now.getDate())
+		return year + '-' + month + '-' + day
 	}
-}
 
-init()
-setPassage(0)
-
-
-
-
-
-
-
-
-/* CHANGES BELOW THIS LINE WILL BE OVERWRITTEN
-Make changes to bible-in-a-year/_original-bookmarks/bookmarks.txt */
-
-function getPassages(day) {
-	var dayToPassagesMap = {
-		"1/1":["Genesis 1-2","Psalms 1","Matthew 1:1-17","Acts 1:1-11"],
-		"1/2":["Genesis 3-4","Psalms 2","Matthew 1:18-25","Acts 1:12-26"],
-		"1/3":["Genesis 5-7","Psalms 3","Matthew 2:1-6","Acts 2:1-21"],
-		"1/4":["Genesis 8-9","Psalms 4","Matthew 2:7-15","Acts 2:22-47"],
-		"1/5":["Genesis 10-11","Psalms 5","Matthew 2:16-23","Acts 3"],
-		"1/6":["Genesis 12-13","Psalms 6","Matthew 3:1-12","Acts 4:1-22"],
-		"1/7":["Genesis 14-16","Psalms 7:1-8","Matthew 3:13-17","Acts 4:23-37"],
-		"1/8":["Genesis 17-18","Psalms 7:9-17","Matthew 4:1-11","Acts 5:1-16"],
-		"1/9":["Genesis 19","Psalms 8","Matthew 4:12-17","Acts 5:17-32"],
-		"1/10":["Genesis 20-21","Psalms 9:1-10","Matthew 4:18-25","Acts 5:33-42"],
-		"1/11":["Genesis 22-23","Psalms 9:11-20","Matthew 5:1-6","Acts 6"],
-		"1/12":["Genesis 24","Psalms 10:1-11","Matthew 5:7-12","Acts 7:1-16"],
-		"1/13":["Genesis 25-26","Psalms 10:12-18","Matthew 5:13-20","Acts 7:17-36"],
-		"1/14":["Genesis 27-28","Psalms 11","Matthew 5:21-32","Acts 7:37-60"],
-		"1/15":["Genesis 29-30","Psalms 12","Matthew 5:33-48","Acts 8:1-25"],
-		"1/16":["Genesis 31","Psalms 13","Matthew 6:1-13","Acts 8:26-40"],
-		"1/17":["Genesis 32-33","Psalms 14","Matthew 6:14-18","Acts 9:1-19"],
-		"1/18":["Genesis 34-35","Psalms 15","Matthew 6:19-24","Acts 9:20-43"],
-		"1/19":["Genesis 36","Psalms 16","Matthew 6:25-34","Acts 10:1-23"],
-		"1/20":["Genesis 37","Psalms 17","Matthew 7:1-12","Acts 10:24-48"],
-		"1/21":["Genesis 38","Psalms 18:1-12","Matthew 7:13-20","Acts 11:1-18"],
-		"1/22":["Genesis 39-40","Psalms 18:13-24","Matthew 7:21-29","Acts 11:19-30"],
-		"1/23":["Genesis 41","Psalms 18:25-36","Matthew 8:1-13","Acts 12:1-10"],
-		"1/24":["Genesis 42","Psalms 18:37-50","Matthew 8:14-22","Acts 12:11-25"],
-		"1/25":["Genesis 43","Psalms 19","Matthew 8:23-34","Acts 13:1-12"],
-		"1/26":["Genesis 44-45","Psalms 20","Matthew 9:1-8","Acts 13:13-25"],
-		"1/27":["Genesis 46","Psalms 21","Matthew 9:9-17","Acts 13:26-41"],
-		"1/28":["Genesis 47","Psalms 22:1-11","Matthew 9:18-26","Acts 13:42-52"],
-		"1/29":["Genesis 48","Psalms 22:12-21","Matthew 9:27-38","Acts 14"],
-		"1/30":["Genesis 49","Psalms 22:22-31","Matthew 10:1-20","Acts 15:1-11"],
-		"1/31":["Genesis 50","Psalms 23","Matthew 10:21-31","Acts 15:12-21"],
-		"2/1":["Exodus 1-3","Psalms 24","Matthew 10:32-42","Acts 15:22-41"],
-		"2/2":["Exodus 4-6","Psalms 25","Matthew 11:1-19","Acts 16:1-15"],
-		"2/3":["Exodus 7-8","Psalms 26","Matthew 11:20-30","Acts 16:16-40"],
-		"2/4":["Exodus 9-10","Psalms 27","Matthew 12:1-21","Acts 17:1-15"],
-		"2/5":["Exodus 11-12","Psalms 28","Matthew 12:22-37","Acts 17:16-34"],
-		"2/6":["Exodus 13-15","Psalms 29","Matthew 12:38-50","Acts 18:1-17"],
-		"2/7":["Exodus 16-18","Psalms 30","Matthew 13:1-18","Acts 18:18-28"],
-		"2/8":["Exodus 19-20","Psalms 31:1-12","Matthew 13:19-33","Acts 19:1-22"],
-		"2/9":["Exodus 21-23","Psalms 31:13-24","Matthew 13:34-44","Acts 19:23-41"],
-		"2/10":["Exodus 24-25","Psalms 32","Matthew 13:45-58","Acts 20:1-12"],
-		"2/11":["Exodus 26-27","Psalms 33","Matthew 14:1-21","Acts 20:13-28"],
-		"2/12":["Exodus 28-29","Psalms 34","Matthew 14:22-36","Acts 21:1-14"],
-		"2/13":["Exodus 30-31","Psalms 35:1-14","Matthew 15:1-20","Acts 21:15-26"],
-		"2/14":["Exodus 32-33","Psalms 35:15-28","Matthew 15:21-28","Acts 21:27-40"],
-		"2/15":["Exodus 34","Psalms 36","Matthew 15:29-39","Acts 22:1-21"],
-		"2/16":["Exodus 35-37","Psalms 37:1-22","Matthew 16:1-12","Acts 22:22-30"],
-		"2/17":["Exodus 38-40","Psalms 37:23-40","Matthew 16:13-28","Acts 23:1-11"],
-		"2/18":["Leviticus 1-4","Psalms 38","Matthew 17:1-13","Acts 23:12-35"],
-		"2/19":["Leviticus 5-7","Psalms 39","Matthew 17:14-27","Acts 24"],
-		"2/20":["Leviticus 8-10","Psalms 40","Matthew 18:1-9","Acts 25:1-12"],
-		"2/21":["Leviticus 11-13","Psalms 41","Matthew 18:10-20","Acts 25:13-27"],
-		"2/22":["Leviticus 14","Psalms 42","Matthew 18:21-35","Acts 26:1-18"],
-		"2/23":["Leviticus 15-16","Psalms 43","Matthew 19:1-10","Acts 26:19-32"],
-		"2/24":["Leviticus 17-19","Psalms 44:1-12","Matthew 19:11-22","Acts 27:1-12"],
-		"2/25":["Leviticus 20-21","Psalms 44:13-26","Matthew 19:23-30","Acts 27:13-26"],
-		"2/26":["Leviticus 22-23","Psalms 45","Matthew 20:1-16","Acts 27:27-44"],
-		"2/27":["Leviticus 24-25","Psalms 46","Matthew 20:17-34","Acts 28:1-16"],
-		"2/28":["Leviticus 26-27","Psalms 47","Matthew 21:1-11","Acts 28:17-31"],
-		"3/1":["Numbers 1-2","Psalms 48","Matthew 21:12-22","Romans 1:1-17"],
-		"3/2":["Numbers 3-4","Psalms 49:1-9","Matthew 21:23-32","Romans 1:18-32"],
-		"3/3":["Numbers 5-6","Psalms 49:10-20","Matthew 21:33-46","Romans 2:1-16"],
-		"3/4":["Numbers 7","Psalms 50:1-11","Matthew 22:1-14","Romans 2:17-29"],
-		"3/5":["Numbers 8-9","Psalms 50:12-23","Matthew 22:15-22","Romans 3:1-20"],
-		"3/6":["Numbers 10-11","Psalms 51","Matthew 22:23-40","Romans 3:21-31"],
-		"3/7":["Numbers 12-14","Psalms 52","Matthew 22:41-46","Romans 4:1-12"],
-		"3/8":["Numbers 15-16","Psalms 53","Matthew 23:1-12","Romans 4:13-25"],
-		"3/9":["Numbers 17-18","Psalms 54","Matthew 23:13-24","Romans 5:1-11"],
-		"3/10":["Numbers 19-20","Psalms 55:1-11","Matthew 23:15-39","Romans 5:12-21"],
-		"3/11":["Numbers 21-22","Psalms 55:12-23","Matthew 24:1-14","Romans 6:1-14"],
-		"3/12":["Numbers 23-25","Psalms 56","Matthew 24:15-28","Romans 6:15-23"],
-		"3/13":["Numbers 26-27","Psalms 57","Matthew 24:29-35","Romans 7:1-12"],
-		"3/14":["Numbers 28-30","Psalms 58","Matthew 24:36-51","Romans 7:13-25"],
-		"3/15":["Numbers 31-32","Psalms 59","Matthew 25:1-13","Romans 8:1-17"],
-		"3/16":["Numbers 33-34","Psalms 60","Matthew 25:14-30","Romans 8:18-39"],
-		"3/17":["Numbers 35-36","Psalms 61","Matthew 25:31-46","Romans 9:1-18"],
-		"3/18":["Deuteronomy 1-2","Psalms 62","Matthew 26:1-16","Romans 9:19-33"],
-		"3/19":["Deuteronomy 3-4","Psalms 63","Matthew 26:17-25","Romans 10"],
-		"3/20":["Deuteronomy 5-6","Psalms 64","Matthew 26:26-35","Romans 11:1-10"],
-		"3/21":["Deuteronomy 7-8","Psalms 65","Matthew 26:36-56","Romans 11:11-24"],
-		"3/22":["Deuteronomy 9-11","Psalms 66","Matthew 26:57-68","Romans 11:25-36"],
-		"3/23":["Deuteronomy 12-14","Psalms 67","Matthew 26:69-75","Romans 12:1-8"],
-		"3/24":["Deuteronomy 15-17","Psalms 68:1-14","Matthew 27:1-10","Romans 12:9-21"],
-		"3/25":["Deuteronomy 18-21","Psalms 68:15-23","Matthew 27:11-21","Romans 13"],
-		"3/26":["Deuteronomy 22-24","Psalms 68:24-35","Matthew 27:22-31","Romans 14:1-13"],
-		"3/27":["Deuteronomy 25-27","Psalms 69:1-18","Matthew 27:32-44","Romans 14:14-23"],
-		"3/28":["Deuteronomy 28","Psalms 69:19-36","Matthew 27:45-56","Romans 15:1-13"],
-		"3/29":["Deuteronomy 29-31","Psalms 70","Matthew 27:57-66","Romans 15:14-21"],
-		"3/30":["Deuteronomy 32","Psalms 71:1-13","Matthew 28:1-10","Romans 15:22-33"],
-		"3/31":["Deuteronomy 33-34","Psalms 71:14-24","Matthew 28:11-20","Romans 16"],
-		"4/1":["Joshua 1-2","Psalms 72","Mark 1:1-8","1 Corinthians 1:1-17"],
-		"4/2":["Joshua 3-5","Psalms 73:1-12","Mark 1:9-15","1 Corinthians 1:18-31"],
-		"4/3":["Joshua 6-7","Psalms 73:13-28","Mark 1:16-28","1 Corinthians 2"],
-		"4/4":["Joshua 8-9","Psalms 74:1-11","Mark 1:29-34","1 Corinthians 3"],
-		"4/5":["Joshua 10","Psalms 74:12-23","Mark 1:35-45","1 Corinthians 4:1-13"],
-		"4/6":["Joshua 11-12","Psalms 75","Mark 2:1-12","1 Corinthians 4:14-21"],
-		"4/7":["Joshua 13-14","Psalms 76","Mark 2:13-17","1 Corinthians 5"],
-		"4/8":["Joshua 15-16","Psalms 77","Mark 2:18-28","1 Corinthians 6:1-11"],
-		"4/9":["Joshua 17-18","Psalms 78:1-18","Mark 3:1-12","1 Corinthians 6:12-20"],
-		"4/10":["Joshua 19-20","Psalms 78:19-39","Mark 3:13-27","1 Corinthians 7:1-16"],
-		"4/11":["Joshua 21","Psalms 78:40-55","Mark 3:28-35","1 Corinthians 7:17-31"],
-		"4/12":["Joshua 22-23","Psalms 78:56-72","Mark 4:1-20","1 Corinthians 7:32-40"],
-		"4/13":["Joshua 24","Psalms 79","Mark 4:21-29","1 Corinthians 8"],
-		"4/14":["Judges 1","Psalms 80","Mark 4:30-41","1 Corinthians 9:1-12"],
-		"4/15":["Judges 2-3","Psalms 81","Mark 5:1-20","1 Corinthians 9:13-27"],
-		"4/16":["Judges 4-5","Psalms 82","Mark 5:21-43","1 Corinthians 10:1-13"],
-		"4/17":["Judges 6-7","Psalms 83","Mark 6:1-13","1 Corinthians 10:14-33"],
-		"4/18":["Judges 8","Psalms 84","Mark 6:14-29","1 Corinthians 11:1-16"],
-		"4/19":["Judges 9","Psalms 85","Mark 6:30-44","1 Corinthians 11:17-34"],
-		"4/20":["Judges 10-12","Psalms 86","Mark 6:45-56","1 Corinthians 12:1-13"],
-		"4/21":["Judges 13-15","Psalms 87","Mark 7:1-8","1 Corinthians 12:14-31"],
-		"4/22":["Judges 16","Psalms 88","Mark 7:9-23","1 Corinthians 13"],
-		"4/23":["Judges 17-18","Psalms 89:1-18","Mark 7:24-37","1 Corinthians 14:1-12"],
-		"4/24":["Judges 19","Psalms 89:19-33","Mark 8:1-13","1 Corinthians 14:13-25"],
-		"4/25":["Judges 20","Psalms 89:34-52","Mark 8:14-21","1 Corinthians 14:26-40"],
-		"4/26":["Judges 21","Psalms 90","Mark 8:22-26","1 Corinthians 15:1-11"],
-		"4/27":["Ruth 1","Psalms 91","Mark 8:27-30","1 Corinthians 15:12-28"],
-		"4/28":["Ruth 2","Psalms 92","Mark 8:31-38","1 Corinthians 15:29-45"],
-		"4/29":["Ruth 3","Psalms 93","Mark 9:1-13","1 Corinthians 15:46-58"],
-		"4/30":["Ruth 4","Psalms 94","Mark 9:14-32","1 Corinthians 16"],
-		"5/1":["1 Samuel 1-2","Psalms 95","Mark 9:33-41","2 Corinthians 1:1-11"],
-		"5/2":["1 Samuel 3-4","Psalms 96","Mark 9:42-50","2 Corinthians 1:12-24"],
-		"5/3":["1 Samuel 5-6","Psalms 97","Mark 10:1-16","2 Corinthians 2"],
-		"5/4":["1 Samuel 7-8","Psalms 98","Mark 10:17-31","2 Corinthians 3"],
-		"5/5":["1 Samuel 9-10","Psalms 99","Mark 10:32-45","2 Corinthians 4"],
-		"5/6":["1 Samuel 11-13","Psalms 100","Mark 10:46-52","2 Corinthians 5:1-11"],
-		"5/7":["1 Samuel 14","Psalms 101","Mark 11:1-11","2 Corinthians 5:12-21"],
-		"5/8":["1 Samuel 15-16","Psalms 102:1-13","Mark 11:12-26","2 Corinthians 6"],
-		"5/9":["1 Samuel 17","Psalms 102:14-28","Mark 11:27-33","2 Corinthians 7:1-7"],
-		"5/10":["1 Samuel 18-19","Psalms 103:1-10","Mark 12:1-12","2 Corinthians 7:8-16"],
-		"5/11":["1 Samuel 20-21","Psalms 103:11-22","Mark 12:13-17","2 Corinthians 8:1-15"],
-		"5/12":["1 Samuel 22-23","Psalms 104:1-9","Mark 12:18-27","2 Corinthians 8:16-24"],
-		"5/13":["1 Samuel 24-25","Psalms 104:10-23","Mark 12:28-34","2 Corinthians 9"],
-		"5/14":["1 Samuel 26-27","Psalms 104:24-35","Mark 12:35-44","2 Corinthians 10:1-11"],
-		"5/15":["1 Samuel 28-29","Psalms 105:1-22","Mark 13:1-13","2 Corinthians 10:12-17"],
-		"5/16":["1 Samuel 30-31","Psalms 105:23-45","Mark 13:14-23","2 Corinthians 11:1-15"],
-		"5/17":["2 Samuel 1-2","Psalms 106:1-23","Mark 13:24-31","2 Corinthians 11:16-33"],
-		"5/18":["2 Samuel 3","Psalms 106:24-48","Mark 13:32-37","2 Corinthians 12:1-10"],
-		"5/19":["2 Samuel 4-5","Psalms 107:1-22","Mark 14:1-9","2 Corinthians 12:11-21"],
-		"5/20":["2 Samuel 6-7","Psalms 107:23-43","Mark 14:10-21","2 Corinthians 13"],
-		"5/21":["2 Samuel 8-10","Psalms 108","Mark 14:22-31","Galatians 11:1-10"],
-		"5/22":["2 Samuel 11-12","Psalms 109:1-16","Mark 14:32-42","Galatians 1:11-24"],
-		"5/23":["2 Samuel 13","Psalms 109:17-31","Mark 14:43-52","Galatians 2:1-10"],
-		"5/24":["2 Samuel 14","Psalms 110","Mark 14:53-65","Galatians 2:11-21"],
-		"5/25":["2 Samuel 15","Psalms 111","Mark 14:66-72","Galatians 3:1-14"],
-		"5/26":["2 Samuel 16-17","Psalms 112","Mark 15:1-15","Galatians 3:15-29"],
-		"5/27":["2 Samuel 18","Psalms 113","Mark 15:16-32","Galatians 4:1-20"],
-		"5/28":["2 Samuel 19","Psalms 114","Mark 15:33-41","Galatians 4:21-31"],
-		"5/29":["2 Samuel 20-21","Psalms 115","Mark 15:42-47","Galatians 5:1-12"],
-		"5/30":["2 Samuel 22","Psalms 116","Mark 16:1-13","Galatians 5:13-26"],
-		"5/31":["2 Samuel 23-24","Psalms 117","Mark 16:14-20","Galatians 6"],
-		"6/1":["1 Kings 1","Psalms 118:1-6","Luke 1:1-12","Ephesians 1:1-6"],
-		"6/2":["1 Kings 2","Psalms 118:7-14","Luke 1:13-25","Ephesians 1:7-14"],
-		"6/3":["1 Kings 3-4","Psalms 118:15-20","Luke 1:26-38","Ephesians 1:15-23"],
-		"6/4":["1 Kings 5-6","Psalms 118:21-24","Luke 1:39-56","Ephesians 2:1-10"],
-		"6/5":["1 Kings 7","Psalms 118:25-29","Luke 1:57-66","Ephesians 2:11-22"],
-		"6/6":["1 Kings 8","Psalms 119:1-8","Luke 1:67-80","Ephesians 3:1-7"],
-		"6/7":["1 Kings 9-10","Psalms 119:9-16","Luke 2:1-20","Ephesians 3:8-13"],
-		"6/8":["1 Kings 11","Psalms 119:17-24","Luke 2:21-40","Ephesians 3:14-21"],
-		"6/9":["1 Kings 12","Psalms 119:25-32","Luke 2:41-52","Ephesians 4:1-10"],
-		"6/10":["1 Kings 13-14","Psalms 119:33-40","Luke 3:1-6","Ephesians 4:11-16"],
-		"6/11":["1 Kings 15-16","Psalms 119:41-48","Luke 3:7-20","Ephesians 4:17-24"],
-		"6/12":["1 Kings 17-18","Psalms 119:49-56","Luke 3:21-38","Ephesians 4:25-32"],
-		"6/13":["1 Kings 19-20","Psalms 119:57-64","Luke 4:1-8","Ephesians 5:1-7"],
-		"6/14":["1 Kings 21","Psalms 119:65-72","Luke 4:9-15","Ephesians 5:8-21"],
-		"6/15":["1 Kings 22","Psalms 119:73-80","Luke 4:16-30","Ephesians 5:22-33"],
-		"6/16":["2 Kings 1-2","Psalms 119:81-88","Luke 4:31-37","Ephesians 6:1-9"],
-		"6/17":["2 Kings 3-4","Psalms 119:89-96","Luke 4:38-44","Ephesians 6:10-20"],
-		"6/18":["2 Kings 5","Psalms 119:97-104","Luke 5:1-11","Ephesians 6:21-24"],
-		"6/19":["2 Kings 6-7","Psalms 119:105-112","Luke 5:12-16","Philippians 1:1-11"],
-		"6/20":["2 Kings 8-9","Psalms 119:113-120","Luke 5:17-21","Philippians 1:12-20"],
-		"6/21":["2 Kings 10","Psalms 119:121-128","Luke 5:22-26","Philippians 1:21-30"],
-		"6/22":["2 Kings 11-12","Psalms 119:129-136","Luke 5:27-32","Philippians 2:1-11"],
-		"6/23":["2 Kings 13-14","Psalms 119:137-144","Luke 5:33-39","Philippians 2:12-18"],
-		"6/24":["2 Kings 15","Psalms 119:145-152","Luke 6:1-11","Philippians 2:19-30"],
-		"6/25":["2 Kings 16-17","Psalms 119:153-160","Luke 6:12-19","Philippians 3:1-9"],
-		"6/26":["2 Kings 18","Psalms 119:161-168","Luke 6:20-26","Philippians 3:10-14"],
-		"6/27":["2 Kings 19","Psalms 119:169-176","Luke 6:27-36","Philippians 3:15-21"],
-		"6/28":["2 Kings 20-21","Psalms 120","Luke 6:37-42","Philippians 4:1-7"],
-		"6/29":["2 Kings 22-23","Psalms 121","Luke 6:43-49","Philippians 4:8-13"],
-		"6/30":["2 Kings 24-25","Psalms 122","Luke 7:1-10","Philippians 4:14-23"],
-		"7/1":["1 Chronicles 1-2","Psalms 123","Luke 7:11-17","Colossians 1:1-8"],
-		"7/2":["1 Chronicles 3-4","Psalms 124","Luke 7:18-23","Colossians 1:9-14"],
-		"7/3":["1 Chronicles 5-6","Psalms 125","Luke 7:24-35","Colossians 1:15-18"],
-		"7/4":["1 Chronicles 7-8","Psalms 126","Luke 7:36-50","Colossians 1:19-23"],
-		"7/5":["1 Chronicles 9","Psalms 127","Luke 8:1-15","Colossians 1:24-29"],
-		"7/6":["1 Chronicles 10-11","Psalms 128","Luke 8:16-21","Colossians 2:1-7"],
-		"7/7":["1 Chronicles 12-13","Psalms 129","Luke 8:22-25","Colossians 2:8-15"],
-		"7/8":["1 Chronicles 14-15","Psalms 130","Luke 8:26-39","Colossians 2:16-23"],
-		"7/9":["1 Chronicles 16-17","Psalms 131","Luke 8:40-56","Colossians 3:1-7"],
-		"7/10":["1 Chronicles 18-19","Psalms 132","Luke 9:1-17","Colossians 3:8-14"],
-		"7/11":["1 Chronicles 20-22","Psalms 133","Luke 9:18-27","Colossians 3:15-25"],
-		"7/12":["1 Chronicles 23-24","Psalms 134","Luke 9:28-36","Colossians 4:1-8"],
-		"7/13":["1 Chronicles 25-26","Psalms 135","Luke 9:37-45","Colossians 4:10-18"],
-		"7/14":["1 Chronicles 27-28","Psalms 136:1-14","Luke 9:46-56","1 Thessalonians 1:1-5"],
-		"7/15":["1 Chronicles 29","Psalms 136:15-26","Luke 9:57-62","1 Thessalonians 1:6-10"],
-		"7/16":["2 Chronicles 1-2","Psalms 137","Luke 10:1-16","1 Thessalonians 2:1-7"],
-		"7/17":["2 Chronicles 3-5","Psalms 138","Luke 10:17-24","1 Thessalonians 2:8-13"],
-		"7/18":["2 Chronicles 6-7","Psalms 139:1-12","Luke 10:25-29","1 Thessalonians 2:13-20"],
-		"7/19":["2 Chronicles 8-9","Psalms 139:13-24","Luke 10:30-37","1 Thessalonians 3:1-6"],
-		"7/20":["2 Chronicles 10-11","Psalms 140","Luke 10:38-42","1 Thessalonians 3:7-13"],
-		"7/21":["2 Chronicles 12-13","Psalms 141","Luke 11:1-4","1 Thessalonians 4:1-10"],
-		"7/22":["2 Chronicles 14-16","Psalms 142","Luke 11:5-13","1 Thessalonians 4:11-18"],
-		"7/23":["2 Chronicles 17-19","Psalms 143","Luke 11:14-28","1 Thessalonians 5:1-11"],
-		"7/24":["2 Chronicles 20-21","Psalms 144","Luke 11:29-36","1 Thessalonians 5:12-28"],
-		"7/25":["2 Chronicles 22-24","Psalms 145:1-9","Luke 11:37-54","2 Thessalonians 1"],
-		"7/26":["2 Chronicles 25-26","Psalms 145:10-21","Luke 12:1-12","2 Thessalonians 2:1-5"],
-		"7/27":["2 Chronicles 27-28","Psalms 146","Luke 12:13-21","2 Thessalonians 2:6-12"],
-		"7/28":["2 Chronicles 29-30","Psalms 147","Luke 12:22-34","2 Thessalonians 2:13-17"],
-		"7/29":["2 Chronicles 31-32","Psalms 148","Luke 12:35-48","2 Thessalonians 3:1-5"],
-		"7/30":["2 Chronicles 33-34","Psalms 149","Luke 12:49-53","2 Thessalonians 3:6-13"],
-		"7/31":["2 Chronicles 35-36","Psalms 150","Luke 12:54-59","2 Thessalonians 3:14-18"],
-		"8/1":["Ezra 1","Proverbs 1:1-19","Luke 13:1-9","1 Timothy 1:1-11"],
-		"8/2":["Ezra 2","Proverbs 1:20-33","Luke 13:10-21","1 Timothy 1:12-20"],
-		"8/3":["Ezra 3","Proverbs 2","Luke 13:22-30","1 Timothy 2:1-7"],
-		"8/4":["Ezra 4","Proverbs 3:1-18","Luke 13:31-35","1 Timothy 2:8-15"],
-		"8/5":["Ezra 5","Proverbs 3:19-35","Luke 14:1-6","1 Timothy 3:1-10"],
-		"8/6":["Ezra 6","Proverbs 4:1-13","Luke 14:7-14","1 Timothy 3:11-18"],
-		"8/7":["Ezra 7","Proverbs 4:14-27","Luke 14:15-24","1 Timothy 4:1-9"],
-		"8/8":["Ezra 8","Proverbs 5","Luke 14:25-35","1 Timothy 4:10-16"],
-		"8/9":["Ezra 9","Proverbs 6:1-19","Luke 15:1-10","1 Timothy 5:1-8"],
-		"8/10":["Ezra 10","Proverbs 6:20-35","Luke 15:11-19","1 Timothy 5:9-15"],
-		"8/11":["Nehemiah 1","Proverbs 7:1-14","Luke 15:20-32","1 Timothy 5:16-25"],
-		"8/12":["Nehemiah 2","Proverbs 7:15-27","Luke 16:1-9","1 Timothy 6:1-10"],
-		"8/13":["Nehemiah 3","Proverbs 8:1-21","Luke 16:10-18","1 Timothy 6:11-16"],
-		"8/14":["Nehemiah 4","Proverbs 8:22-36","Luke 16:19-31","1 Timothy 6:17-21"],
-		"8/15":["Nehemiah 5","Proverbs 9","Luke 17:1-10","2 Timothy 1:1-7"],
-		"8/16":["Nehemiah 6","Proverbs 10:1-16","Luke 17:11-19","2 Timothy 1:8-18"],
-		"8/17":["Nehemiah 7","Proverbs 10:17-32","Luke 17:20-37","2 Timothy 2:1-13"],
-		"8/18":["Nehemiah 8","Proverbs 11:1-15","Luke 18:1-8","2 Timothy 2:14-19"],
-		"8/19":["Nehemiah 9","Proverbs 11:16-31","Luke 18:9-17","2 Timothy 2:20-26"],
-		"8/20":["Nehemiah 10","Proverbs 12:1-14","Luke 18:18-25","2 Timothy 3:1-9"],
-		"8/21":["Nehemiah 11","Proverbs 12:15-28","Luke 18:24-34","2 Timothy 3:10-17"],
-		"8/22":["Nehemiah 12","Proverbs 13:1-12","Luke 18:35-43","2 Timothy 4:1-8"],
-		"8/23":["Nehemiah 13","Proverbs 13:13-25","Luke 19:1-10","2 Timothy 4:9-22"],
-		"8/24":["Esther 1","Proverbs 14:1-18","Luke 19:11-27","Titus 1:1-9"],
-		"8/25":["Esther 2","Proverbs 14:19-35","Luke 19:28-38","Titus 1:10-16"],
-		"8/26":["Esther 3","Proverbs 15:1-17","Luke 19:39-48","Titus 2:1-10"],
-		"8/27":["Esther 4","Proverbs 15:18-33","Luke 20:1-8","Titus 2:11-15"],
-		"8/28":["Esther 5","Proverbs 16:1-16","Luke 20:9-19","Titus 3:1-8"],
-		"8/29":["Esther 6-7","Proverbs 16:17-33","Luke 20:20-26","Titus 3:9-15"],
-		"8/30":["Esther 8","Proverbs 17:1-14","Luke 20:27-40","Philemon 1:1-11"],
-		"8/31":["Esther 9-10","Proverbs 17:15-28","Luke 20:41-47","Philemon 1:12-25"],
-		"9/1":["Isaiah 1","Proverbs 18:1-12","Luke 21:1-7","Hebrews 1:1-9"],
-		"9/2":["Isaiah 2-3","Proverbs 18:13-24","Luke 21:8-19","Hebrews 1:10-14"],
-		"9/3":["Isaiah 4-5","Proverbs 19:1-14","Luke 21:20-24","Hebrews 2:1-9"],
-		"9/4":["Isaiah 6-8","Proverbs 19:15-29","Luke 21:25-28","Hebrews 2:10-18"],
-		"9/5":["Isaiah 9-10","Proverbs 20:1-15","Luke 21:29-38","Hebrews 3:1-11"],
-		"9/6":["Isaiah 11-13","Proverbs 20:16-30","Luke 22:1-6","Hebrews 3:12-19"],
-		"9/7":["Isaiah 14","Proverbs 21:1-16","Luke 22:7-13","Hebrews 4:1-11"],
-		"9/8":["Isaiah 15-17","Proverbs 21:17-31","Luke 22:14-23","Hebrews 4:12-16"],
-		"9/9":["Isaiah 18-20","Proverbs 22:1-16","Luke 22:24-30","Hebrews 5"],
-		"9/10":["Isaiah 21-23","Proverbs 22:17-29","Luke 22:31-38","Hebrews 6:1-12"],
-		"9/11":["Isaiah 24-26","Proverbs 23:1-18","Luke 22:39-46","Hebrews 6:13-20"],
-		"9/12":["Isaiah 27-28","Proverbs 23:19-35","Luke 22:47-53","Hebrews 7:1-10"],
-		"9/13":["Isaiah 29-30","Proverbs 24:1-10","Luke 22:54-62","Hebrews 7:11-20"],
-		"9/14":["Isaiah 31-33","Proverbs 24:11-22","Luke 22:63-71","Hebrews 7:20-28"],
-		"9/15":["Isaiah 34-36","Proverbs 24:23-34","Luke 23:1-6","Hebrews 8:1-6"],
-		"9/16":["Isaiah 37","Proverbs 25:1-14","Luke 23:7-12","Hebrews 8:7-13"],
-		"9/17":["Isaiah 38-39","Proverbs 25:15-28","Luke 23:13-19","Hebrews 9:1-10"],
-		"9/18":["Isaiah 40-41","Proverbs 26:1-16","Luke 23:20-25","Hebrews 9:11-21"],
-		"9/19":["Isaiah 42-43","Proverbs 26:17-28","Luke 23:26-31","Hebrews 9:22-28"],
-		"9/20":["Isaiah 44","Proverbs 27:1-14","Luke 23:32-37","Hebrews 10:1-18"],
-		"9/21":["Isaiah 45-46","Proverbs 27:15-27","Luke 23:38-43","Hebrews 10:19-31"],
-		"9/22":["Isaiah 47-48","Proverbs 28:1-14","Luke 23:44-49","Hebrews 10:32-39"],
-		"9/23":["Isaiah 49-50","Proverbs 28:15-28","Luke 23:50-56","Hebrews 11:1-7"],
-		"9/24":["Isaiah 51-53","Proverbs 29:1-14","Luke 24:1-7","Hebrews 11:8-16"],
-		"9/25":["Isaiah 54-56","Proverbs 29:15-27","Luke 24:8-12","Hebrews 11:17-31"],
-		"9/26":["Isaiah 57-58","Proverbs 30:1-10","Luke 24:13-20","Hebrews 11:32-40"],
-		"9/27":["Isaiah 59-61","Proverbs 30:11-20","Luke 24:21-27","Hebrews 12:1-13"],
-		"9/28":["Isaiah 62-64","Proverbs 30:21-33","Luke 24:28-35","Hebrews 12:14-29"],
-		"9/29":["Isaiah 65","Proverbs 31:1-9","Luke 24:36-44","Hebrews 13:1-8"],
-		"9/30":["Isaiah 66","Proverbs 31:10-31","Luke 24:45-53","Hebrews 13:9-25"],
-		"10/1":["Jeremiah 1-2","Ecclesiastes 1","John 1:1-9","James 1:1-11"],
-		"10/2":["Jeremiah 3-4","Ecclesiastes 2:1-8","John 1:10-18","James 1:12-18"],
-		"10/3":["Jeremiah 5-6","Ecclesiastes 2:9-16","John 1:19-28","James 1:19-27"],
-		"10/4":["Jeremiah 7-9","Ecclesiastes 2:17-26","John 1:29-34","James 2:1-7"],
-		"10/5":["Jeremiah 10-11","Ecclesiastes 3:1-15","John 1:35-42","James 2:8-13"],
-		"10/6":["Jeremiah 12-13","Ecclesiastes 3:16-22","John 1:43-51","James 2:14-26"],
-		"10/7":["Jeremiah 14-15","Ecclesiastes 4","John 2:1-11","James 3:1-6"],
-		"10/8":["Jeremiah 16-17","Ecclesiastes 5:1-7","John 2:12-25","James 3:7-12"],
-		"10/9":["Jeremiah 18-20","Ecclesiastes 5:8-20","John 3:1-15","James 3:13-18"],
-		"10/10":["Jeremiah 21-22","Ecclesiastes 6","John 3:16-21","James 4:1-10"],
-		"10/11":["Jeremiah 23-25","Ecclesiastes 7:1-14","John 3:22-36","James 4:11-17"],
-		"10/12":["Jeremiah 26-27","Ecclesiastes 7:15-29","John 4:1-14","James 5:1-6"],
-		"10/13":["Jeremiah 28-29","Ecclesiastes 8:1-9","John 4:15-26","James 5:7-12"],
-		"10/14":["Jeremiah 30-31","Ecclesiastes 8:10-17","John 4:37-42","James 5:13-20"],
-		"10/15":["Jeremiah 32","Ecclesiastes 9:1-10","John 4:43-54","1 Peter 1:1-5"],
-		"10/16":["Jeremiah 33-34","Ecclesiastes 9:11-18","John 5:1-15","1 Peter 1:6-9"],
-		"10/17":["Jeremiah 35-36","Ecclesiastes 10:1-10","John 5:16-23","1 Peter 1:10-16"],
-		"10/18":["Jeremiah 37-38","Ecclesiastes 10:11-20","John 5:24-30","1 Peter 1:17-21"],
-		"10/19":["Jeremiah 39-40","Ecclesiastes 11","John 5:31-40","1 Peter 1:22-25"],
-		"10/20":["Jeremiah 41-42","Ecclesiastes 12","John 5:41-47","1 Peter 2:1-8"],
-		"10/21":["Jeremiah 43-44","Song of Solomon 1","John 6:1-7","1 Peter 2:9-17"],
-		"10/22":["Jeremiah 45-47","Song of Solomon 2","John 6:8-15","1 Peter 2:18-25"],
-		"10/23":["Jeremiah 48","Song of Solomon 3","John 6:16-24","1 Peter 3:1-7"],
-		"10/24":["Jeremiah 49","Song of Solomon 4:1-7","John 6:25-29","1 Peter 3:8-12"],
-		"10/25":["Jeremiah 50","Song of Solomon 4:8-16","John 6:30-40","1 Peter 3:13-17"],
-		"10/26":["Jeremiah 51","Song of Solomon 5:1-8","John 6:41-51","1 Peter 3:18-22"],
-		"10/27":["Jeremiah 52","Song of Solomon 5:9-16","John 6:52-59","1 Peter 4:1-6"],
-		"10/28":["Lamentations 1","Song of Solomon 6","John 6:60-71","1 Peter 4:7-11"],
-		"10/29":["Lamentations 2","Song of Solomon 7","John 7:1-13","1 Peter 5:12-19"],
-		"10/30":["Lamentations 3","Song of Solomon 8:1-7","John 7:14-24","1 Peter 5:1-7"],
-		"10/31":["Lamentations 4-5","Song of Solomon 8:8-14","John 7:25-36","1 Peter 5:8-14"],
-		"11/1":["Ezekiel 1-3","Job 1:1-12","John 7:37-44","2 Peter 1:1-4"],
-		"11/2":["Ezekiel 4-6","Job 1:13-22","John 7:45-53","2 Peter 1:5-11"],
-		"11/3":["Ezekiel 7-8","Job 2","John 8:1-11","2 Peter 1:12-21"],
-		"11/4":["Ezekiel 9-10","Job 3","John 8:12-20","2 Peter 2:1-9"],
-		"11/5":["Ezekiel 11-12","Job 4","John 8:21-30","2 Peter 2:10-16"],
-		"11/6":["Ezekiel 13-15","Job 5:1-16","John 8:31-36","2 Peter 2:17-22"],
-		"11/7":["Ezekiel 16","Job 5:17-27","John 8:37-47","2 Peter 3:1-9"],
-		"11/8":["Ezekiel 17-19","Job 6:1-13","John 8:48-59","2 Peter 3:10-18"],
-		"11/9":["Ezekiel 20-21","Job 6:14-30","John 9:1-12","1 John 1"],
-		"11/10":["Ezekiel 22-23","Job 7","John 9:13-25","1 John 2:1-11"],
-		"11/11":["Ezekiel 24-26","Job 8","John 9:26-41","1 John 2:12-17"],
-		"11/12":["Ezekiel 27-28","Job 9:1-20","John 10:1-10","1 John 2:18-23"],
-		"11/13":["Ezekiel 29-30","Job 9:21-35","John 10:11-21","1 John 2:24-29"],
-		"11/14":["Ezekiel 31-32","Job 10","John 10:22-32","1 John 3:1-10"],
-		"11/15":["Ezekiel 33","Job 11","John 10:33-42","1 John 3:11-18"],
-		"11/16":["Ezekiel 34-35","Job 12","John 11:1-8","1 John 3:19-24"],
-		"11/17":["Ezekiel 36-37","Job 13","John 11:9-16","1 John 4:1-6"],
-		"11/18":["Ezekiel 38-39","Job 14","John 11:17-27","1 John 4:7-16"],
-		"11/19":["Ezekiel 40-41","Job 15:1-16","John 11:28-37","1 John 4:17-21"],
-		"11/20":["Ezekiel 42-43","Job 15:17-35","John 11:38-44","1 John 5:1-5"],
-		"11/21":["Ezekiel 44-45","Job 16","John 11:45-57","1 John 5:6-12"],
-		"11/22":["Ezekiel 46-47","Job 17","John 12:1-11","1 John 5:13-21"],
-		"11/23":["Ezekiel 48","Job 18","John 12:12-19","2 John 1:1-6"],
-		"11/24":["Daniel 1-2","Job 19","John 12:20-26","2 John 1:7-13"],
-		"11/25":["Daniel 3","Job 20:1-19","John 12:27-36","3 John 1:1-8"],
-		"11/26":["Daniel 4","Job 20:20-29","John 12:37-50","3 John 1:9-14"],
-		"11/27":["Daniel 5-6","Job 21:1-21","John 13:1-11","Jude 1:1-7"],
-		"11/28":["Daniel 7-8","Job 21:22-34","John 13:12-17","Jude 1:8-11"],
-		"11/29":["Daniel 9-10","Job 22:1-14","John 13:18-30","Jude 1:12-16"],
-		"11/30":["Daniel 11-12","Job 22:15-30","John 13:31-38","Jude 1:17-25"],
-		"12/1":["Hosea 1-3","Job 23","John 14:1-14","Revelation 1:1-8"],
-		"12/2":["Hosea 4-6","Job 24:1-12","John 14:15-21","Revelation 1:9-20"],
-		"12/3":["Hosea 7-9","Job 24:13-25","John 14:22-31","Revelation 2:1-17"],
-		"12/4":["Hosea 10-12","Job 25-26","John 15:1-8","Revelation 2:18-29"],
-		"12/5":["Hosea 13-14","Job 27","John 15:9-17","Revelation 3:1-13"],
-		"12/6":["Joel 1","Job 28:1-11","John 15:18-27","Revelation 3:14-22"],
-		"12/7":["Joel 2","Job 28:12-28","John 16:1-11","Revelation 4"],
-		"12/8":["Joel 3","Job 29","John 16:12-18","Revelation 5"],
-		"12/9":["Amos 1-2","Job 30:1-15","John 16:19-24","Revelation 6"],
-		"12/10":["Amos 3-4","Job 30:16-31","John 16:25-33","Revelation 7"],
-		"12/11":["Amos 5","Job 31:1-23","John 17:1-5","Revelation 8"],
-		"12/12":["Amos 6-7","Job 31:24-40","John 17:6-19","Revelation 9:1-12"],
-		"12/13":["Amos 8-9","Job 32","John 17:20-26","Revelation 9:13-21"],
-		"12/14":["Obadiah 1","Job 33:1-11","John 18:1-11","Revelation 10"],
-		"12/15":["Jonah 1-4","Job 33:12-33","John 18:12-18","Revelation 11:1-10"],
-		"12/16":["Micah 1-3","Job 34:1-20","John 18:19-27","Revelation 11:11-19"],
-		"12/17":["Micah 4-5","Job 34:21-37","John 18:28-36","Revelation 12"],
-		"12/18":["Micah 6-7","Job 35","John 18:37-40","Revelation 13"],
-		"12/19":["Nahum 1-3","Job 36:1-15","John 19:1-9","Revelation 14:1-11"],
-		"12/20":["Habakkuk 1-3","Job 36:16-33","John 19:10-16","Revelation 14:12-20"],
-		"12/21":["Zephaniah 1-2","Job 37:1-13","John 19:17-27","Revelation 15"],
-		"12/22":["Zephaniah 3","Job 37:14-24","John 19:28-37","Revelation 16"],
-		"12/23":["Haggai 1-2","Job 38:1-21","John 19:38-42","Revelation 17"],
-		"12/24":["Zechariah 1-3","Job 38:22-41","John 20:1-9","Revelation 18:1-8"],
-		"12/25":["Zechariah 4-6","Job 39:1-12","John 20:10-18","Revelation 18:9-24"],
-		"12/26":["Zechariah 7-8","Job 39:13-30","John 20:19-23","Revelation 19:1-10"],
-		"12/27":["Zechariah 9-10","Job 40","John 20:24-31","Revelation 19:11-21"],
-		"12/28":["Zechariah 11-12","Job 41:1-11","John 21:1-6","Revelation 20"],
-		"12/29":["Zechariah 13-14","Job 41:12-34","John 21:7-14","Revelation 21:1-13"],
-		"12/30":["Malachi 1-2","Job 42:1-8","John 21:15-19","Revelation 21:14-27"],
-		"12/31":["Malachi 3-4","Job 42:9-17","John 21:20-25","Revelation 22"]
+	function pad(num) {
+		return ('0' + num).slice(-2)
 	}
-	return dayToPassagesMap[day]
-}
+
+	function xhr(url, cb) {
+		var req = new XMLHttpRequest()
+		req.open('GET', url, true)
+		req.onerror = cb
+		req.onload = function onload() {
+			cb(null, {
+				ok: (req.status >= 200 && req.status < 300),
+				status: req.status,
+				statusText: req.statusText,
+				url: req.responseURL,
+				text: req.responseText
+			})
+		}
+
+		req.send()
+	}
+
+})()

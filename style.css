@@ -1,0 +1,85 @@
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: calibri, arial, sans-serif;
+	font-size: 18pt;
+	background-color: #fafafa;
+	line-height: 1.4;
+	font-weight: 300;
+}
+
+nav {
+	background-color: #404040;
+	color: #fff;
+	font-weight: bold;
+	overflow: hidden;
+}
+nav a,
+nav a:visited {
+	color: #fff;
+	text-decoration: none;
+	padding: 4pt;
+}
+nav a:hover {
+	background-color: #555;
+}
+.nav-title {
+	font-size: 35pt;
+}
+.nav-input {
+	border: none;
+	background-color: #fff;
+	font-size: 16pt;
+	margin: 4pt 0;
+}
+.flex-left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.section,
+.container {
+	margin: 0 auto;
+	max-width: 32em;
+}
+.section {
+	margin-top: 1em;
+	margin-bottom: 2em;
+}
+/*.section:nth-child(even) {
+	background-color: #7df;
+}
+.section:nth-child(odd) {
+	background-color: #7e7;
+}*/
+
+#background-message,
+.reference {
+	font-size: 2em;
+	display: block;
+	text-align: center;
+}
+
+#background-message {
+	margin-top: 40vh;
+}
+
+.chapter, .verse {
+	display: none;
+}
+/*.chapter {
+	font-size: 1.5em;
+}
+.verse {
+	font-size: 0.8em;
+}
+.chapter + .verse::before {
+	content: ':';
+}
+.chapter + .verse {
+	font-size: 18pt;
+}*/

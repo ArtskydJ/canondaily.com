@@ -8,26 +8,23 @@
 		<title>Bible In A Year</title>
 		<link rel="manifest" href="./manifest.json">
 		<link rel="shortcut icon" href="./icons/bible.ico">
-		<link rel="stylesheet" type="text/css" href="./styles.css">
+		<link rel="stylesheet" type="text/css" href="./style.css">
 	</head>
 	<body>
 		<noscript>This page requires javascript. Sorry!</noscript>
-		<form class="flex-center">
-			<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
-		</form>
-		<div class="flex-center">
-			<a class="flex-center nav-button" href="javascript:setPassage(0);">1</a>
-			<a class="flex-center nav-button" href="javascript:setPassage(1);">2</a>
-			<a class="flex-center nav-button" href="javascript:setPassage(2);">3</a>
-			<a class="flex-center nav-button" href="javascript:setPassage(3);">4</a>
+		<nav>
+			<div class="container flex-left">
+				<a class="nav-title" href="./">Bible in a Year</a>
+				<form>
+					<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
+				</form>
+				<a href="https://github.com/ArtskydJ/bible-in-a-year">Github</a>
+			</div>
+		</nav>
+
+		<div id="content">
+			<span id="background-message">Loading...</span>
 		</div>
-
-		<h1 id="background-message">Loading...</h1>
-
-		<iframe sandbox></iframe>
-		<iframe sandbox></iframe>
-		<iframe sandbox></iframe>
-		<iframe sandbox></iframe>
 
 		<script src="./main.js"></script>
 	</body>
