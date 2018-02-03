@@ -1,0 +1,23 @@
+{
+  "name": "bible-in-a-year",
+  "version": "1.0.0",
+  "description": "Bible in a year generator",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtskydJ/bible-in-a-year.git"
+  },
+  "author": "Joseph Dykstra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArtskydJ/bible-in-a-year/issues"
+  },
+  "homepage": "https://github.com/ArtskydJ/bible-in-a-year#readme",
+  "dependencies": {
+    "world-english-bible": "0.0.2"
+  }
+}
