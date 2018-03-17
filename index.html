@@ -95,6 +95,7 @@
 			<form>
 				<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
 			</form>
+			<a href="./?page=prayer-for-filling-of-spirit">Prayer</a>
 			<a href="https://github.com/ArtskydJ/bible-in-a-year">Github</a>
 		</div>
 	</nav>
@@ -107,6 +108,7 @@
 		var dateInput = document.getElementById('date')
 		var day = new Date()
 		var today = ''
+		var page = ''
 
 		var qsDate = /[?&]date=(\d{4}-\d\d-\d\d)/.exec(location.search)
 		if (qsDate) {
@@ -118,9 +120,18 @@
 			today = pad(day.getMonth() + 1) + '/' + pad(day.getDate())
 		}
 
-		document.title = 'Bible In A Year - ' + today
+		page = 'passages/' + today
+		today = ' - ' + today
 
-		xhr('./passages/' + today + '.html', function (err, result) {
+		var qsOther = /[?&]page=([\w-]+)/.exec(location.search)
+		if (qsOther) { // This feels like a hack :(
+			page = 'other-pages/' + qsOther[1]
+			today = ''
+		}
+
+		document.title = 'Bible In A Year' + today
+
+		xhr('./' + page + '.html', function (err, result) {
 			var contentHtml = ''
 			if (err) {
 				document.getElementById('background-message').innerHTML = err.message
