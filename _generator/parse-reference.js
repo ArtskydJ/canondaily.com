@@ -7,21 +7,27 @@ module.exports = function parseReference(passageReference) {
 	var startVerse = 1
 	var endVerse = Infinity
 
-	if (/^\d+$/.test(reference)) {
+	var isOneChapterAndAllVerses = /^\d+$/.test(reference)
+	var isMultipleChaptersAndAllVerses = /^\d+\-\d+$/.test(reference)
+	var isOneChapterOneVerse = /^\d+:\d+$/.test(reference)
+	var isOneChapterMultipleVerses = /^\d+:\d+\-\d+$/.test(reference)
+	var isMultipleChaptersMultipleVerses = /^\d+:\d+\-\d+:\d+$/.test(reference)
+	
+	if (isOneChapterAndAllVerses) {
 		startChapter = endChapter = parseInt(reference)
-	} else if (/^\d+\-\d+$/.test(reference)) {
+	} else if (isMultipleChaptersAndAllVerses) {
 		startChapter = parseInt(reference.split('-')[0])
 		endChapter = parseInt(reference.split('-')[1])
-	} else if (/^\d+:\d+$/.test(reference)) {
+	} else if (isOneChapterAndOneVerse) {
 		var splitReference = reference.split(':')
 		startChapter = endChapter = parseInt(splitReference[0])
 		startVerse = endVerse = parseInt(splitReference[1])
-	} else if (/^\d+:\d+\-\d+$/.test(reference)) {
+	} else if (isOneChapterAndMultipleVerses) {
 		var splitReference = reference.split(':')
 		startChapter = endChapter = parseInt(splitReference[0])
 		startVerse = parseInt(splitReference[1].split('-')[0])
 		endVerse = parseInt(splitReference[1].split('-')[1])
-	} else if (/^\d+:\d+\-\d+:\d+$/.test(reference)) {
+	} else if (isMultipleChaptersAndMultipleVerses) {
 		var splitReference = reference.split('-')
 		var splitReference0 = splitReference[0].split(':')
 		var splitReference1 = splitReference[1].split(':')
