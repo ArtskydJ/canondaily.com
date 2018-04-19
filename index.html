@@ -5,7 +5,7 @@
 	<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1">
 	<meta name="theme-color" content="#404040">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<title>Bible In A Year</title>
+	<title>Canon Daily</title>
 	<link rel="manifest" href="./manifest.json">
 	<link rel="shortcut icon" href="./icons/bible.ico">
 	<style type="text/css">
@@ -91,7 +91,7 @@
 	<noscript>This page requires javascript. Sorry!</noscript>
 	<nav>
 		<div class="container flex-left">
-			<a class="nav-title" href="./">Bible in a Year</a>
+			<a class="nav-title" href="./">Canon Daily</a>
 			<form>
 				<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
 			</form>
@@ -129,7 +129,7 @@
 			today = ''
 		}
 
-		document.title = 'Bible In A Year' + today
+		document.title = 'Canon Daily' + today
 
 		xhr('./' + page + '.html', function (err, result) {
 			var contentHtml = ''

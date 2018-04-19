@@ -1,5 +1,5 @@
 {
-  "name": "bible-in-a-year",
+  "name": "canondaily.com",
   "version": "1.0.0",
   "description": "Bible in a year generator",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArtskydJ/bible-in-a-year.git"
+    "url": "git+https://github.com/ArtskydJ/canondaily.com.git"
   },
   "author": "Joseph Dykstra",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ArtskydJ/bible-in-a-year/issues"
+    "url": "https://github.com/ArtskydJ/canondaily.com/issues"
   },
-  "homepage": "https://github.com/ArtskydJ/bible-in-a-year#readme",
+  "homepage": "https://github.com/ArtskydJ/canondaily.com#readme",
   "dependencies": {
     "world-english-bible": "0.0.2"
   }
