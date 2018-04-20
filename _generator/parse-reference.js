@@ -9,9 +9,9 @@ module.exports = function parseReference(passageReference) {
 
 	var isOneChapterAndAllVerses = /^\d+$/.test(reference)
 	var isMultipleChaptersAndAllVerses = /^\d+\-\d+$/.test(reference)
-	var isOneChapterOneVerse = /^\d+:\d+$/.test(reference)
-	var isOneChapterMultipleVerses = /^\d+:\d+\-\d+$/.test(reference)
-	var isMultipleChaptersMultipleVerses = /^\d+:\d+\-\d+:\d+$/.test(reference)
+	var isOneChapterAndOneVerse = /^\d+:\d+$/.test(reference)
+	var isOneChapterAndMultipleVerses = /^\d+:\d+\-\d+$/.test(reference)
+	var isMultipleChaptersAndMultipleVerses = /^\d+:\d+\-\d+:\d+$/.test(reference)
 	
 	if (isOneChapterAndAllVerses) {
 		startChapter = endChapter = parseInt(reference)
@@ -36,12 +36,14 @@ module.exports = function parseReference(passageReference) {
 		startVerse = parseInt(splitReference0[1])
 		endVerse = parseInt(splitReference1[1])
 	}
+	/*
 	if (startChapter > endChapter) {
-		return 'Start Chapter is larger than End Chapter'
+		throw new Error('Start Chapter is larger than End Chapter')
 	}
 	if (startChapter === endChapter && startVerse > endVerse) {
-		return 'Start Verse is larger than End Verse'
+		throw new Error('Start Verse is larger than End Verse')
 	}
+	*/
 
 	return {
 		book,

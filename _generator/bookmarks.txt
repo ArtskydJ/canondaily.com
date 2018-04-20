@@ -826,7 +826,7 @@ Bookmark 3
 		Matthew 22:41-46
 		Matthew 23:1-12
 		Matthew 23:13-24
-		Matthew 23:15-39
+		Matthew 23:25-39
 		Matthew 24:1-14
 		Matthew 24:15-28
 		Matthew 24:29-35
@@ -994,7 +994,7 @@ Bookmark 3
 		Luke 17:20-37
 		Luke 18:1-8
 		Luke 18:9-17
-		Luke 18:18-25
+		Luke 18:18-23
 		Luke 18:24-34
 		Luke 18:35-43
 		Luke 19:1-10
@@ -1051,7 +1051,7 @@ Bookmark 3
 		John 3:22-36
 		John 4:1-14
 		John 4:15-26
-		John 4:37-42
+		John 4:27-42
 		John 4:43-54
 		John 5:1-15
 		John 5:16-23
@@ -1278,7 +1278,7 @@ Bookmark 4
 		2 Corinthians 12:1-10
 		2 Corinthians 12:11-21
 		2 Corinthians 13
-		Galatians 11:1-10
+		Galatians 1:1-10
 		Galatians 1:11-24
 		Galatians 2:1-10
 		Galatians 2:11-21
@@ -1332,12 +1332,12 @@ Bookmark 4
 		Colossians 3:1-7
 		Colossians 3:8-14
 		Colossians 3:15-25
-		Colossians 4:1-8
+		Colossians 4:1-9
 		Colossians 4:10-18
 		1 Thessalonians 1:1-5
 		1 Thessalonians 1:6-10
 		1 Thessalonians 2:1-7
-		1 Thessalonians 2:8-13
+		1 Thessalonians 2:8-12
 		1 Thessalonians 2:13-20
 		1 Thessalonians 3:1-6
 		1 Thessalonians 3:7-13
@@ -1397,7 +1397,7 @@ Bookmark 4
 		Hebrews 6:1-12
 		Hebrews 6:13-20
 		Hebrews 7:1-10
-		Hebrews 7:11-20
+		Hebrews 7:11-19
 		Hebrews 7:20-28
 		Hebrews 8:1-6
 		Hebrews 8:7-13
@@ -1444,9 +1444,9 @@ Bookmark 4
 		1 Peter 3:18-22
 		1 Peter 4:1-6
 		1 Peter 4:7-11
-		1 Peter 5:12-19
 		1 Peter 5:1-7
-		1 Peter 5:8-14
+		1 Peter 5:8-11
+		1 Peter 5:12-19
 	November
 		2 Peter 1:1-4
 		2 Peter 1:5-11
