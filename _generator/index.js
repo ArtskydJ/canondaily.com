@@ -14,7 +14,7 @@ for (var month = 1; month <= 12; month++) {
 
 		var dayHtml = passages.map(getBibleHtml).join('\n')
 
-		fs.writeFileSync(`../passages/${pad(month)}/${pad(day)}.html`, dayHtml)
+		fs.writeFileSync(__dirname + `/../passages/${pad(month)}/${pad(day)}.html`, dayHtml)
 	}
 }
 
