@@ -1,1 +1,1 @@
-# [Bible in a Year](https://artskydj.github.io/bible-in-a-year/)
+# [Canon Daily](http://www.canondaily.com/)

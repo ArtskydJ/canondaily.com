@@ -1,7 +1,7 @@
 {
   "name": "canondaily.com",
   "version": "1.0.0",
-  "description": "Bible in a year generator",
+  "description": "Canon Daily generator",
   "main": "index.js",
   "private": true,
   "scripts": {
