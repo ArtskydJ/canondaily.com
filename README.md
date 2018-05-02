@@ -1,1 +1,1 @@
-# [Canon Daily](http://www.canondaily.com/)
+# [Canon Daily](https://www.canondaily.com/)
