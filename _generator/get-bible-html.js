@@ -74,7 +74,7 @@ module.exports = function getBibleHtml(passageReference) {
 	}).join(' ')
 
 	return `<div class="section">
-		<span class="reference">${passageReference}</span> ${bibleText}
+		<span class="header">${passageReference}</span> ${bibleText}
 	</div>`
 }
 
