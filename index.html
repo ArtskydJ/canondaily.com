@@ -66,7 +66,6 @@
 			padding: 0 0.5em;
 		}
 		.section {
-			margin-top: 1em;
 			margin-bottom: 2em;
 		}
 		#background-message,
@@ -160,7 +159,6 @@
 		document.title = 'Canon Daily' + today
 
 		xhr('./' + page + '.html', function (err, result) {
-			var contentHtml = ''
 			if (err) {
 				document.getElementById('background-message').innerHTML = err.message
 			} else if (!result.ok) {
