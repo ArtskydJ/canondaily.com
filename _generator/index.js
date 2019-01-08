@@ -4,6 +4,8 @@ var getBibleHtml = require('./get-bible-html.js')
 var proudVsBroken = require('./proud-vs-broken.json')
 var meditate = require('./meditate.json')
 
+var monthNames = [,'January','February','March','April','May','June',
+	'July','August','September','October','November','December']
 var expectedMonthLength = [,31,28,31,30,31,30,31,31,30,31,30,31]
 
 var bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
@@ -15,6 +17,7 @@ for (var month = 1; month <= 12; month++) {
 		// console.log(passages)
 
 		var dayHtml =
+			getDayNameHtml(month, day) +
 			passages.map(getBibleHtml).join('\n') +
 			getProudVsBrokenHtml(day) +
 			getMeditationHtml(day)
@@ -25,6 +28,13 @@ for (var month = 1; month <= 12; month++) {
 
 function pad(num) {
 	return ('0' + num).slice(-2)
+}
+
+function getDayNameHtml(month, day) {
+	return `
+	<div class="section subsection dark-bg">
+		<div class="header">${monthNames[month]} ${day}</div>
+	</div>`
 }
 
 function getProudVsBrokenHtml(day) {
