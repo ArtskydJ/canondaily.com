@@ -6,101 +6,9 @@
 	<meta name="theme-color" content="#404040">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<title>Canon Daily</title>
-	<link rel="manifest" href="./manifest.json">
-	<link rel="shortcut icon" href="./icons/bible.ico">
-	<style type="text/css">
-		html, body {
-			margin: 0;
-			padding: 0;
-		}
-		body {
-			font-family: calibri, arial, sans-serif;
-			font-size: 15pt;
-			background-color: #fafafa;
-			line-height: 1.6;
-			font-weight: 300;
-		}
-		hr {
-			border: none;
-			border-top: 1px solid #ccc;
-		}
-
-		nav {
-			background-color: #404040;
-			color: #fff;
-			font-weight: bold;
-			overflow: hidden;
-		}
-		nav a,
-		nav a:visited {
-			color: #fff;
-			text-decoration: none;
-			padding: 4pt;
-		}
-		nav a:hover {
-			background-color: #555;
-		}
-		.nav-title {
-			font-size: 30pt;
-		}
-		.nav-input {
-			border: none;
-			background-color: #fff;
-			font-size: 12pt;
-			margin: 4pt 0;
-		}
-		.flex-left {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			flex-wrap: wrap;
-		}
-		.dark-bg {
-			background-color: #ccc;
-		}
-
-		.section,
-		.container {
-			margin: 0 auto;
-			max-width: 32em;
-			padding: 0 0.5em;
-		}
-		.section {
-			margin-bottom: 2em;
-		}
-		#background-message,
-		.header {
-			font-size: 2em;
-			display: block;
-			text-align: center;
-		}
-
-		#background-message {
-			margin-top: 40vh;
-		}
-
-		.chapter, .verse {
-			display: none;
-		}
-
-		.paragraph,
-		.stanza {
-			display: block;
-			margin: 1em 0;
-		}
-		.stanza .line {
-			display: block;
-		}
-
-		.subsection .header {
-			font-size: 1.6em;
-		}
-		.subheader {
-			font-size: 1.4em;
-			display: inline;
-			padding-right: 1em;
-		}
-	</style>
+	<link rel="manifest" href="/manifest.json">
+	<link rel="shortcut icon" href="/icons/bible.ico">
+	<link rel="stylesheet" type="text/css" href="/style.css">
 	<script type="text/javascript">
 	var _paq = _paq || [];
 	_paq.push(['trackPageView']);
@@ -115,87 +23,747 @@
 	</script>
 </head>
 <body>
-	<noscript>This page requires javascript. Sorry!</noscript>
+	<noscript>This page may nor work correctly without javascript.</noscript>
 	<nav>
 		<div class="container flex-left">
-			<a class="nav-title" href="./">Canon Daily</a>
-			<form>
-				<input class="nav-input" id="date" type="date" name="date" onchange="this.form.submit()">
-			</form>
-			<a href="./?page=prayer-for-filling-of-spirit">Prayer</a>
+			<a class="nav-title" href="/">Canon Daily</a>
+			<a href="/prayer-for-filling-of-spirit">Prayer</a>
+			<!-- <a href="/settings">Settings</a> -->
 			<a href="https://github.com/ArtskydJ/canondaily.com">Github</a>
 		</div>
 	</nav>
 
-	<div id="content">
-		<span id="background-message">Loading...</span>
-	</div>
+	<div id="calendar"><a class="date" href="/January/1">January 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/2">January 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/3">January 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/4">January 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/5">January 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/6">January 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/7">January 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/8">January 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/9">January 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/10">January 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/11">January 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/12">January 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/13">January 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/14">January 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/15">January 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/16">January 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/17">January 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/18">January 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/19">January 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/20">January 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/21">January 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/22">January 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/23">January 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/24">January 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/25">January 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/26">January 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/27">January 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/28">January 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/29">January 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/30">January 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/January/31">January 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/1">February 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/2">February 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/3">February 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/4">February 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/5">February 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/6">February 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/7">February 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/8">February 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/9">February 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/10">February 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/11">February 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/12">February 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/13">February 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/14">February 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/15">February 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/16">February 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/17">February 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/18">February 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/19">February 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/20">February 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/21">February 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/22">February 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/23">February 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/24">February 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/25">February 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/26">February 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/27">February 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/February/28">February 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/1">March 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/2">March 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/3">March 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/4">March 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/5">March 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/6">March 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/7">March 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/8">March 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/9">March 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/10">March 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/11">March 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/12">March 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/13">March 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/14">March 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/15">March 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/16">March 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/17">March 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/18">March 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/19">March 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/20">March 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/21">March 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/22">March 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/23">March 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/24">March 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/25">March 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/26">March 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/27">March 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/28">March 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/29">March 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/30">March 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/March/31">March 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/1">April 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/2">April 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/3">April 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/4">April 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/5">April 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/6">April 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/7">April 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/8">April 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/9">April 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/10">April 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/11">April 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/12">April 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/13">April 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/14">April 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/15">April 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/16">April 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/17">April 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/18">April 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/19">April 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/20">April 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/21">April 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/22">April 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/23">April 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/24">April 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/25">April 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/26">April 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/27">April 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/28">April 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/29">April 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/April/30">April 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/1">May 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/2">May 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/3">May 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/4">May 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/5">May 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/6">May 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/7">May 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/8">May 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/9">May 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/10">May 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/11">May 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/12">May 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/13">May 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/14">May 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/15">May 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/16">May 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/17">May 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/18">May 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/19">May 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/20">May 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/21">May 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/22">May 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/23">May 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/24">May 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/25">May 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/26">May 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/27">May 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/28">May 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/29">May 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/30">May 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/May/31">May 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/1">June 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/2">June 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/3">June 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/4">June 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/5">June 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/6">June 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/7">June 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/8">June 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/9">June 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/10">June 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/11">June 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/12">June 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/13">June 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/14">June 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/15">June 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/16">June 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/17">June 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/18">June 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/19">June 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/20">June 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/21">June 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/22">June 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/23">June 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/24">June 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/25">June 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/26">June 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/27">June 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/28">June 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/29">June 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/June/30">June 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/1">July 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/2">July 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/3">July 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/4">July 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/5">July 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/6">July 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/7">July 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/8">July 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/9">July 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/10">July 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/11">July 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/12">July 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/13">July 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/14">July 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/15">July 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/16">July 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/17">July 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/18">July 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/19">July 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/20">July 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/21">July 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/22">July 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/23">July 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/24">July 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/25">July 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/26">July 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/27">July 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/28">July 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/29">July 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/30">July 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/July/31">July 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/1">August 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/2">August 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/3">August 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/4">August 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/5">August 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/6">August 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/7">August 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/8">August 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/9">August 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/10">August 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/11">August 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/12">August 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/13">August 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/14">August 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/15">August 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/16">August 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/17">August 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/18">August 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/19">August 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/20">August 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/21">August 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/22">August 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/23">August 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/24">August 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/25">August 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/26">August 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/27">August 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/28">August 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/29">August 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/30">August 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/August/31">August 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/1">September 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/2">September 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/3">September 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/4">September 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/5">September 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/6">September 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/7">September 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/8">September 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/9">September 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/10">September 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/11">September 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/12">September 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/13">September 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/14">September 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/15">September 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/16">September 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/17">September 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/18">September 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/19">September 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/20">September 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/21">September 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/22">September 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/23">September 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/24">September 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/25">September 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/26">September 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/27">September 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/28">September 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/29">September 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/September/30">September 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/1">October 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/2">October 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/3">October 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/4">October 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/5">October 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/6">October 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/7">October 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/8">October 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/9">October 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/10">October 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/11">October 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/12">October 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/13">October 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/14">October 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/15">October 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/16">October 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/17">October 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/18">October 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/19">October 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/20">October 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/21">October 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/22">October 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/23">October 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/24">October 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/25">October 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/26">October 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/27">October 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/28">October 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/29">October 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/30">October 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/October/31">October 31
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/1">November 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/2">November 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/3">November 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/4">November 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/5">November 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/6">November 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/7">November 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/8">November 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/9">November 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/10">November 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/11">November 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/12">November 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/13">November 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/14">November 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/15">November 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/16">November 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/17">November 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/18">November 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/19">November 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/20">November 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/21">November 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/22">November 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/23">November 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/24">November 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/25">November 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/26">November 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/27">November 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/28">November 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/29">November 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/November/30">November 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/1">December 1
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/2">December 2
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/3">December 3
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/4">December 4
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/5">December 5
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/6">December 6
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/7">December 7
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/8">December 8
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/9">December 9
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/10">December 10
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/11">December 11
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/12">December 12
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/13">December 13
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/14">December 14
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/15">December 15
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/16">December 16
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/17">December 17
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/18">December 18
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/19">December 19
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/20">December 20
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/21">December 21
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/22">December 22
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/23">December 23
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/24">December 24
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/25">December 25
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/26">December 26
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/27">December 27
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/28">December 28
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/29">December 29
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/30">December 30
+				<div class="checkmark"></div>
+			</a><a class="date" href="/December/31">December 31
+				<div class="checkmark"></div>
+			</a></div>
 
-	<script>
-		var dateInput = document.getElementById('date')
-		var day = new Date()
-		var today = ''
-		var page = ''
-
-		var qsDate = /[?&]date=(\d{4}-\d\d-\d\d)/.exec(location.search)
-		if (qsDate) {
-			day = new Date(qsDate[1])
-			dateInput.value = qsDate[1]
-			today = pad(day.getUTCMonth() + 1) + '/' + pad(day.getUTCDate())
-		} else {
-			dateInput.value = getLocalISODateString(day)
-			today = pad(day.getMonth() + 1) + '/' + pad(day.getDate())
-		}
-
-		page = 'passages/' + today
-		today = ' - ' + today
-
-		var qsOther = /[?&]page=([\w-]+)/.exec(location.search)
-		if (qsOther) { // This feels like a hack :(
-			page = 'other-pages/' + qsOther[1]
-			today = ''
-		}
-
-		document.title = 'Canon Daily' + today
-
-		xhr('./' + page + '.html', function (err, result) {
-			if (err) {
-				document.getElementById('background-message').innerHTML = err.message
-			} else if (!result.ok) {
-				document.getElementById('background-message').innerHTML = result.status + ' ' + result.statusText
-			} else {
-				document.getElementById('content').innerHTML = result.text
-			}
-		})
-
-
-		function getLocalISODateString(date) {
-			var year = date.getFullYear()
-			var month = pad(date.getMonth() + 1)
-			var day = pad(date.getDate())
-			return year + '-' + month + '-' + day
-		}
-
-		function pad(num) {
-			return ('0' + num).slice(-2)
-		}
-
-		function xhr(url, cb) {
-			var req = new XMLHttpRequest()
-			req.open('GET', url, true)
-			req.onerror = cb
-			req.onload = function onload() {
-				cb(null, {
-					ok: (req.status >= 200 && req.status < 300),
-					status: req.status,
-					statusText: req.statusText,
-					url: req.responseURL,
-					text: req.responseText
-				})
-			}
-
-			req.send()
-		}
-	</script>
 </body>
 </html>

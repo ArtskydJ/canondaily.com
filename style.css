@@ -1,0 +1,144 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: calibri, arial, sans-serif;
+	font-size: 15pt;
+	background-color: #fafafa;
+	line-height: 1.6;
+	font-weight: 300;
+}
+hr {
+	border: none;
+	border-top: 1px solid #ccc;
+}
+
+nav {
+	background-color: #404040;
+	color: #fff;
+	font-weight: bold;
+	overflow: hidden;
+}
+nav a,
+nav a:visited {
+	color: #fff;
+	text-decoration: none;
+	padding: 4pt;
+}
+nav a:hover {
+	background-color: #555;
+}
+.nav-title {
+	font-size: 30pt;
+}
+.nav-input {
+	border: none;
+	background-color: #fff;
+	font-size: 12pt;
+	margin: 4pt 0;
+}
+.flex-left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.dark-bg {
+	background-color: #ccc;
+}
+
+.section,
+.container {
+	margin: 0 auto;
+	max-width: 32em;
+	padding: 0 0.5em;
+}
+.section {
+	margin-bottom: 2em;
+}
+.complete-button {
+	background-color: #4c0;
+	color: #130;
+	cursor: pointer;
+	margin-bottom: 0;
+	padding: 2em 0;
+}
+#background-message,
+.header {
+	font-size: 2em;
+	display: block;
+	text-align: center;
+}
+
+#background-message {
+	margin-top: 40vh;
+}
+
+.chapter, .verse {
+	display: none;
+}
+
+.paragraph,
+.stanza {
+	display: block;
+	margin: 1em 0;
+}
+.stanza .line {
+	display: block;
+}
+
+.subsection .header {
+	font-size: 1.6em;
+}
+.subheader {
+	font-size: 1.4em;
+	display: inline;
+	padding-right: 1em;
+}
+.checkmark {
+	display: none;
+	font-family: consolas, sans-serif;
+	font-weight: normal;
+}
+.checkmark:after {
+	content: '√';
+}
+.complete-button .checkmark {
+	padding-left: 15px;
+}
+
+/* Calendar */
+#calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(53, calc(100vw / 7));
+	margin: 0.2em;
+}
+.date {
+	margin: 0.2em;
+	border: 3px solid #404040; /* or #1b1 if complete */
+	background-color: #fff;
+	text-align: center;
+	color: #404040;
+	font-weight: bold;
+	text-decoration: none;
+}
+.date:hover {
+	background-color: #ded;
+}
+.date .checkmark {
+	color: #1b1;
+	font-size: 60px;
+}
+@media (max-width: 900px) {
+	#calendar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.date {
+		width: 100px;
+		height: 100px;
+	}
+}

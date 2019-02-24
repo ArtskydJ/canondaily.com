@@ -1,68 +1,38 @@
 var fs = require('fs')
-var parse = require('./bookmarks-parser.js')
-var getBibleHtml = require('./get-bible-html.js')
-var proudVsBroken = require('./proud-vs-broken.json')
-var meditate = require('./meditate.json')
+var path = require('path')
+var generateCalendar = require('./generate-calendar.js')
+var generateDayHtml = require('./generate-day-html.js')
 
-var monthNames = [,'January','February','March','April','May','June',
+var masterTemplateHtml = fs.readFileSync(__dirname + '/template/master-template.html', 'utf-8')
+var pffosSubtemplateHtml = fs.readFileSync(__dirname + '/template/prayer-for-filling-of-spirit-subtemplate.html', 'utf-8')
+
+const monthNames = [,'January','February','March','April','May','June',
 	'July','August','September','October','November','December']
 var expectedMonthLength = [,31,28,31,30,31,30,31,31,30,31,30,31]
 
-var bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
-var dtpm = parse(bookmarksTxt)
+writeSubtemplate('index', generateCalendar(new Date().getFullYear()))
+writeSubtemplate('prayer-for-filling-of-spirit', pffosSubtemplateHtml, 'Prayer for the Filling of the Spirit')
+
+if (false) { // debug
+	writeSubtemplate('January/1', generateDayHtml(1, 1), 'January 1')
+	writeSubtemplate('January/2', generateDayHtml(1, 2), 'January 2')
+	writeSubtemplate('January/3', generateDayHtml(1, 3), 'January 3')
+	console.log('\nSkipping the daily pages other than Jan 1,2,3\n')
+	process.exit(1)
+}
 
 for (var month = 1; month <= 12; month++) {
 	for (var day = 1; day <= expectedMonthLength[month]; day++) {
-		var passages = dtpm[month + '/' + day]
-		// console.log(passages)
-
-		var dayHtml =
-			getDayNameHtml(month, day) +
-			passages.map(getBibleHtml).join('\n') +
-			getProudVsBrokenHtml(day) +
-			getMeditationHtml(day)
-
-		fs.writeFileSync(__dirname + `/../passages/${pad(month)}/${pad(day)}.html`, dayHtml)
+		var dayHtml = generateDayHtml(month, day)
+		writeSubtemplate(monthNames[month] + '/' + day, dayHtml, monthNames[month] + ' ' + day)
 	}
 }
 
-function pad(num) {
-	return ('0' + num).slice(-2)
-}
-
-function getDayNameHtml(month, day) {
-	return `
-	<div class="section subsection dark-bg">
-		<div class="header">${monthNames[month]} ${day}</div>
-	</div>`
-}
-
-function getProudVsBrokenHtml(day) {
-	var index = day - 1
-	if (index >= proudVsBroken.length) { // there are 30 proud-vs-broken items
-		index -= Math.floor(proudVsBroken.length / 3)
+function writeSubtemplate(partialPath, subtemplateHtml, title) {
+	var html = masterTemplateHtml.replace('<!-- [[SUBTEMPLATE]] -->', subtemplateHtml)
+	if (title) {
+		html = html.replace('<title>Canon Daily</title>', `<title>${title} - Canon Daily</title>`)
 	}
-	return `
-	<div class="section subsection dark-bg">
-		<div class="header">Proud VS Broken</div>
-		<div>
-			<div class="subheader">Proud</div>
-			${proudVsBroken[index][0]}
-		</div>
-		<div>
-			<div class="subheader">Broken</div>
-			${proudVsBroken[index][1]}
-		</div>
-	</div>`
+	fs.writeFileSync(path.resolve(__dirname, '..', partialPath + '.html'), html)
 }
 
-function getMeditationHtml(day) {
-	var bibleSection = meditate[day - 1]
-	return `
-	<div class="section subsection">
-		<div class="header">Meditate on this</div>
-		<div class="subheader">${bibleSection.passage} ${bibleSection.version}</div>
-		${bibleSection.text}
-	</div>
-	`
-}
