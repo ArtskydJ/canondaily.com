@@ -9,57 +9,27 @@ module.exports = function getBibleHtml(passageReference) {
 
 	var bookObj = require('world-english-bible/json/' + ref.book + '.json')
 
+	var intermediateWhatever = bookObj.filter(function (chunk, i, arr) {
+		return chunkWithinRange(ref, chunk) || (
+			chunk.type.slice(-6) === ' start' &&        // current chunk is a start tag
+			arr[i+1] && chunkWithinRange(ref, arr[i+1]) // and next chunk is in range
+		) || (
+			chunk.type.slice(-4) === ' end' &&          // current chunk is an end tag
+			arr[i-1] && chunkWithinRange(ref, arr[i-1]) // and previous chunk is in range
+		)
+	})
+
 	var lastChapterNumber = 0
 	var lastVerseNumber = 0
 	var textLength = 0
-	var intermediateWhatever = bookObj.filter(function (chunk, i, arr) {
-		return (
-			(
-				arr[i+1] &&
-				chunkWithinRange(ref, arr[i+1]) && (
-					chunk.type === 'stanza start' ||
-					chunk.type === 'paragraph start'
-				) 
-			) || (
-				arr[i-1] &&
-				chunkWithinRange(ref, arr[i-1]) && (
-					chunk.type === 'stanza end' ||
-					chunk.type === 'paragraph end'
-				)
-			) || (
-				chunkWithinRange(ref, chunk) /*&& (
-					chunk.type === 'line' ||
-					chunk.type === 'break' ||
-					chunk.type === 'paragraph text'
-				)*/
-			)
-		)
-	})//.reduce(function (memo, chunk, i, arr) {
-	//	if (memo.length) {
-	//		memo.push(chunk)
-	//	} else if (chunk.type === 'paragraph start' && arr[i+1] && arr[i+1].type === 'paragraph end') {
-	//	} else if (chunk.type === 'stanza start' && arr[i+1] && arr[i+1].type === 'stanza end') {
-	//	} else {
-	//		memo.push(chunk)
-	//	}
-	//	return memo
-	//}, [])
-
-	// require('fs').writeFileSync('./temp.json', JSON.stringify(intermediateWhatever, null, ' '), 'utf-8')
-
 	var bibleText  = intermediateWhatever.map(function (chunk) {
-		var result = ''
-		if (chunk.type === 'paragraph start') {
-			result += '<span class="paragraph">'
-		} else if (chunk.type === 'paragraph end') {
-			result += '</span>'
-		} else if (chunk.type === 'stanza start') {
-			result += '<span class="stanza">'
-		} else if (chunk.type === 'stanza end') {
-			result += '</span>'
-		} else if (chunk.type === 'break') {
-			result += '<br>'
-		} else if (chunk.type === 'paragraph text' || chunk.type === 'line')  {
+		if (chunk.type === 'paragraph start') return '<span class="paragraph">'
+		if (chunk.type === 'paragraph end')   return '</span>'
+		if (chunk.type === 'stanza start')    return '<span class="stanza">'
+		if (chunk.type === 'stanza end')      return '</span>'
+		if (chunk.type === 'break')           return '<br>'
+		if (chunk.type === 'paragraph text' || chunk.type === 'line') {
+			var result = ''
 			if (lastChapterNumber != chunk.chapterNumber) {
 				lastChapterNumber = chunk.chapterNumber
 				result += ' <span class="chapter">' + chunk.chapterNumber + '</span>'
@@ -68,9 +38,8 @@ module.exports = function getBibleHtml(passageReference) {
 				lastVerseNumber = chunk.verseNumber
 				result += '<span class="verse">' + chunk.verseNumber + '</span> '
 			}
-			result = '<span class="' + chunk.type.replace(/ /g, '') + '">' + result + chunk.value + '</span>'
+			return '<span class="' + chunk.type.replace(/ /g, '') + '">' + result + chunk.value + '</span>'
 		}
-		return result
 	}).join(' ')
 
 	return `<div class="section">
@@ -86,13 +55,3 @@ function chunkWithinRange(ref, chunk) {
 		( chunk.chapterNumber !== ref.endChapter || chunk.verseNumber <= ref.endVerse )
 	)
 }
-
-
-// All formatting is lost. getBibleHtml() should read and pass along these types
-// - paragraph start
-// - paragraph end
-// - stanza start
-// - stanza end
-// - paragraph text
-// - line
-// - break
