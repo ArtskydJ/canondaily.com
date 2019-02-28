@@ -67,6 +67,10 @@ function getCompleteButtonHtml(month, day) {
 		</div>
 
 		<script>
+			var expectedMonthLength = [,31,28,31,30,31,30,31,31,30,31,30,31]
+			var monthNames = [,'January','February','March','April','May','June',
+				'July','August','September','October','November','December']
+
 			function updateCheckbox(monthData, day) {
 				document.getElementById('cm').style.display = monthData[day] ? 'inline' : 'none'
 			}
@@ -85,7 +89,13 @@ function getCompleteButtonHtml(month, day) {
 				writeSavedMonth(month, monthData)
 				updateCheckbox(monthData, day)
 				setTimeout(function () {
-					location.assign('./' + (day + 1))
+					if (month === 12 && day === 31) { // end of year
+						location.assign('../January/1')
+					} else if (day === expectedMonthLength[month]) { // end of month
+						location.assign('../' + monthNames[month + 1] + '/1')
+					} else {
+						location.assign('./' + (day + 1))
+					}
 				}, wasComplete ? 0 : 1000)
 			}
 
