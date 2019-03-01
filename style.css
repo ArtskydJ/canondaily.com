@@ -51,7 +51,7 @@ nav a:hover {
 .section,
 .container {
 	margin: 0 auto;
-	max-width: 32em;
+	max-width: 640px;
 	padding: 0 0.5em;
 }
 .section {
@@ -112,33 +112,85 @@ nav a:hover {
 #calendar {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: repeat(53, calc(100vw / 7));
-	margin: 0.2em;
+	grid-template-rows: repeat(53, calc(640px / 7));
+	margin: 0 auto;
+	max-width: 640px;
+	line-height: 1.25;
 }
+.today,
 .date {
-	margin: 0.2em;
-	border: 3px solid #404040; /* or #1b1 if complete */
-	background-color: #fff;
+	margin: 1vw;
+	background-color: #404040;
 	text-align: center;
-	color: #404040;
+	color: #fafafa;
 	font-weight: bold;
 	text-decoration: none;
+	/*padding: 3px;*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+.date {
+	font-size: 20pt;
+	/*line-height: 28pt;*/
+}
+.today:hover,
 .date:hover {
-	background-color: #ded;
+	background-color: #fafafa;
+	color: #404040;
 }
 .date .checkmark {
 	color: #1b1;
-	font-size: 60px;
+	/*font-size: 60px;*/
 }
-@media (max-width: 900px) {
+.date-spacer {
+	grid-column-start: 1;
+}
+.today {
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: 8;
+
+	font-size: 40pt;
+	/*line-height: 1;*/
+}
+
+@media (max-width: 640px) { /* container size */
+	#calendar {
+		grid-template-rows: repeat(53, calc(100vw / 7));
+	}
+	.date {
+		font-size: 15pt;
+		/*line-height: 18pt;*/
+	}
+	.today {
+		font-size: 30pt;
+	}
+}
+@media (max-width: 400px) { /* small phone screens */
+	.date {
+		font-size: 10pt;
+		/*line-height: 12pt;*/
+	}
+	.today {
+		font-size: 20pt;
+	}
+}
+@media (max-width: 319px) { /* tiny phone screens */
 	#calendar {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
 	.date {
-		width: 100px;
-		height: 100px;
+		width: 35px;
+		height: 35px;
+	}
+	.date-spacer {
+		display: none;
+	}
+	.today {
+		flex-basis: 100%;
 	}
 }
