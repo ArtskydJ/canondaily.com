@@ -127,7 +127,7 @@ function getCompleteButtonHtml(month, day) {
 					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
 				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
 					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
-					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#39f'
 				}
 			}
 
