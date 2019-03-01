@@ -119,13 +119,12 @@ nav a:hover {
 }
 .today,
 .date {
-	margin: 1vw;
+	margin: 6px;
 	background-color: #404040;
 	text-align: center;
 	color: #fafafa;
 	font-weight: bold;
 	text-decoration: none;
-	/*padding: 3px;*/
 
 	display: flex;
 	justify-content: center;
@@ -133,16 +132,13 @@ nav a:hover {
 }
 .date {
 	font-size: 20pt;
-	/*line-height: 28pt;*/
 }
 .today:hover,
 .date:hover {
-	background-color: #fafafa;
-	color: #404040;
+	background-color: #555;
 }
 .date .checkmark {
 	color: #1b1;
-	/*font-size: 60px;*/
 }
 .date-spacer {
 	grid-column-start: 1;
@@ -153,7 +149,6 @@ nav a:hover {
 	grid-column-end: 8;
 
 	font-size: 40pt;
-	/*line-height: 1;*/
 }
 
 @media (max-width: 640px) { /* container size */
@@ -162,16 +157,16 @@ nav a:hover {
 	}
 	.date {
 		font-size: 15pt;
-		/*line-height: 18pt;*/
+		margin: 1vw;
 	}
 	.today {
 		font-size: 30pt;
+		margin: 1vw;
 	}
 }
 @media (max-width: 400px) { /* small phone screens */
 	.date {
 		font-size: 10pt;
-		/*line-height: 12pt;*/
 	}
 	.today {
 		font-size: 20pt;
