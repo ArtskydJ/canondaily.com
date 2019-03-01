@@ -35,7 +35,7 @@
 
 	
 	<div class="section subsection dark-bg">
-		<div class="header">August 29</div>
+		<div class="header" id="month-and-day">August 29</div>
 	</div><div class="section">
 		<span class="header">Esther 6-7</span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">6</span><span class="verse">1</span> On that night, the king couldn’t sleep. He commanded the book of records of the chronicles to be brought, and they were read to the king.  </span> <span class="paragraphtext"><span class="verse">2</span> It was found written that Mordecai had told of Bigthana and Teresh, two of the king’s eunuchs, who were doorkeepers, who had tried to lay hands on the King Ahasuerus.  </span> <span class="paragraphtext"><span class="verse">3</span> The king said, “What honor and dignity has been given to Mordecai for this?” </span> </span> <span class="paragraph"> <span class="paragraphtext">Then the king’s servants who attended him said, “Nothing has been done for him.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">4</span> The king said, “Who is in the court?” Now Haman had come into the outer court of the king’s house, to speak to the king about hanging Mordecai on the gallows that he had prepared for him. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">5</span> The king’s servants said to him, “Behold,</span> <span class="paragraphtext"> Haman stands in the court.” </span> </span> <span class="paragraph"> <span class="paragraphtext">The king said, “Let him come in.”  </span> <span class="paragraphtext"><span class="verse">6</span> So Haman came in. The king said to him, “What shall be done to the man whom the king delights to honor?” </span> </span> <span class="paragraph"> <span class="paragraphtext">Now Haman said in his heart, “Who would the king delight to honor more than myself?”  </span> <span class="paragraphtext"><span class="verse">7</span> Haman said to the king, “For the man whom the king delights to honor,  </span> <span class="paragraphtext"><span class="verse">8</span> let royal clothing be brought which the king uses to wear, and the horse that the king rides on, and on the head of which a royal crown is set.  </span> <span class="paragraphtext"><span class="verse">9</span> Let the clothing and the horse be delivered to the hand of one of the king’s most noble princes, that they may array the man whom the king delights to honor with them, and have him ride on horseback through the city square, and proclaim before him, ‘Thus it shall be done to the man whom the king delights to honor!’ ” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">10</span> Then the king said to Haman, “Hurry and take the clothing and the horse, as you have said, and do this for Mordecai the Jew, who sits at the king’s gate. Let nothing fail of all that you have spoken.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">11</span> Then Haman took the clothing and the horse, and arrayed Mordecai, and had him ride through the city square, and proclaimed before him, “Thus it shall be done to the man whom the king delights to honor!” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">12</span> Mordecai came back to the king’s gate, but Haman hurried to his house, mourning and having his head covered.  </span> <span class="paragraphtext"><span class="verse">13</span> Haman recounted to Zeresh his wife and all his friends everything that had happened to him. Then his wise men and Zeresh his wife said to him, “If Mordecai, before whom you have begun to fall, is of Jewish descent, you will not prevail against him, but you will surely fall before him.”  </span> <span class="paragraphtext"><span class="verse">14</span> While they were yet talking with him, the king’s eunuchs came, and hurried to bring Haman to the banquet that Esther had prepared. </span> </span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">7</span><span class="verse">1</span> So the king and Haman came to banquet with Esther the queen.  </span> <span class="paragraphtext"><span class="verse">2</span> The king said again to Esther on the second day at the banquet of wine, “What is your petition, queen Esther? It shall be granted you. What is your request? Even to the half of the kingdom it shall be performed.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">3</span> Then Esther the queen answered, “If I have found favor in your sight, O king, and if it pleases the king, let my life be given me at my petition, and my people at my request.  </span> <span class="paragraphtext"><span class="verse">4</span> For we are sold, I and my people, to be destroyed, to be slain, and to perish. But if we had been sold for male and female slaves, I would have held my peace, although the adversary could not have compensated for the king’s loss.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">5</span> Then King Ahasuerus said to Esther the queen, “Who is he, and where is he who dared presume in his heart to do so?” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">6</span> Esther said, “An adversary and an enemy, even this wicked Haman!” </span> </span> <span class="paragraph"> <span class="paragraphtext">Then Haman was afraid before the king and the queen.  </span> <span class="paragraphtext"><span class="verse">7</span> The king arose in his wrath from the banquet of wine and went into the palace garden. Haman stood up to make request for his life to Esther the queen; for he saw that there was evil determined against him by the king.  </span> <span class="paragraphtext"><span class="verse">8</span> Then the king returned out of the palace garden into the place of the banquet of wine; and Haman had fallen on the couch where Esther was. Then the king said, “Will he even assault the queen in front of me in the house?” As the word went out of the king’s mouth, they covered Haman’s face. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">9</span> Then Harbonah, one of the eunuchs who were with the king said, “Behold, the gallows fifty cubits</span> <span class="paragraphtext"> high, which Haman has made for Mordecai, who spoke good for the king, is standing at Haman’s house.” </span> </span> <span class="paragraph"> <span class="paragraphtext">The king said, “Hang him on it!” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">10</span> So they hanged Haman on the gallows that he had prepared for Mordecai. Then the king’s wrath was pacified. </span> </span>
 	</div>
@@ -113,6 +113,39 @@
 				updateCheckbox(monthData, day)
 			}
 			init(8, 29)
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+				var todaysDate = new Date()
+				var yesterdaysDate = new Date()
+				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
+				var tomorrowsDate = new Date()
+				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
+
+
+				var thisPageDateStr = 'August 29'
+				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
+				} else if (getDateStr(todaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
+				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+				}
+			}
+
+			function getDateStr(date) {
+				return date.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
 		</script>
 	
 

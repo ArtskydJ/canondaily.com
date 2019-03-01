@@ -35,7 +35,7 @@
 
 	
 	<div class="section subsection dark-bg">
-		<div class="header">August 9</div>
+		<div class="header" id="month-and-day">August 9</div>
 	</div><div class="section">
 		<span class="header">Ezra 9</span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">9</span><span class="verse">1</span> Now when these things were done, the princes came near to me, saying, “The people of Israel, the priests, and the Levites, have not separated themselves from the peoples of the lands, following their abominations, even those of the Canaanites, the Hittites, the Perizzites, the Jebusites, the Ammonites, the Moabites, the Egyptians, and the Amorites.  </span> <span class="paragraphtext"><span class="verse">2</span> For they have taken of their daughters for themselves and for their sons, so that the holy offspring have mixed themselves with the peoples of the lands. Yes, the hand of the princes and rulers has been chief in this trespass.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">3</span> When I heard this thing, I tore my garment and my robe, and pulled the hair out of my head and of my beard, and sat down confounded.  </span> <span class="paragraphtext"><span class="verse">4</span> Then everyone who trembled at the words of the God of Israel were assembled to me, because of their trespass of the captivity; and I sat confounded until the evening offering. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">5</span> At the evening offering I arose up from my humiliation, even with my garment and my robe torn; and I fell on my knees, and spread out my hands to Yahweh my God;  </span> <span class="paragraphtext"><span class="verse">6</span> and I said, “My God, I am ashamed and blush to lift up my face to you, my God; for our iniquities have increased over our head, and our guiltiness has grown up to the heavens.  </span> <span class="paragraphtext"><span class="verse">7</span> Since the days of our fathers we have been exceedingly guilty to this day; and for our iniquities we, our kings, and our priests, have been delivered into the hand of the kings of the lands, to the sword, to captivity, to plunder, and to confusion of face, as it is this day.  </span> <span class="paragraphtext"><span class="verse">8</span> Now for a little moment grace has been shown from Yahweh our God, to leave us a remnant to escape, and to give us a nail in his holy place, that our God may lighten our eyes, and revived us a little in our bondage.  </span> <span class="paragraphtext"><span class="verse">9</span> For we are bondservants; yet our God has not forsaken us in our bondage, but has extended loving kindness to us in the sight of the kings of Persia, to revive us, to set up the house of our God, and to repair its ruins, and to give us a wall in Judah and in Jerusalem. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">10</span> “Now, our God, what shall we say after this? For we have forsaken your commandments,  </span> <span class="paragraphtext"><span class="verse">11</span> which you have commanded by your servants the prophets, saying, ‘The land, to which you go to possess it, is an unclean land through the uncleanness of the peoples of the lands, through their abominations, which have filled it from one end to another with their filthiness.  </span> <span class="paragraphtext"><span class="verse">12</span> Now therefore don’t give your daughters to their sons. Don’t take their daughters to your sons, nor seek their peace or their prosperity forever; that you may be strong, and eat the good of the land, and leave it for an inheritance to your children forever.’ </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">13</span> “After all that has come on us for our evil deeds, and for our great guilt, since you, our God, have punished us less than our iniquities deserve, and have given us such a remnant,  </span> <span class="paragraphtext"><span class="verse">14</span> shall we again break your commandments, and join ourselves with the peoples that do these abominations? Wouldn’t you be angry with us until you had consumed us, so that there would be no remnant, nor any to escape?  </span> <span class="paragraphtext"><span class="verse">15</span> Yahweh, the God of Israel, you are righteous; for we are left a remnant that has escaped, as it is today. Behold,</span> <span class="paragraphtext"> we are before you in our guiltiness; for no one can stand before you because of this.” </span> </span>
 	</div>
@@ -113,6 +113,39 @@
 				updateCheckbox(monthData, day)
 			}
 			init(8, 9)
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+				var todaysDate = new Date()
+				var yesterdaysDate = new Date()
+				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
+				var tomorrowsDate = new Date()
+				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
+
+
+				var thisPageDateStr = 'August 9'
+				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
+				} else if (getDateStr(todaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
+				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+				}
+			}
+
+			function getDateStr(date) {
+				return date.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
 		</script>
 	
 

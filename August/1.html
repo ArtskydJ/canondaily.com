@@ -35,7 +35,7 @@
 
 	
 	<div class="section subsection dark-bg">
-		<div class="header">August 1</div>
+		<div class="header" id="month-and-day">August 1</div>
 	</div><div class="section">
 		<span class="header">Ezra 1</span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">1</span><span class="verse">1</span> Now in the first year of Cyrus king of Persia, that Yahweh’s</span> <span class="paragraphtext"> word by Jeremiah’s mouth might be accomplished, Yahweh stirred up the spirit of Cyrus king of Persia, so that he made a proclamation throughout all his kingdom, and put it also in writing, saying,  </span> <span class="paragraphtext"><span class="verse">2</span> “Cyrus king of Persia says, ‘Yahweh, the God</span> <span class="paragraphtext"> of heaven, has given me all the kingdoms of the earth; and he has commanded me to build him a house in Jerusalem, which is in Judah.  </span> <span class="paragraphtext"><span class="verse">3</span> Whoever there is among you of all his people, may his God be with him, and let him go up to Jerusalem, which is in Judah, and build the house of Yahweh, the God of Israel (he is God), which is in Jerusalem.  </span> <span class="paragraphtext"><span class="verse">4</span> Whoever is left, in any place where he lives, let the men of his place help him with silver, with gold, with goods, and with animals, in addition to the free will offering for God’s house which is in Jerusalem.’ ” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">5</span> Then the heads of fathers’ households of Judah and Benjamin, the priests, and the Levites, all whose spirit God had stirred to go up rose up to build Yahweh’s house which is in Jerusalem.  </span> <span class="paragraphtext"><span class="verse">6</span> All those who were around them strengthened their hands with vessels of silver, with gold, with goods, with animals, and with precious things, in addition to all that was willingly offered.  </span> <span class="paragraphtext"><span class="verse">7</span> Also Cyrus the king brought out the vessels of Yahweh’s house, which Nebuchadnezzar had brought out of Jerusalem, and had put in the house of his gods;  </span> <span class="paragraphtext"><span class="verse">8</span> even those, Cyrus king of Persia brought out by the hand of Mithredath the treasurer, and counted them out to Sheshbazzar, the prince of Judah.  </span> <span class="paragraphtext"><span class="verse">9</span> This is the number of them: thirty platters of gold, one thousand platters of silver, twenty-nine knives,  </span> <span class="paragraphtext"><span class="verse">10</span> thirty bowls of gold, four hundred ten silver bowls of a second sort, and one thousand other vessels.  </span> <span class="paragraphtext"><span class="verse">11</span> All the vessels of gold and of silver were five thousand four hundred. Sheshbazzar brought all these up when the captives were brought up from Babylon to Jerusalem. </span> </span>
 	</div>
@@ -113,6 +113,39 @@
 				updateCheckbox(monthData, day)
 			}
 			init(8, 1)
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+				var todaysDate = new Date()
+				var yesterdaysDate = new Date()
+				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
+				var tomorrowsDate = new Date()
+				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
+
+
+				var thisPageDateStr = 'August 1'
+				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
+				} else if (getDateStr(todaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
+				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+				}
+			}
+
+			function getDateStr(date) {
+				return date.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
 		</script>
 	
 

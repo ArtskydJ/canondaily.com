@@ -35,7 +35,7 @@
 
 	
 	<div class="section subsection dark-bg">
-		<div class="header">August 7</div>
+		<div class="header" id="month-and-day">August 7</div>
 	</div><div class="section">
 		<span class="header">Ezra 7</span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">7</span><span class="verse">1</span> Now after these things, in the reign of Artaxerxes king of Persia, Ezra the son of Seraiah, the son of Azariah, the son of Hilkiah,  </span> <span class="paragraphtext"><span class="verse">2</span> the son of Shallum, the son of Zadok, the son of Ahitub,  </span> <span class="paragraphtext"><span class="verse">3</span> the son of Amariah, the son of Azariah, the son of Meraioth,  </span> <span class="paragraphtext"><span class="verse">4</span> the son of Zerahiah, the son of Uzzi, the son of Bukki,  </span> <span class="paragraphtext"><span class="verse">5</span> the son of Abishua, the son of Phinehas, the son of Eleazar, the son of Aaron the chief priest—  </span> <span class="paragraphtext"><span class="verse">6</span> this Ezra went up from Babylon. He was a skilled scribe in the law of Moses, which Yahweh, the God of Israel, had given; and the king granted him all his request, according to Yahweh his God’s hand on him.  </span> <span class="paragraphtext"><span class="verse">7</span> Some of the children of Israel, including some of the priests, the Levites, the singers, the gatekeepers, and the temple servants went up to Jerusalem in the seventh year of Artaxerxes the king.  </span> <span class="paragraphtext"><span class="verse">8</span> He came to Jerusalem in the fifth month, which was in the seventh year of the king.  </span> <span class="paragraphtext"><span class="verse">9</span> For on the first day of the first month he began to go up from Babylon; and on the first day of the fifth month he came to Jerusalem, according to the good hand of his God on him.  </span> <span class="paragraphtext"><span class="verse">10</span> For Ezra had set his heart to seek Yahweh’s law, and to do it, and to teach statutes and ordinances in Israel. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">11</span> Now this is the copy of the letter that the king Artaxerxes gave to Ezra the priest, the scribe, even the scribe of the words of Yahweh’s commandments, and of his statutes to Israel: </span> </span> <span class="stanza"> <span class="line"><span class="verse">12</span> Artaxerxes, king of kings, </span> <span class="line">To Ezra the priest, the scribe of the law of the perfect God of heaven. </span> </span> <span class="paragraph"> <span class="paragraphtext">Now  </span> <span class="paragraphtext"><span class="verse">13</span> I make a decree, that all those of the people of Israel, and their priests and the Levites, in my realm, who intend of their own free will to go to Jerusalem, go with you.  </span> <span class="paragraphtext"><span class="verse">14</span> Because you are sent by the king and his seven counselors, to inquire concerning Judah and Jerusalem, according to the law of your God which is in your hand,  </span> <span class="paragraphtext"><span class="verse">15</span> and to carry the silver and gold, which the king and his counselors have freely offered to the God of Israel, whose habitation is in Jerusalem,  </span> <span class="paragraphtext"><span class="verse">16</span> and all the silver and gold that you will find in all the province of Babylon, with the free will offering of the people, and of the priests, offering willingly for the house of their God which is in Jerusalem;  </span> <span class="paragraphtext"><span class="verse">17</span> therefore you shall with all diligence buy with this money bulls, rams, lambs, with their meal offerings and their drink offerings, and shall offer them on the altar of the house of your God which is in Jerusalem.  </span> <span class="paragraphtext"><span class="verse">18</span> Whatever seems good to you and to your brothers to do with the rest of the silver and the gold, do that according to the will of your God.  </span> <span class="paragraphtext"><span class="verse">19</span> The vessels that are given to you for the service of the house of your God, deliver before the God of Jerusalem.  </span> <span class="paragraphtext"><span class="verse">20</span> Whatever more will be needed for the house of your God, which you may have occasion to give, give it out of the king’s treasure house. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">21</span> I, even I Artaxerxes the king, make a decree to all the treasurers who are beyond the River, that whatever Ezra the priest, the scribe of the law of the God of heaven, requires of you, it shall be done with all diligence,  </span> <span class="paragraphtext"><span class="verse">22</span> up to one hundred talents</span> <span class="paragraphtext"> of silver, and to one hundred cors</span> <span class="paragraphtext"> of wheat, and to one hundred baths</span> <span class="paragraphtext"> of wine, and to one hundred baths of oil, and salt without prescribing how much.  </span> <span class="paragraphtext"><span class="verse">23</span> Whatever is commanded by the God of heaven, let it be done exactly for the house of the God of heaven; for why should there be wrath against the realm of the king and his sons? </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">24</span> Also we inform you that it shall not be lawful to impose tribute, custom, or toll, on any of the priests, Levites, singers, gatekeepers, temple servants, or laborers of this house of God. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">25</span> You, Ezra, according to the wisdom of your God that is in your hand, appoint magistrates and judges, who may judge all the people who are beyond the River, who all know the laws of your God; and teach him who doesn’t know them.  </span> <span class="paragraphtext"><span class="verse">26</span> Whoever will not do the law of your God and the law of the king, let judgment be executed on him with all diligence, whether it is to death, or to banishment, or to confiscation of goods, or to imprisonment. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">27</span> Blessed be Yahweh, the God of our fathers, who has put such a thing as this in the king’s heart, to beautify Yahweh’s house which is in Jerusalem;  </span> <span class="paragraphtext"><span class="verse">28</span> and has extended loving kindness to me before the king and his counselors, and before all the king’s mighty princes. I was strengthened according to Yahweh my God’s hand on me, and I gathered together chief men out of Israel to go up with me. </span> </span>
 	</div>
@@ -113,6 +113,39 @@
 				updateCheckbox(monthData, day)
 			}
 			init(8, 7)
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+				var todaysDate = new Date()
+				var yesterdaysDate = new Date()
+				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
+				var tomorrowsDate = new Date()
+				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
+
+
+				var thisPageDateStr = 'August 7'
+				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
+				} else if (getDateStr(todaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
+				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+				}
+			}
+
+			function getDateStr(date) {
+				return date.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
 		</script>
 	
 

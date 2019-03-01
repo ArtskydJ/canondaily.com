@@ -35,7 +35,7 @@
 
 	
 	<div class="section subsection dark-bg">
-		<div class="header">August 15</div>
+		<div class="header" id="month-and-day">August 15</div>
 	</div><div class="section">
 		<span class="header">Nehemiah 5</span> <span class="paragraph"> <span class="paragraphtext"> <span class="chapter">5</span><span class="verse">1</span> Then there arose a great cry of the people and of their wives against their brothers the Jews.  </span> <span class="paragraphtext"><span class="verse">2</span> For there were some who said, “We, our sons and our daughters, are many. Let us get grain, that we may eat and live.”  </span> <span class="paragraphtext"><span class="verse">3</span> There were also some who said, “We are mortgaging our fields, our vineyards, and our houses. Let us get grain, because of the famine.”  </span> <span class="paragraphtext"><span class="verse">4</span> There were also some who said, “We have borrowed money for the king’s tribute using our fields and our vineyards as collateral.  </span> <span class="paragraphtext"><span class="verse">5</span> Yet now our flesh is as the flesh of our brothers, our children as their children. Behold,</span> <span class="paragraphtext"> we bring our sons and our daughters into bondage to be servants, and some of our daughters have been brought into bondage. It is also not in our power to help it, because other men have our fields and our vineyards.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">6</span> I was very angry when I heard their cry and these words.  </span> <span class="paragraphtext"><span class="verse">7</span> Then I consulted with myself, and contended with the nobles and the rulers, and said to them, “You exact usury, everyone of his brother.” I held a great assembly against them.  </span> <span class="paragraphtext"><span class="verse">8</span> I said to them, “We, after our ability, have redeemed our brothers the Jews that were sold to the nations; and would you even sell your brothers, and should they be sold to us?” Then they held their peace, and found not a word to say.  </span> <span class="paragraphtext"><span class="verse">9</span> Also I said, “The thing that you do is not good. Shouldn’t you walk in the fear of our God, because of the reproach of the nations our enemies?  </span> <span class="paragraphtext"><span class="verse">10</span> I likewise, my brothers and my servants, lend them money and grain. Please let us stop this usury.  </span> <span class="paragraphtext"><span class="verse">11</span> Please restore to them, even today, their fields, their vineyards, their olive groves, and their houses, also the hundredth part of the money, and of the grain, the new wine, and the oil, that you are charging them.” </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">12</span> Then they said, “We will restore them, and will require nothing of them. We will do so, even as you say.” </span> </span> <span class="paragraph"> <span class="paragraphtext">Then I called the priests, and took an oath of them, that they would do according to this promise.  </span> <span class="paragraphtext"><span class="verse">13</span> Also I shook out my lap, and said, “So may God shake out every man from his house, and from his labor, that doesn’t perform this promise; even may he be shaken out and emptied like this.” </span> </span> <span class="paragraph"> <span class="paragraphtext">All the assembly said, “Amen,” and praised Yahweh. The people did according to this promise. </span> </span> <span class="paragraph"> <span class="paragraphtext"><span class="verse">14</span> Moreover from the time that I was appointed to be their governor in the land of Judah, from the twentieth year even to the thirty-second year of Artaxerxes the king, that is, twelve years, I and my brothers have not eaten the bread of the governor.  </span> <span class="paragraphtext"><span class="verse">15</span> But the former governors who were before me were supported by the people, and took bread and wine from them, plus forty shekels</span> <span class="paragraphtext"> of silver; yes, even their servants ruled over the people; but I didn’t do so, because of the fear of God.  </span> <span class="paragraphtext"><span class="verse">16</span> Yes, I also continued in the work of this wall. We didn’t buy any land. All my servants were gathered there to the work.  </span> <span class="paragraphtext"><span class="verse">17</span> Moreover there were at my table, of the Jews and the rulers, one hundred fifty men, in addition to those who came to us from among the nations that were around us.  </span> <span class="paragraphtext"><span class="verse">18</span> Now that which was prepared for one day was one ox and six choice sheep. Also fowls were prepared for me, and once in ten days a store of all sorts of wine. Yet for all this, I didn’t demand the governor’s pay, because the bondage was heavy on this people.  </span> <span class="paragraphtext"><span class="verse">19</span> Remember me, my God, for good, all that I have done for this people. </span> </span>
 	</div>
@@ -113,6 +113,39 @@
 				updateCheckbox(monthData, day)
 			}
 			init(8, 15)
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+				var todaysDate = new Date()
+				var yesterdaysDate = new Date()
+				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
+				var tomorrowsDate = new Date()
+				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
+
+
+				var thisPageDateStr = 'August 15'
+				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
+				} else if (getDateStr(todaysDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
+					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
+				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
+					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
+					eleMonthAndDay.parentNode.style.backgroundColor = 'blue'
+				}
+			}
+
+			function getDateStr(date) {
+				return date.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
 		</script>
 	
 
