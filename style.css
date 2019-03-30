@@ -153,7 +153,7 @@ nav a:hover {
 
 @media (max-width: 640px) { /* container size */
 	#calendar {
-		grid-template-rows: repeat(53, calc(100vw / 7));
+		grid-template-rows: repeat(54, calc(100vw / 7));
 	}
 	.date {
 		font-size: 15pt;
