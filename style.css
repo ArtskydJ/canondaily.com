@@ -52,7 +52,9 @@ nav a:hover {
 .container {
 	margin: 0 auto;
 	max-width: 640px;
-	padding: 0 0.5em;
+}
+.container {
+	padding: 0 0.5em; /* makes the nav look better on small screens */
 }
 .section {
 	margin-bottom: 2em;
@@ -70,6 +72,15 @@ nav a:hover {
 	display: block;
 	text-align: center;
 }
+
+/* Month and Day header at the top of each day */
+#month-and-day.yesterday::after { content: ' (Yesterday)'; }
+#month-and-day.today::after     { content: ' (Today)'; }
+#month-and-day.tomorrow::after  { content: ' (Tomorrow)'; }
+#month-and-day.yesterday { background-color: orange; }
+#month-and-day.today     { background-color: #4c0; }
+#month-and-day.tomorrow  { background-color: #39f; }
+
 
 #background-message {
 	margin-top: 40vh;
@@ -117,8 +128,8 @@ nav a:hover {
 	max-width: 640px;
 	line-height: 1.25;
 }
-.today,
-.date {
+.cal-today,
+.cal-date {
 	margin: 6px;
 	background-color: #404040;
 	text-align: center;
@@ -130,20 +141,20 @@ nav a:hover {
 	justify-content: center;
 	align-items: center;
 }
-.date {
+.cal-date {
 	font-size: 20pt;
 }
-.today:hover,
-.date:hover {
+.cal-today:hover,
+.cal-date:hover {
 	background-color: #555;
 }
-.date .checkmark {
-	color: #1b1;
+.cal-date.completed {
+	background-color: #4c0; /*#1b1;*/
 }
-.date-spacer {
+.cal-date-spacer {
 	grid-column-start: 1;
 }
-.today {
+.cal-today {
 	text-align: center;
 	grid-column-start: 1;
 	grid-column-end: 8;
@@ -155,20 +166,20 @@ nav a:hover {
 	#calendar {
 		grid-template-rows: repeat(54, calc(100vw / 7));
 	}
-	.date {
+	.cal-date {
 		font-size: 15pt;
 		margin: 1vw;
 	}
-	.today {
+	.cal-today {
 		font-size: 30pt;
 		margin: 1vw;
 	}
 }
 @media (max-width: 400px) { /* small phone screens */
-	.date {
+	.cal-date {
 		font-size: 10pt;
 	}
-	.today {
+	.cal-today {
 		font-size: 20pt;
 	}
 }
@@ -178,14 +189,14 @@ nav a:hover {
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
-	.date {
+	.cal-date {
 		width: 35px;
 		height: 35px;
 	}
-	.date-spacer {
+	.cal-date-spacer {
 		display: none;
 	}
-	.today {
+	.cal-today {
 		flex-basis: 100%;
 	}
 }
