@@ -5,8 +5,7 @@ var proudVsBroken = require('./proud-vs-broken.json')
 var meditate = require('./meditate.json')
 // var generateCalendar = require('./generate-calendar.js')
 
-var monthNames = [,'January','February','March','April','May','June',
-	'July','August','September','October','November','December']
+const { monthNames, expectedMonthLength } = require('./month-constants.json')
 
 var bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
 var dtpm = parseBookmarks(bookmarksTxt)
@@ -67,9 +66,8 @@ function getCompleteButtonHtml(month, day) {
 		</div>
 
 		<script>
-			var expectedMonthLength = [,31,28,31,30,31,30,31,31,30,31,30,31]
-			var monthNames = [,'January','February','March','April','May','June',
-				'July','August','September','October','November','December']
+			var expectedMonthLength = ${ JSON.stringify(expectedMonthLength) }
+			var monthNames = ${ JSON.stringify(monthNames) }
 
 			function updateCheckbox(monthData, day) {
 				document.getElementById('cm').style.display = monthData[day] ? 'inline' : 'none'
@@ -111,28 +109,22 @@ function getCompleteButtonHtml(month, day) {
 
 			function updateIsToday() {
 				var eleMonthAndDay = document.getElementById('month-and-day')
-				var todaysDate = new Date()
-				var yesterdaysDate = new Date()
-				var yesterdaysDateStr = yesterdaysDate.setDate(yesterdaysDate.getDate() - 1)
-				var tomorrowsDate = new Date()
-				var tomorrowsDateStr = tomorrowsDate.setDate(tomorrowsDate.getDate() + 1)
 
 
 				var thisPageDateStr = '${monthNames[month]} ${day}'
-				if (getDateStr(yesterdaysDate) === thisPageDateStr) {
-					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Yesterday)'
-					eleMonthAndDay.parentNode.style.backgroundColor = 'orange'
-				} else if (getDateStr(todaysDate) === thisPageDateStr) {
-					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Today)'
-					eleMonthAndDay.parentNode.style.backgroundColor = '#4c0'
-				} else if (getDateStr(tomorrowsDate) === thisPageDateStr) {
-					eleMonthAndDay.innerHTML = thisPageDateStr + ' (Tomorrow)'
-					eleMonthAndDay.parentNode.style.backgroundColor = '#39f'
+				if (getDateStr(-1) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('yesterday')
+				} else if (getDateStr(0) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('today')
+				} else if (getDateStr(1) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('tomorrow')
 				}
 			}
 
-			function getDateStr(date) {
-				return date.toLocaleDateString('en-US', {
+			function getDateStr(offsetDays) {
+				var offsetDate = new Date()
+				offsetDate.setDate(offsetDate.getDate() + offsetDays)
+				return offsetDate.toLocaleDateString('en-US', {
 					month: 'long',
 					day: 'numeric'
 				})
