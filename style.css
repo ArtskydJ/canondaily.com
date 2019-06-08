@@ -62,7 +62,8 @@ nav a:hover {
 	color: #130;
 	cursor: pointer;
 	margin-bottom: 0;
-	padding: 2em 0;
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
 #background-message,
 .header {
@@ -97,10 +98,12 @@ nav a:hover {
 	display: block;
 }
 
-.subsection .header {
-	font-size: 1.6em;
-}
 .subheader {
+	font-size: 1.6em;
+	display: block;
+	text-align: center;
+}
+.subsubheader {
 	font-size: 1.4em;
 	display: inline;
 	padding-right: 1em;

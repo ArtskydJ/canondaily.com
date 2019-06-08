@@ -21,10 +21,7 @@ module.exports = function generateDayHtml(month, day) {
 }
 
 function getDayNameHtml(month, day) {
-	return `
-	<div class="section subsection">
-		<div class="header dark-bg" id="month-and-day">${monthNames[month]} ${day}</div>
-	</div>`
+	return `<div class="section subheader dark-bg" id="month-and-day">${monthNames[month]} ${day}</div>`
 }
 
 function getProudVsBrokenHtml(day) {
@@ -33,14 +30,14 @@ function getProudVsBrokenHtml(day) {
 		index -= Math.floor(proudVsBroken.length / 3)
 	}
 	return `
-	<div class="section subsection dark-bg">
-		<div class="header">Proud VS Broken</div>
+	<div class="section dark-bg">
+		<div class="subheader">Proud VS Broken</div>
 		<div>
-			<div class="subheader">Proud</div>
+			<div class="subsubheader">Proud</div>
 			${proudVsBroken[index][0]}
 		</div>
 		<div>
-			<div class="subheader">Broken</div>
+			<div class="subsubheader">Broken</div>
 			${proudVsBroken[index][1]}
 		</div>
 	</div>`
@@ -49,9 +46,9 @@ function getProudVsBrokenHtml(day) {
 function getMeditationHtml(day) {
 	var bibleSection = meditate[day - 1]
 	return `
-	<div class="section subsection">
-		<div class="header">Meditate on this</div>
-		<div class="subheader">${bibleSection.passage} ${bibleSection.version}</div>
+	<div class="section">
+		<div class="subheader">Meditate on this</div>
+		<div class="subsubheader">${bibleSection.passage} ${bibleSection.version}</div>
 		${bibleSection.text}
 	</div>
 	`
