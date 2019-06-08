@@ -52,9 +52,7 @@ nav a:hover {
 .container {
 	margin: 0 auto;
 	max-width: 640px;
-}
-.container {
-	padding: 0 0.5em; /* makes the nav look better on small screens */
+	padding: 0 0.5em;
 }
 .section {
 	margin-bottom: 2em;

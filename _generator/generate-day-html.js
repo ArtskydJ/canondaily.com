@@ -22,8 +22,8 @@ module.exports = function generateDayHtml(month, day) {
 
 function getDayNameHtml(month, day) {
 	return `
-	<div class="section subsection dark-bg">
-		<div class="header" id="month-and-day">${monthNames[month]} ${day}</div>
+	<div class="section subsection">
+		<div class="header dark-bg" id="month-and-day">${monthNames[month]} ${day}</div>
 	</div>`
 }
 
