@@ -62,9 +62,17 @@
 		Therefore, as the elect of God, holy and beloved, put on tender mercies, kindness, humility, meekness, longsuffering; bearing with one another, and forgiving one another, if anyone has a complaint against another; even as Christ forgave you, so you also must do.
 	</div>
 	
-		<div id="complete" class="section complete-button" onclick="markDayAsComplete(5, 5)">
+		<div class="section complete-button" onclick="markDayAsComplete(5, 5)">
 			<div class="header">
 				Complete<span class="checkmark" id="cm"></span>
+			</div>
+		</div>
+		<div class="container change-day">
+			<div class="prev-day" onclick="location.assign('./4')">
+				<div class="header">◄ Back</div>
+			</div>
+			<div class="next-day" onclick="location.assign('./6')">
+				<div class="header">Next ►</div>
 			</div>
 		</div>
 
@@ -89,15 +97,6 @@
 				monthData[day] = 1
 				writeSavedMonth(month, monthData)
 				updateCheckbox(monthData, day)
-				setTimeout(function () {
-					if (month === 12 && day === 31) { // end of year
-						location.assign('../January/1')
-					} else if (day === expectedMonthLength[month]) { // end of month
-						location.assign('../' + monthNames[month + 1] + '/1')
-					} else {
-						location.assign('./' + (day + 1))
-					}
-				}, wasComplete ? 0 : 1000)
 			}
 
 			function init(month, day) {
