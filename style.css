@@ -65,6 +65,20 @@ nav a:hover {
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
+.change-day {
+	display: flex;
+	flex: 0 1 auto;
+	justify-content: space-between;
+}
+.change-day > .prev-day,
+.change-day > .next-day {
+	color: #fff;
+	background-color: #06f;
+	width: 50%;
+	margin: 20px 10px;
+	cursor: pointer;
+	padding: 15px 25px;
+}
 #background-message,
 .header {
 	font-size: 2em;

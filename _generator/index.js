@@ -15,7 +15,8 @@ if (false) { // debug
 	writeSubtemplate('January/1', generateDayHtml(1, 1), 'January 1')
 	writeSubtemplate('January/2', generateDayHtml(1, 2), 'January 2')
 	writeSubtemplate('January/3', generateDayHtml(1, 3), 'January 3')
-	console.log('\nSkipping the daily pages other than Jan 1,2,3\n')
+	console.log('\nSkipping the daily pages other than Jan 1,2,3')
+	console.log('Open localcanondaily.com in your browser.\n')
 	process.exit(1)
 }
 

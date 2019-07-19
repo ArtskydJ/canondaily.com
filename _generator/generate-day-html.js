@@ -56,9 +56,17 @@ function getMeditationHtml(day) {
 
 function getCompleteButtonHtml(month, day) {
 	return `
-		<div id="complete" class="section complete-button" onclick="markDayAsComplete(${month}, ${day})">
+		<div class="section complete-button" onclick="markDayAsComplete(${month}, ${day})">
 			<div class="header">
 				Complete<span class="checkmark" id="cm"></span>
+			</div>
+		</div>
+		<div class="container change-day">
+			<div class="prev-day" onclick="location.assign('${ calculatePrevDayUrl(month, day) }')">
+				<div class="header">◄ Back</div>
+			</div>
+			<div class="next-day" onclick="location.assign('${ calculateNextDayUrl(month, day) }')">
+				<div class="header">Next ►</div>
 			</div>
 		</div>
 
@@ -83,15 +91,6 @@ function getCompleteButtonHtml(month, day) {
 				monthData[day] = 1
 				writeSavedMonth(month, monthData)
 				updateCheckbox(monthData, day)
-				setTimeout(function () {
-					if (month === 12 && day === 31) { // end of year
-						location.assign('../January/1')
-					} else if (day === expectedMonthLength[month]) { // end of month
-						location.assign('../' + monthNames[month + 1] + '/1')
-					} else {
-						location.assign('./' + (day + 1))
-					}
-				}, wasComplete ? 0 : 1000)
 			}
 
 			function init(month, day) {
@@ -132,4 +131,24 @@ function getCompleteButtonHtml(month, day) {
 			setInterval(updateIsToday, 1000)
 		</script>
 	`
+}
+
+function calculatePrevDayUrl(month, day) {
+	if (month === 1 && day === 1) { // start of year
+		return '../December/31'
+	} else if (day === 1) { // start of month
+		return '../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1]
+	} else {
+		return './' + (day - 1)
+	}
+}
+
+function calculateNextDayUrl(month, day) {
+	if (month === 12 && day === 31) { // end of year
+		return '../January/1'
+	} else if (day === expectedMonthLength[month]) { // end of month
+		return '../' + monthNames[month + 1] + '/1'
+	} else {
+		return './' + (day + 1)
+	}
 }
