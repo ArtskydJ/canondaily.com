@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ArtskydJ/canondaily.com#readme",
   "dependencies": {
+    "art-template": "^4.13.2",
     "world-english-bible": "0.0.2"
   }
 }

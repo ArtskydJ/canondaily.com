@@ -1,4 +1,4 @@
-const { monthNames, shortMonthNames, expectedMonthLength } = require('./month-constants.json')
+const { monthNames, shortMonthNames, expectedMonthLength } = require('./constant/months.json')
 
 // The calendar needs to be re-generated yearly.
 module.exports = function generateCalendar(year) { // year e.g. 2019

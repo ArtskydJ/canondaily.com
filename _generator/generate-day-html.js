@@ -1,13 +1,13 @@
 var fs = require('fs')
 var parseBookmarks = require('./bookmarks-parser.js')
 var getBibleHtml = require('./get-bible-html.js')
-var proudVsBroken = require('./proud-vs-broken.json')
-var meditate = require('./meditate.json')
+var proudVsBroken = require('./constant/proud-vs-broken.json')
+var meditate = require('./constant/meditate.json')
 // var generateCalendar = require('./generate-calendar.js')
 
-const { monthNames, expectedMonthLength } = require('./month-constants.json')
+const { monthNames, expectedMonthLength } = require('./constant/months.json')
 
-var bookmarksTxt = fs.readFileSync(__dirname + '/bookmarks.txt', 'utf-8')
+var bookmarksTxt = fs.readFileSync(__dirname + '/constant/bookmarks.txt', 'utf-8')
 var dtpm = parseBookmarks(bookmarksTxt)
 
 module.exports = function generateDayHtml(month, day) {

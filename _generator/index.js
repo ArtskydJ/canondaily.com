@@ -6,7 +6,7 @@ var generateDayHtml = require('./generate-day-html.js')
 var masterTemplateHtml = fs.readFileSync(__dirname + '/template/master-template.html', 'utf-8')
 var pffosSubtemplateHtml = fs.readFileSync(__dirname + '/template/prayer-for-filling-of-spirit-subtemplate.html', 'utf-8')
 
-const { monthNames, expectedMonthLength } = require('./month-constants.json')
+const { monthNames, expectedMonthLength } = require('./constant/months.json')
 
 writeSubtemplate('index', generateCalendar(new Date().getFullYear()))
 writeSubtemplate('prayer-for-filling-of-spirit', pffosSubtemplateHtml, 'Prayer for the Filling of the Spirit')
