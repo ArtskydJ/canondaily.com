@@ -5,7 +5,7 @@
 	<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1">
 	<meta name="theme-color" content="#404040">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<title>Canon Daily</title>
+	<title>{{title}}</title>
 	<link rel="manifest" href="/manifest.json">
 	<link rel="shortcut icon" href="/icons/bible.ico">
 	<link rel="stylesheet" type="text/css" href="/style.css">
@@ -33,7 +33,7 @@
 		</div>
 	</nav>
 
-	<!-- [[SUBTEMPLATE]] -->
+	{{block 'body'}}{{/block}}
 
 </body>
 </html>

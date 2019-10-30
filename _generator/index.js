@@ -1,37 +1,72 @@
+global.DEBUG = false
+
 var fs = require('fs')
 var path = require('path')
-var generateCalendar = require('./generate-calendar.js')
-var generateDayHtml = require('./generate-day-html.js')
 
-var masterTemplateHtml = fs.readFileSync(__dirname + '/template/master-template.html', 'utf-8')
-var pffosSubtemplateHtml = fs.readFileSync(__dirname + '/template/prayer-for-filling-of-spirit-subtemplate.html', 'utf-8')
+const mustache = require('art-template')
 
-const { monthNames, expectedMonthLength } = require('./constant/months.json')
+var parseBookmarks = require('./bookmarks-parser.js')
+var getBibleHtml = require('./get-bible-html.js')
+var proudVsBroken = require('./constant/proud-vs-broken.json')
+var meditate = require('./constant/meditate.json')
 
-writeSubtemplate('index', generateCalendar(new Date().getFullYear()))
-writeSubtemplate('prayer-for-filling-of-spirit', pffosSubtemplateHtml, 'Prayer for the Filling of the Spirit')
+var bookmarksTxt = fs.readFileSync(__dirname + '/constant/bookmarks.txt', 'utf-8')
+var dtpm = parseBookmarks(bookmarksTxt)
 
-if (false) { // debug
-	writeSubtemplate('January/1', generateDayHtml(1, 1), 'January 1')
-	writeSubtemplate('January/2', generateDayHtml(1, 2), 'January 2')
-	writeSubtemplate('January/3', generateDayHtml(1, 3), 'January 3')
-	console.log('\nSkipping the daily pages other than Jan 1,2,3')
-	console.log('Open localcanondaily.com in your browser.\n')
-	process.exit(1)
-}
+const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
+
+writeSubtemplate('calendar.art', 'index.html', {
+	range: range,
+	range12: range(1, 12),
+	expectedMonthRange: expectedMonthLength.map(len => len && range(1, len)),
+	monthNames,
+	shortMonthNames,
+	dayOfWeek: 2,
+	title: 'Canon Daily'
+}) // , generateCalendar(new Date().getFullYear())
+writeSubtemplate('prayer-for-filling-of-spirit.art', 'prayer-for-filling-of-spirit.html', {
+	title: 'Prayer for the Filling of the Spirit - Canon Daily'
+})
 
 for (var month = 1; month <= 12; month++) {
 	for (var day = 1; day <= expectedMonthLength[month]; day++) {
-		var dayHtml = generateDayHtml(month, day)
-		writeSubtemplate(monthNames[month] + '/' + day, dayHtml, monthNames[month] + ' ' + day)
+		// pvb
+		var pvbIdx = day - 1
+		if (pvbIdx >= proudVsBroken.length) { // there are 30 proud-vs-broken items
+			pvbIdx -= Math.floor(proudVsBroken.length / 3)
+		}
+		writeSubtemplate('day.art', monthNames[month] + '/' + day + '.html', {
+			title: monthNames[month] + ' ' + day + ' - Canon Daily',
+			month,
+			day,
+			proud: proudVsBroken[pvbIdx][0],
+			broken: proudVsBroken[pvbIdx][1],
+			meditate: meditate[day - 1],
+			bibleHtml: dtpm[month + '/' + day].map(getBibleHtml).join('\n'),
+			monthNames,
+			expectedMonthLength,
+		})
+
+		if (global.DEBUG && day >= 3) { // debug
+			console.log('\nSkipping the daily pages other than Jan 1,2,3')
+			console.log('Open localcanondaily.com in your browser.\n')
+			process.exit(1)
+		}
 	}
 }
 
-function writeSubtemplate(partialPath, subtemplateHtml, title) {
-	var html = masterTemplateHtml.replace('<!-- [[SUBTEMPLATE]] -->', subtemplateHtml)
-	if (title) {
-		html = html.replace('<title>Canon Daily</title>', `<title>${title} - Canon Daily</title>`)
-	}
-	fs.writeFileSync(path.resolve(__dirname, '..', partialPath + '.html'), html)
+function writeSubtemplate(templateName, resultName, data) {
+	const templateHtmlPath = path.resolve(__dirname, 'template', templateName)
+	const resultHtmlPath = path.resolve(__dirname, '..', resultName)
+	const extendedData = Object.assign({
+		JSONstringify: a => JSON.stringify(a),
+		expectedMonthLength,
+		monthNames,
+	}, data)
+	const resultHtml = mustache(templateHtmlPath, extendedData)
+	fs.writeFileSync(resultHtmlPath, resultHtml, 'utf-8')
 }
 
+function range(start, end) {
+	return Array(end - start + 1).fill().map((_, i) => i + start)
+}

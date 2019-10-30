@@ -1,4 +1,6 @@
-<div class="section">
+{{extend './master.art'}}
+
+{{block 'body'}}<div class="section">
 	<span class="header">Prayer for the Filling of the Spirit</span>
 
 	<span class="paragraph">Father, your word has promised that if we ask for the Spirit, you will give of the Spirit far more readily than parents give the necessities of life to their children. I lay claim to the “how much more” of Luke 11:13 and ask that you would give to me an extra portion of the Spirit’s presence for today. I need the Spirit because you have commanded me to “walk in the Spirit”<span class="verse"> (Gal. 5:16)</span> in everything that I do. Help me to “sing in the Spirit”<span class="verse"> (1 Cor. 14:15)</span>, to “worship...in the Spirit”<span class="verse"> (Phil. 3:3)</span> and to “rejoice in the Holy Spirit”<span class="verse"> (1 Thes. 1:6; Rom. 14:17)</span>. Please help me to “pray in the Spirit”<span class="verse"> (Jude 20; Eph. 6:18)</span> since I do not know what I should pray for as I ought<span class="verse"> (Rom. 8:26)</span>. Help me to “love in the Spirit”<span class="verse"> (Col. 1:18)</span>, be “led by the Spirit”<span class="verse"> (Matt. 4:1; Rom. 8:14; Gal. 5:18)</span>, be “moved by the Spirit”<span class="verse"> (Luke 2:27)</span>, be “compelled by the Spirit”<span class="verse"> (Acts 20:22 NIV)</span> and to have my “mind controlled by the Spirit”<span class="verse"> (Rom. 8:6)</span>. May every part of me be controlled by the Spirit<span class="verse"> (Rom. 8:6,9)</span> so that I might “live in the Spirit”<span class="verse"> (Gal. 5:25; Rom. 8:13)</span>. I want to be taught by the Holy Spirit<span class="verse"> (1 Cor. 2:13)</span>, to speak by the Spirit since “no one can say that Jesus is Lord except by the Holy Spirit”<span class="verse"> (1 Cor. 12:3)</span>. Wash and sanctify me by the Spirit<span class="verse"> (1 Cor. 6:11)</span>.</span>
@@ -30,3 +32,4 @@
 		</a>
 	</span>
 </div>
+{{/block}}

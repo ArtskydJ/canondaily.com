@@ -1,0 +1,96 @@
+{{extend './master.art'}}
+
+{{block 'body'}}<div class="section subheader dark-bg" id="month-and-day">{{monthNames[month]}} {{day}}</div>{{@ bibleHtml }}
+	<div class="section dark-bg">
+		<div class="subheader">Proud VS Broken</div>
+		<div>
+			<div class="subsubheader">Proud</div>
+			{{proud}}
+		</div>
+		<div>
+			<div class="subsubheader">Broken</div>
+			{{broken}}
+		</div>
+	</div>
+	<div class="section">
+		<div class="subheader">Meditate on this</div>
+		<div class="subsubheader">{{meditate.passage}} {{meditate.version}}</div>
+		{{@ meditate.text}}
+	</div>
+	
+		<div class="section complete-button" onclick="markDayAsComplete({{month}}, {{day}})">
+			<div class="header">
+				Complete<span class="checkmark" id="cm"></span>
+			</div>
+		</div>
+		<div class="container change-day">
+			<div class="prev-day" onclick="location.assign('{{if month === 1 && day === 1}}../December/31{{else if day === 1}}../{{monthNames[month - 1]}}/{{expectedMonthLength[month - 1]}}{{else}}./{{day - 1}}{{/if}}')">
+				<div class="header">◄ Back</div>
+			</div>
+			<div class="next-day" onclick="location.assign('{{if month === 12 && day === 31}}../January/1{{else if day === expectedMonthLength[month]}}../{{monthNames[month + 1]}}/1{{else}}./{{day + 1}}{{/if}}')">
+				<div class="header">Next ►</div>
+			</div>
+		</div>
+
+		<script>
+			var expectedMonthLength = {{@ JSONstringify(expectedMonthLength) }}
+			var monthNames = {{@ JSONstringify(monthNames) }}
+
+			function updateCheckbox(monthData, day) {
+				document.getElementById('cm').style.display = monthData[day] ? 'inline' : 'none'
+			}
+
+			function readSavedMonth(month) {
+				return JSON.parse(localStorage.getItem(month) || '[]')
+			}
+			function writeSavedMonth(month, monthData) {
+				localStorage.setItem(month, JSON.stringify(monthData))
+			}
+
+			function markDayAsComplete(month, day){
+				var monthData = readSavedMonth(month)
+				var wasComplete = monthData[day] === 1
+				monthData[day] = 1
+				writeSavedMonth(month, monthData)
+				updateCheckbox(monthData, day)
+			}
+
+			function init(month, day) {
+				var monthData = readSavedMonth(month)
+				if (monthData.length === 0){
+					for (var i = 0; i <= 31; i++) { monthData.push(0) }
+					writeSavedMonth(month, monthData)
+				}
+				updateCheckbox(monthData, day)
+			}
+			init({{month}}, {{day}})
+
+			function updateIsToday() {
+				var eleMonthAndDay = document.getElementById('month-and-day')
+
+
+				var thisPageDateStr = '{{monthNames[month]}} {{day}}'
+				if (getDateStr(-1) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('yesterday')
+				} else if (getDateStr(0) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('today')
+				} else if (getDateStr(1) === thisPageDateStr) {
+					eleMonthAndDay.classList.add('tomorrow')
+				}
+			}
+
+			function getDateStr(offsetDays) {
+				var offsetDate = new Date()
+				offsetDate.setDate(offsetDate.getDate() + offsetDays)
+				return offsetDate.toLocaleDateString('en-US', {
+					month: 'long',
+					day: 'numeric'
+				})
+			}
+
+			updateIsToday()
+
+			setInterval(updateIsToday, 1000)
+		</script>
+	{{/block}}
+
