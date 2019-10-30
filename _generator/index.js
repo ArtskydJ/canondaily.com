@@ -21,7 +21,7 @@ writeSubtemplate('calendar.art', 'index.html', {
 	expectedMonthRange: expectedMonthLength.map(len => len && range(1, len)),
 	monthNames,
 	shortMonthNames,
-	dayOfWeek: 2,
+	dayOfWeek: getDayOfWeekOffset(),
 	title: 'Canon Daily'
 }) // , generateCalendar(new Date().getFullYear())
 writeSubtemplate('prayer-for-filling-of-spirit.art', 'prayer-for-filling-of-spirit.html', {
@@ -70,4 +70,11 @@ function writeSubtemplate(templateName, resultName, data) {
 
 function range(start, end) {
 	return Array(end - start + 1).fill().map((_, i) => i + start)
+}
+
+function getDayOfWeekOffset() {
+	const year = new Date().getUTCFullYear()
+	const jan1 = new Date(year, 0)
+	jan1.setUTCHours(0)
+	return (jan1.getDay() + 1) % 7
 }
