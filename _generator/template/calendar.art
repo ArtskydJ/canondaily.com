@@ -1,6 +1,4 @@
-{{extend './master.art'}}
-
-{{block 'body'}}<div id="calendar"><a class="cal-today" href="">Today</a>{{if dayOfWeek != 0}}<div class="cal-date-spacer" style="grid-column-end:{{ dayOfWeek + 1 }};"></div>{{/if}}{{each range(1, 12) month}}{{each expectedMonthRange[month] day}}<a class="cal-date" href="/{{monthNames[month]}}/{{day}}" data-month="{{month}}" data-day="{{day}}"> {{shortMonthNames[month]}}<br>{{day}} </a>
+<div id="calendar"><a class="cal-today" href="">Today</a>{{if dayOfWeek != 0}}<div class="cal-date-spacer" style="grid-column-end:{{ dayOfWeek + 1 }};"></div>{{/if}}{{each range(1, 12) month}}{{each expectedMonthRange[month] day}}<a class="cal-date" href="/{{monthNames[month]}}/{{day}}" data-month="{{month}}" data-day="{{day}}"> {{shortMonthNames[month]}}<br>{{day}} </a>
 {{/each}}{{/each}}</div>
 		<script>
 			var monthNames = {{@ JSONstringify(monthNames) }}
@@ -56,4 +54,4 @@
 				writeSavedMonth(month, monthData)
 			}
 		</script>
-	{{/block}}
+	

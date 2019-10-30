@@ -33,7 +33,7 @@
 		</div>
 	</nav>
 
-	{{block 'body'}}{{/block}}
+	{{include subtemplate}}
 
 </body>
 </html>

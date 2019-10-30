@@ -56,12 +56,13 @@ for (var month = 1; month <= 12; month++) {
 }
 
 function writeSubtemplate(templateName, resultName, data) {
-	const templateHtmlPath = path.resolve(__dirname, 'template', templateName)
+	const templateHtmlPath = path.resolve(__dirname, 'template', 'master.art')
 	const resultHtmlPath = path.resolve(__dirname, '..', resultName)
 	const extendedData = Object.assign({
 		JSONstringify: a => JSON.stringify(a),
 		expectedMonthLength,
 		monthNames,
+		subtemplate: './' + templateName,
 	}, data)
 	const resultHtml = mustache(templateHtmlPath, extendedData)
 	fs.writeFileSync(resultHtmlPath, resultHtml, 'utf-8')

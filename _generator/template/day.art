@@ -1,6 +1,4 @@
-{{extend './master.art'}}
-
-{{block 'body'}}<div class="section subheader dark-bg" id="month-and-day">{{monthNames[month]}} {{day}}</div>{{@ bibleHtml }}
+<div class="section subheader dark-bg" id="month-and-day">{{monthNames[month]}} {{day}}</div>{{@ bibleHtml }}
 	<div class="section dark-bg">
 		<div class="subheader">Proud VS Broken</div>
 		<div>
@@ -92,5 +90,4 @@
 
 			setInterval(updateIsToday, 1000)
 		</script>
-	{{/block}}
-
+	
