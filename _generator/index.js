@@ -33,18 +33,12 @@ writeSubtemplate('prayer-for-filling-of-spirit.html', {
 
 for (var month = 1; month <= 12; month++) {
 	for (var day = 1; day <= expectedMonthLength[month]; day++) {
-		// pvb
-		var pvbIdx = day - 1
-		if (pvbIdx >= proudVsBroken.length) { // there are 30 proud-vs-broken items
-			pvbIdx -= Math.floor(proudVsBroken.length / 3)
-		}
 		writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 			subtemplate: './day.art',
 			title: monthNames[month] + ' ' + day + ' - Canon Daily',
 			month,
 			day,
-			proud: proudVsBroken[pvbIdx][0],
-			broken: proudVsBroken[pvbIdx][1],
+			proudVsBroken: proudVsBroken[day - 1],
 			meditate: meditate[day - 1],
 			bibleHtml: dtpm[month + '/' + day].map(getBibleHtml).join('\n'),
 			monthNames,
