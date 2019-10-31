@@ -15,16 +15,19 @@ var dtpm = parseBookmarks(bookmarksTxt)
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
-writeSubtemplate('calendar.art', 'index.html', {
+writeSubtemplate('index.html', {
+	subtemplate: './calendar.art',
 	range: range,
-	range12: range(1, 12),
 	expectedMonthRange: expectedMonthLength.map(len => len && range(1, len)),
+	expectedMonthLength,
 	monthNames,
 	shortMonthNames,
 	dayOfWeek: getDayOfWeekOffset(),
 	title: 'Canon Daily'
-}) // , generateCalendar(new Date().getFullYear())
-writeSubtemplate('prayer-for-filling-of-spirit.art', 'prayer-for-filling-of-spirit.html', {
+})
+
+writeSubtemplate('prayer-for-filling-of-spirit.html', {
+	subtemplate: './prayer-for-filling-of-spirit.art',
 	title: 'Prayer for the Filling of the Spirit - Canon Daily'
 })
 
@@ -35,7 +38,8 @@ for (var month = 1; month <= 12; month++) {
 		if (pvbIdx >= proudVsBroken.length) { // there are 30 proud-vs-broken items
 			pvbIdx -= Math.floor(proudVsBroken.length / 3)
 		}
-		writeSubtemplate('day.art', monthNames[month] + '/' + day + '.html', {
+		writeSubtemplate(monthNames[month] + '/' + day + '.html', {
+			subtemplate: './day.art',
 			title: monthNames[month] + ' ' + day + ' - Canon Daily',
 			month,
 			day,
@@ -55,16 +59,10 @@ for (var month = 1; month <= 12; month++) {
 	}
 }
 
-function writeSubtemplate(templateName, resultName, data) {
+function writeSubtemplate(resultName, data) {
 	const templateHtmlPath = path.resolve(__dirname, 'template', 'master.art')
 	const resultHtmlPath = path.resolve(__dirname, '..', resultName)
-	const extendedData = Object.assign({
-		JSONstringify: a => JSON.stringify(a),
-		expectedMonthLength,
-		monthNames,
-		subtemplate: './' + templateName,
-	}, data)
-	const resultHtml = mustache(templateHtmlPath, extendedData)
+	const resultHtml = mustache(templateHtmlPath, data)
 	fs.writeFileSync(resultHtmlPath, resultHtml, 'utf-8')
 }
 
