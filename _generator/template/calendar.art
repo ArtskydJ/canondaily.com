@@ -4,7 +4,7 @@
 		<div class="cal-date-spacer" style="grid-column-end:{{ dayOfWeek + 1 }};"></div>
 	{{/if}}
 	{{each range(1, 12) month}}
-		{{each expectedMonthRange[month] day}}
+		{{each range(1, expectedMonthLength[month]) day}}
 			<a class="cal-date" href="/{{monthNames[month]}}/{{day}}" data-month="{{month}}" data-day="{{day}}">
 				{{shortMonthNames[month]}}<br>{{day}}
 			</a>

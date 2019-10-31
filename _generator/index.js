@@ -17,13 +17,12 @@ const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant
 
 writeSubtemplate('index.html', {
 	subtemplate: './calendar.art',
+	title: 'Canon Daily',
 	range: range,
-	expectedMonthRange: expectedMonthLength.map(len => len && range(1, len)),
 	expectedMonthLength,
 	monthNames,
 	shortMonthNames,
 	dayOfWeek: getDayOfWeekOffset(),
-	title: 'Canon Daily'
 })
 
 writeSubtemplate('prayer-for-filling-of-spirit.html', {

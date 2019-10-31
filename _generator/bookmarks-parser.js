@@ -17,8 +17,8 @@ module.exports = function parse(bookmarksTxt) {
 	return bookmarksTxt.split('\n').reduce(function (memo, line) {
 		if (line.startsWith('\t\t\t--')) { // comment
 		} else if (line.startsWith('\t\t')) { // passage
-			var dayString = months[memo.state.month] + '/' + memo.state.dayOfMonth
-			if (!memo.result[dayString]) {
+			var dayString = memo.state.month + '/' + memo.state.dayOfMonth
+			if (! memo.result[dayString]) {
 				memo.result[dayString] = []
 			}
 			var passage = line.trim()
@@ -26,7 +26,7 @@ module.exports = function parse(bookmarksTxt) {
 			memo.state.dayOfMonth++
 		} else if (line.startsWith('\t')) { // month
 			memo.state.dayOfMonth = 1
-			memo.state.month = line.trim()
+			memo.state.month = months[ line.trim() ]
 		}
 		return memo
 	}, {
