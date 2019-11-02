@@ -73,11 +73,34 @@ nav a:hover {
 .change-day > .prev-day,
 .change-day > .next-day {
 	color: #fff;
-	background-color: #06f;
-	width: 50%;
-	margin: 20px 10px;
+	/*width: 50%;*/
+	display: flex;
+	padding: 1em 0.5em;
+}
+.change-day > .prev-day:before,
+.change-day > .next-day:after {
+	content: '';
+	border: 55px solid #06f; /* 33px */
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+.change-day .header {
+	/*padding: 5px 10px;*/
 	cursor: pointer;
-	padding: 15px 25px;
+	background-color: #06f;
+	align-self: center;
+}
+.change-day > .prev-day > .header {
+	padding-right: 15px;
+}
+.change-day > .next-day > .header {
+	padding-left: 15px;
+}
+.change-day .prev-day:before {
+	border-left: none;
+}
+.change-day .next-day:after {
+	border-right: none;
 }
 #background-message,
 .header {

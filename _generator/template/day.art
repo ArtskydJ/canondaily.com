@@ -36,7 +36,7 @@
 	{{else}}
 		./{{day - 1}}
 	{{/if}}`.trim())">
-		<div class="header">◄ Back</div>
+		<div class="header">Back</div>
 	</div>
 	<div class="next-day" onclick="location.assign(`
 	{{if month === 12 && day === 31}}
@@ -46,7 +46,7 @@
 	{{else}}
 		./{{day + 1}}
 	{{/if}}`.trim())">
-		<div class="header">Next ►</div>
+		<div class="header">Next</div>
 	</div>
 </div>
 
