@@ -19,22 +19,20 @@ const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant
 
 const rootDirFiles = fs.readdirSync(path.resolve(__dirname, '..'))
 const styleCssFiles = rootDirFiles.filter(filename => (filename.startsWith('style.') && filename.endsWith('.css')))
-if (styleCssFiles.length !== 1) {
-	throw new Error('Expected 1 style[.hash].css file. Found: ' + (styleCssFiles.join(', ') || 'none'))
-}
-const oldCssFileName = styleCssFiles[0]
-const oldCssFilePath = path.resolve(__dirname, '..', oldCssFileName)
-const styleCss = fs.readFileSync(oldCssFilePath, 'utf-8')
+styleCssFiles.forEach(cssFile => {
+	const cssPath = path.resolve(__dirname, '..', cssFile)
+	fs.unlinkSync(cssPath)
+})
+const sourceCssFileName = 'style.css'
+const sourceCssFilePath = path.resolve(__dirname, sourceCssFileName)
+const sourceCssContents = fs.readFileSync(sourceCssFilePath, 'utf-8')
 
 // https://github.com/sindresorhus/rev-hash/blob/master/index.js
-const revHash = crypto.createHash('md5').update(styleCss).digest('hex').slice(0, 10)
+const revHash = crypto.createHash('md5').update(sourceCssContents).digest('hex').slice(0, 10)
 
 const newCssFileName = 'style.' + revHash + '.css'
 const newCssFilePath = path.resolve(__dirname, '..', newCssFileName)
-if (oldCssFilePath !== newCssFilePath) {
-	fs.renameSync(oldCssFilePath, newCssFilePath)
-	console.log('Rename ' + oldCssFileName + ' to ' + newCssFileName)
-}
+fs.writeFileSync(newCssFilePath, sourceCssContents, 'utf-8')
 
 writeSubtemplate('index.html', {
 	subtemplate: './calendar.art',
