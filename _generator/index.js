@@ -1,7 +1,8 @@
 global.DEBUG = false
 
-var fs = require('fs')
-var path = require('path')
+const fs = require('fs')
+const path = require('path')
+const crypto = require('crypto')
 
 const mustache = require('art-template')
 
@@ -15,10 +16,31 @@ var dtpm = parseBookmarks(bookmarksTxt)
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
+
+const rootDirFiles = fs.readdirSync(path.resolve(__dirname, '..'))
+const styleCssFiles = rootDirFiles.filter(filename => (filename.startsWith('style.') && filename.endsWith('.css')))
+if (styleCssFiles.length !== 1) {
+	throw new Error('Expected 1 style[.hash].css file. Found: ' + (styleCssFiles.join(', ') || 'none'))
+}
+const oldCssFileName = styleCssFiles[0]
+const oldCssFilePath = path.resolve(__dirname, '..', oldCssFileName)
+const styleCss = fs.readFileSync(oldCssFilePath, 'utf-8')
+
+// https://github.com/sindresorhus/rev-hash/blob/master/index.js
+const revHash = crypto.createHash('md5').update(styleCss).digest('hex').slice(0, 10)
+
+const newCssFileName = 'style.' + revHash + '.css'
+const newCssFilePath = path.resolve(__dirname, '..', newCssFileName)
+if (oldCssFilePath !== newCssFilePath) {
+	fs.renameSync(oldCssFilePath, newCssFilePath)
+	console.log('Rename ' + oldCssFileName + ' to ' + newCssFileName)
+}
+
 writeSubtemplate('index.html', {
 	subtemplate: './calendar.art',
 	title: 'Canon Daily',
-	range: range,
+	revHash,
+	range,
 	expectedMonthLength,
 	monthNames,
 	shortMonthNames,
@@ -27,7 +49,8 @@ writeSubtemplate('index.html', {
 
 writeSubtemplate('prayer-for-filling-of-spirit.html', {
 	subtemplate: './prayer-for-filling-of-spirit.art',
-	title: 'Prayer for the Filling of the Spirit - Canon Daily'
+	title: 'Prayer for the Filling of the Spirit - Canon Daily',
+	revHash
 })
 
 for (var month = 1; month <= 12; month++) {
@@ -35,6 +58,7 @@ for (var month = 1; month <= 12; month++) {
 		writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 			subtemplate: './day.art',
 			title: monthNames[month] + ' ' + day + ' - Canon Daily',
+			revHash,
 			month,
 			day,
 			proudVsBroken: proudVsBroken[day - 1],
