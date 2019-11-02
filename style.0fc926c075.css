@@ -1,3 +1,17 @@
+:root {
+	--body-bg: #fafafa;
+	--lightgray-bg: #ccc; /* proud vs broken bg */
+	--dark-bg: #404040; /* nav bg */
+	--dark-bg-hover: #555;
+	--arrow-bg: #06f;
+	--arrow-bg-hover: #05d;
+	--green: #4c0;
+	--green-hover: #3a0;
+	--yesterday: orange;
+	--today: var(--green);
+	--tomorrow: #39f;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -5,17 +19,17 @@ html, body {
 body {
 	font-family: calibri, arial, sans-serif;
 	font-size: 15pt;
-	background-color: #fafafa;
+	background-color: var(--body-bg);
 	line-height: 1.6;
 	font-weight: 300;
 }
 hr {
 	border: none;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid var(--lightgray-bg);
 }
 
 nav {
-	background-color: #404040;
+	background-color: var(--dark-bg);
 	color: #fff;
 	font-weight: bold;
 	overflow: hidden;
@@ -27,7 +41,7 @@ nav a:visited {
 	padding: 4pt;
 }
 nav a:hover {
-	background-color: #555;
+	background-color: var(--dark-bg-hover);
 }
 .nav-title {
 	font-size: 30pt;
@@ -45,7 +59,7 @@ nav a:hover {
 	flex-wrap: wrap;
 }
 .dark-bg {
-	background-color: #ccc;
+	background-color: var(--lightgray-bg);
 }
 
 .section,
@@ -58,50 +72,54 @@ nav a:hover {
 	margin-bottom: 2em;
 }
 .complete-button {
-	background-color: #4c0;
+	background-color: var(--green);
 	color: #130;
 	cursor: pointer;
 	margin-bottom: 0;
 	padding-top: 2em;
 	padding-bottom: 2em;
+	user-select: none;
+}
+.complete-button:hover {
+	background-color: var(--green-hover);
 }
 .change-day {
 	display: flex;
 	flex: 0 1 auto;
 	justify-content: space-between;
 }
-.change-day > .prev-day,
-.change-day > .next-day {
+.change-day > .arrow {
 	color: #fff;
-	/*width: 50%;*/
 	display: flex;
-	padding: 1em 0.5em;
+	margin: 1em 0.5em;
+	user-select: none;
 }
-.change-day > .prev-day:before,
-.change-day > .next-day:after {
+.change-day > .arrow > .header:hover,
+.change-day > .arrow.prev-day:hover,
+.change-day > .arrow.next-day:hover {
+	--arrow-bg: var(--arrow-bg-hover);
+	cursor: pointer;
+}
+.change-day > .arrow.prev-day::before,
+.change-day > .arrow.next-day::after {
 	content: '';
-	border: 55px solid #06f; /* 33px */
+	border: 55px solid var(--arrow-bg);
 	border-top-color: transparent;
 	border-bottom-color: transparent;
 }
-.change-day .header {
-	/*padding: 5px 10px;*/
-	cursor: pointer;
-	background-color: #06f;
-	align-self: center;
-}
-.change-day > .prev-day > .header {
-	padding-right: 15px;
-}
-.change-day > .next-day > .header {
-	padding-left: 15px;
-}
-.change-day .prev-day:before {
+.change-day > .arrow.prev-day::before {
 	border-left: none;
 }
-.change-day .next-day:after {
+.change-day > .arrow.next-day::after {
 	border-right: none;
 }
+.change-day > .arrow > .header {
+	/*padding: 5px 10px;*/
+	background-color: var(--arrow-bg);
+	align-self: center;
+}
+.change-day > .arrow.prev-day > .header { padding-right: 15px; }
+.change-day > .arrow.next-day > .header { padding-left:  15px; }
 #background-message,
 .header {
 	font-size: 2em;
@@ -113,9 +131,9 @@ nav a:hover {
 #month-and-day.yesterday::after { content: ' (Yesterday)'; }
 #month-and-day.today::after     { content: ' (Today)'; }
 #month-and-day.tomorrow::after  { content: ' (Tomorrow)'; }
-#month-and-day.yesterday { background-color: orange; }
-#month-and-day.today     { background-color: #4c0; }
-#month-and-day.tomorrow  { background-color: #39f; }
+#month-and-day.yesterday { background-color: var(--yesterday); }
+#month-and-day.today     { background-color: var(--today); }
+#month-and-day.tomorrow  { background-color: var(--tomorrow); }
 
 
 #background-message {
@@ -169,9 +187,9 @@ nav a:hover {
 .cal-today,
 .cal-date {
 	margin: 6px;
-	background-color: #404040;
+	background-color: var(--dark-bg);
 	text-align: center;
-	color: #fafafa;
+	color: var(--body-bg);
 	font-weight: bold;
 	text-decoration: none;
 
@@ -184,10 +202,10 @@ nav a:hover {
 }
 .cal-today:hover,
 .cal-date:hover {
-	background-color: #555;
+	background-color: var(--dark-bg-hover);
 }
 .cal-date.completed {
-	background-color: #4c0; /*#1b1;*/
+	background-color: var(--green); /*#1b1;*/
 }
 .cal-date-spacer {
 	grid-column-start: 1;

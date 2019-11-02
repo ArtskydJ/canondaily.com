@@ -28,7 +28,7 @@
 	</div>
 </div>
 <div class="container change-day">
-	<div class="prev-day" onclick="location.assign(`
+	<div class="arrow prev-day" onclick="location.assign(`
 	{{if month === 1 && day === 1}}
 		../December/31
 	{{else if day === 1}}
@@ -38,7 +38,7 @@
 	{{/if}}`.trim())">
 		<div class="header">Back</div>
 	</div>
-	<div class="next-day" onclick="location.assign(`
+	<div class="arrow next-day" onclick="location.assign(`
 	{{if month === 12 && day === 31}}
 		../January/1
 	{{else if day === expectedMonthLength[month]}}
