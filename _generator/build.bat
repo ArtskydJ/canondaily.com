@@ -1,1 +1,1 @@
-node index.js || pause
+node index.js run || pause
