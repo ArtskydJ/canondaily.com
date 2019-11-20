@@ -8,7 +8,7 @@
 	<title>Canon Daily</title>
 	<link rel="manifest" href="/manifest.json">
 	<link rel="shortcut icon" href="/icons/bible.ico">
-	<link rel="stylesheet" type="text/css" href="/style.0fc926c075.css">
+	<link rel="stylesheet" type="text/css" href="/style.4c78a4b861.css">
 	<script type="text/javascript">
 	var _paq = _paq || [];
 	_paq.push(['trackPageView']);
@@ -1529,8 +1529,11 @@
 <script>
 	function updateToday() {
 		var eleToday = document.querySelector('a.cal-today')
-		var d = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
-		eleToday.href = '/' + d.replace(' ', '/')
+		var d = new Date()
+		// While this is the correct way to do it, this method does not work on the kindle
+		// eleToday.href = '/' + d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }).replace(' ', '/')
+		var monthNames = [null,"January","February","March","April","May","June","July","August","September","October","November","December"]
+		eleToday.href = '/' + monthNames[ d.getMonth() + 1 ] + '/' + d.getDate()
 	}
 
 	updateToday()
@@ -1579,6 +1582,7 @@
 	}
 </script>
 	
+
 
 </body>
 </html>

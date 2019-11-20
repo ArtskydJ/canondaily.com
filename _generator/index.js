@@ -47,6 +47,7 @@ writeSubtemplate('index.html', {
 	range,
 	expectedMonthLength,
 	monthNames,
+	monthNamesJson: JSON.stringify(monthNames),
 	shortMonthNames,
 	dayOfWeek: getDayOfWeekOffset(),
 })
