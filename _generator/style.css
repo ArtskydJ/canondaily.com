@@ -29,6 +29,7 @@ hr {
 }
 
 nav {
+	background-color: #000; /* Fallback */
 	background-color: var(--dark-bg);
 	color: #fff;
 	font-weight: bold;
@@ -192,7 +193,7 @@ nav a:hover {
 	color: var(--body-bg);
 	font-weight: bold;
 	text-decoration: none;
-
+	display: block; /* Fallback */
 	display: flex;
 	justify-content: center;
 	align-items: center;
