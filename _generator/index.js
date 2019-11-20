@@ -1,4 +1,10 @@
-global.DEBUG = false
+const cliOpts = parseCliOptions( process.argv.slice(2) )
+
+if (cliOpts.help || ! cliOpts.run) {
+	console.log('Usage:')
+	console.log('node index { --help | --run [--debug] }')
+	process.exit( cliOpts.help ? 0 : 1)
+}
 
 const fs = require('fs')
 const path = require('path')
@@ -66,12 +72,19 @@ for (var month = 1; month <= 12; month++) {
 			expectedMonthLength,
 		})
 
-		if (global.DEBUG && day >= 3) { // debug
+		if (cliOpts.debug && day >= 3) { // debug
 			console.log('\nSkipping the daily pages other than Jan 1,2,3')
 			console.log('Open localcanondaily.com in your browser.\n')
-			process.exit(1)
+			process.exit(0)
 		}
 	}
+}
+
+function parseCliOptions(args) {
+	return args.reduce((memo, arg) => {
+		memo[ arg.replace(/^--/, '').toLowerCase() ] = true
+		return memo
+	}, {})
 }
 
 function writeSubtemplate(resultName, data) {
