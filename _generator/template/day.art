@@ -28,26 +28,10 @@
 	</div>
 </div>
 <div class="container change-day">
-	<div class="arrow prev-day" onclick="location.assign('{{@
-		((month === 1 && day === 1) ?
-			'../December/31' :
-			((day === 1) ?
-				'../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1] :
-				'./' + (day - 1)
-			)
-		)
-	}}')">
+	<div class="arrow prev-day" onclick="location.assign('{{backUrl}}')">
 		<div class="header">Back</div>
 	</div>
-	<div class="arrow next-day" onclick="location.assign('{{@ 
-		((month === 12 && day === 31) ?
-			'../January/1' :
-			((day === expectedMonthLength[month]) ?
-				'../' + monthNames[month + 1] + '/1' :
-				'./' + (day + 1)
-			)
-		)
-	}}')">
+	<div class="arrow next-day" onclick="location.assign('{{nextUrl}}')">
 		<div class="header">Next</div>
 	</div>
 </div>

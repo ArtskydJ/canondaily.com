@@ -60,6 +60,19 @@ writeSubtemplate('prayer-for-filling-of-spirit.html', {
 
 for (var month = 1; month <= 12; month++) {
 	for (var day = 1; day <= expectedMonthLength[month]; day++) {
+		var backUrl = './' + (day - 1)
+		if (month === 1 && day === 1) {
+			backUrl = '../December/31'
+		} else if (day === 1) {
+			backUrl = '../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1]
+		}
+		var nextUrl = './' + (day + 1)
+		if (month === 12 && day === 31) {
+			nextUrl = '../January/1'
+		} else if (day === expectedMonthLength[month]) {
+			nextUrl = '../' + monthNames[month + 1] + '/1'
+		}
+
 		writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 			subtemplate: './day.art',
 			title: monthNames[month] + ' ' + day + ' - Canon Daily',
@@ -71,6 +84,8 @@ for (var month = 1; month <= 12; month++) {
 			bibleHtml: dtpm[month + '/' + day].map(getBibleHtml).join('\n'),
 			monthNames,
 			expectedMonthLength,
+			backUrl,
+			nextUrl,
 		})
 
 		if (cliOpts.debug && day >= 3) { // debug
