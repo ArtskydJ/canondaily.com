@@ -196,6 +196,7 @@ var actual = tip(`Revelation
 		6:7-8 Seal 4 - The yellowish-green horse
 		6:9-11 Seal 5 - The souls under the altar
 		6:12-17 Seal 6 - The earthquake
+    
 Genesis
 	alpha
 		acorn

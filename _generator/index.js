@@ -19,6 +19,7 @@ var meditate = require('./constant/meditate.json')
 
 var bookmarksTxt = fs.readFileSync(__dirname + '/constant/bookmarks.txt', 'utf-8')
 var dtpm = parseBookmarks(bookmarksTxt)
+// console.log(JSON.stringify(dtpm, null, 2));process.exit()
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
@@ -81,7 +82,7 @@ for (var month = 1; month <= 12; month++) {
 			day,
 			proudVsBroken: proudVsBroken[day - 1],
 			meditate: meditate[day - 1],
-			bibleHtml: dtpm[month + '/' + day].map(getBibleHtml).join('\n'),
+			bibleHtml: dtpm.map( d => getBibleHtml(d[month][day]) ).join('\n'),
 			monthNames,
 			expectedMonthLength,
 			backUrl,

@@ -1,11 +1,13 @@
 var parseReference = require('./parse-reference.js')
 
 module.exports = function getBibleHtml(passageReference) {
-	if (!passageReference || passageReference === 'x') {
-		throw new Error('Invalid passage reference')
+	if (! passageReference || passageReference === 'x') {
+		throw new Error('Invalid passage reference: "' + passageReference + '"')
 	}
 
 	var ref = parseReference(passageReference)
+	
+	var bookStructure = require('./bsp.json') //TODO
 
 	var bookObj = require('world-english-bible/json/' + ref.book + '.json')
 
@@ -21,7 +23,6 @@ module.exports = function getBibleHtml(passageReference) {
 
 	var lastChapterNumber = 0
 	var lastVerseNumber = 0
-	var textLength = 0
 	var bibleText  = intermediateWhatever.map(function (chunk) {
 		if (chunk.type === 'paragraph start') return '<span class="paragraph">'
 		if (chunk.type === 'paragraph end')   return '</span>'
@@ -43,7 +44,9 @@ module.exports = function getBibleHtml(passageReference) {
 	}).join(' ')
 
 	return `<div class="section">
-		<span class="header">${passageReference}</span> ${bibleText}
+		<span class="header">${passageReference}</span>
+		<div class="book-structure">${bookStructure}</div>
+		${bibleText}
 	</div>`
 }
 

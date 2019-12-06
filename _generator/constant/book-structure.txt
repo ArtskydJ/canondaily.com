@@ -44,130 +44,130 @@ Job
 		42:1-6 Job's Confession, Intercession, and rich blessings of God added
 		
 Psalms
-	Book 1 - Yahweh will save David and establish his throne in Zion
-		1-2 Introduction
-		3-14 Enemy Psalms
-		15-24 Kingdom Psalms
-		25-34 Temple Psalms
-		35-41 Spiritual Warfare Psalms
-	Book 2 - Elohim will raise up David's Son for the nations
-		God's King ends lament and brings joy to Zion
-			Songs of Lament
-				42-43 Individual
-				44 Community
-			Covenant & Kingdom
-				45 Marriage
-				46 The King of the Hill
-			Songs of Zion
-				47-49
-		A rebuke of sin and prayer for salvation
-			A rebuke from Zion
-				50 YHWH speaks
-			Three kinds of Sinners
-				51 Covenant Breakers
-				52 Wicked Enemy
-				53 The Fool (Almost identical to Psalm 14)
-		Prayers seeking judgment against the nations
-			Seven Enemies of David
-				54 The Ziphites
-				55 Betrayal from a friend
-				56 The Philistines
-				57 Saul
-				58 Unjust Rulders
-				59 Sual's Henchmen
-				60 Distant Enemies
-		Prayers for salvation, and salvation of nations
-			Cries for Salvation
-				61-63
-			God Saves
-				64 God Intervenes
-			Salvation for the Nations
-			65-67 Let the Nations Praise!
-		The Throne of David passes to Solomon
-			Review of God's Faithfulness
-			68 God saves, the nations praise
-			69
-			70-71 David ages and dies
-		A Psalm for Solomon
-			72 Closing Doxology
-	Book 3 - From Exaltation to Exile: The Fall of David's Throne
-		Confusion based on Psalm 1
-			73
-		Cycle 1
-			74 Temple Desecrated (Rehoboam)
-			75 God's Judgment
-			76 Word of Repentance (Asa)
-			77 Cry for Help
-		Cycle Explained
-			78 The Psalm to Explain Book 3
-		Cycle 2
-			79 Temple Desecrated (Joash)
-			80 Cry for Help (A Messianic Psalm)
-			81 Word of Repentance
-			82 God's Judgment (Ahaz)
-		A petition based on Psalm 1
-			83
-		David's Final Stand
-			84 New Light - Life in the temple
-			85 Forgiveness
-			86 David's Return (Zion)
-			87 Ingathering
-		End of David's Covenant
-			88 Complete Darkness (Temple + Kingdom are Gone)
-			89 The End
-	Book 4 - Psalms of Exile: Looking from Moses' Rescue to the Rise of a New David
-	-- https://viaemmaus.files.wordpress.com/2017/08/book-4-infographic-copy.jpg?w=676
-		Moses, the Man of God
-			90
-			91
-		YHWH Reigns
-			92 A Sabbath Psalm
-				93-94 Nations Defeated
-					95-97 Worshiping YHWH
-				98-99 Nations Invited to Worship
-			100 A Thanksgiving Psalm
-		A New David?
-			101 A just king defeats God's enemies
-			102 God dwells with the contrite & afflicted
-			103 A worshiping king abides in God's covenant mercy
-		Hallelujah Psalms
-			104 Creation
-			105 God's Faithfulness
-			106 Man's Wickedness
-	Book 5 - Psalms of Praise: The Son of David is David's Lord
-	-- https://kaysercommentary.com/Sermons/BibleSurvey/16%20PsalmBookFiveGraphic.png
-		107 Ingathering Introduction
-		108-110 A New David Arrives
-		Egyptian Hallel 3-1-3
-			111-113 Hallel Psalms
-			114 > A Psalm about Egypt
-			115-117 Hallel Psalms
-		Crown & Covenant
-			118-119
-		Songs of Ascent 7-1-7
-			120 Sojorning outside Israel
-			121 Help for the Journey
-			122 Entering Jerusalem
-			123 Trust in God
-			124 Thanksgiving
-			125 Security is found in Zion
-			126 The return to Zion is like a dream come true
-			127 > The Lord has built his house (Temple)
-			128 Blessings come to the covenant keeper
-			129 YHWH cut off the enemies of Zion
-			130 Forgiveness is granted to God's people
-			131 Israel is contented in the Lord
-			132 God established David's house
-			133 North & South Unite
-			134 Final Blessing 
-		Worship & War
-			135 Worhip YHWH Praise
-			136 Worship YHWH Thanksgiving
-			137 Worship followed by Warfare
-		David's Final Victory
-			138-145 David's Final Psalms
-		Infinite Praise
-			146-150
+--	Book 1 - Yahweh will save David and establish his throne in Zion
+--		1-2 Introduction
+--		3-14 Enemy Psalms
+--		15-24 Kingdom Psalms
+--		25-34 Temple Psalms
+--		35-41 Spiritual Warfare Psalms
+--	Book 2 - Elohim will raise up David's Son for the nations
+--		God's King ends lament and brings joy to Zion
+--			Songs of Lament
+--				42-43 Individual
+--				44 Community
+--			Covenant & Kingdom
+--				45 Marriage
+--				46 The King of the Hill
+--			Songs of Zion
+--				47-49
+--		A rebuke of sin and prayer for salvation
+--			A rebuke from Zion
+--				50 YHWH speaks
+--			Three kinds of Sinners
+--				51 Covenant Breakers
+--				52 Wicked Enemy
+--				53 The Fool (Almost identical to Psalm 14)
+--		Prayers seeking judgment against the nations
+--			Seven Enemies of David
+--				54 The Ziphites
+--				55 Betrayal from a friend
+--				56 The Philistines
+--				57 Saul
+--				58 Unjust Rulders
+--				59 Saul's Henchmen
+--				60 Distant Enemies
+--		Prayers for salvation, and salvation of nations
+--			Cries for Salvation
+--				61-63
+--			God Saves
+--				64 God Intervenes
+--			Salvation for the Nations
+--				65-67 Let the Nations Praise!
+--		The Throne of David passes to Solomon
+--			Review of God's Faithfulness
+--			68 God saves, the nations praise
+--			69
+--			70-71 David ages and dies
+--		A Psalm for Solomon
+--			72 Closing Doxology
+--	Book 3 - From Exaltation to Exile: The Fall of David's Throne
+--		Confusion based on Psalm 1
+--			73
+--		Cycle 1
+--			74 Temple Desecrated (Rehoboam)
+--			75 God's Judgment
+--			76 Word of Repentance (Asa)
+--			77 Cry for Help
+--		Cycle Explained
+--			78 The Psalm to Explain Book 3
+--		Cycle 2
+--			79 Temple Desecrated (Joash)
+--			80 Cry for Help (A Messianic Psalm)
+--			81 Word of Repentance
+--			82 God's Judgment (Ahaz)
+--		A petition based on Psalm 1
+--			83
+--		David's Final Stand
+--			84 New Light - Life in the temple
+--			85 Forgiveness
+--			86 David's Return (Zion)
+--			87 Ingathering
+--		End of David's Covenant
+--			88 Complete Darkness (Temple + Kingdom are Gone)
+--			89 The End
+--	Book 4 - Psalms of Exile: Looking from Moses' Rescue to the Rise of a New David
+--	-- https://viaemmaus.files.wordpress.com/2017/08/book-4-infographic-copy.jpg?w=676
+--		Moses, the Man of God
+--			90
+--			91
+--		YHWH Reigns
+--			92 (A) A Sabbath Psalm
+--			93-94 (B) Nations Defeated
+--			95-97 (C) Worshiping YHWH
+--			98-99 (B') Nations Invited to Worship
+--			100 (A') A Thanksgiving Psalm
+--		A New David?
+--			101 A just king defeats God's enemies
+--			102 God dwells with the contrite & afflicted
+--			103 A worshiping king abides in God's covenant mercy
+--		Hallelujah Psalms
+--			104 Creation
+--			105 God's Faithfulness
+--			106 Man's Wickedness
+--	Book 5 - Psalms of Praise: The Son of David is David's Lord
+--	-- https://kaysercommentary.com/Sermons/BibleSurvey/16%20PsalmBookFiveGraphic.png
+--		107 Ingathering Introduction
+--		108-110 A New David Arrives
+--		Egyptian Hallel 3-1-3
+--			111-113 Hallel Psalms
+--			114 > A Psalm about Egypt
+--			115-117 Hallel Psalms
+--		Crown & Covenant
+--			118-119
+--		Songs of Ascent 7-1-7
+--			120 Sojorning outside Israel
+--			121 Help for the Journey
+--			122 Entering Jerusalem
+--			123 Trust in God
+--			124 Thanksgiving
+--			125 Security is found in Zion
+--			126 The return to Zion is like a dream come true
+--			127 > The Lord has built his house (Temple)
+--			128 Blessings come to the covenant keeper
+--			129 YHWH cut off the enemies of Zion
+--			130 Forgiveness is granted to God's people
+--			131 Israel is contented in the Lord
+--			132 God established David's house
+--			133 North & South Unite
+--			134 Final Blessing 
+--		Worship & War
+--			135 Worhip YHWH Praise
+--			136 Worship YHWH Thanksgiving
+--			137 Worship followed by Warfare
+--		David's Final Victory
+--			138-145 David's Final Psalms
+--		Infinite Praise
+--			146-150
 
 Proverbs
 Ecclesiastes
@@ -178,20 +178,20 @@ Lamentations
 Ezekiel
 Daniel
 	Hebrew Section - A message of hope for remnant
-		1-2:3 Historical Prologue
+		1:1-2:3 Historical Prologue
 	Aramaic Section - A message of judgment on Gentile nations
 		2:4-2:49 (A) Prophecy of the four kingdoms - Four statue parts: Four empires
-			3 (B) Trial of remnant - Fiery furnace
-				4:1-36 (C) Prophecy to pagan king leads to Nebuchadnezzar's repentance
-					4:37 (D) Pagan king's profession of faith
-				5 (C') Prophecy to the pagan king leads to humbling
-			6 (B') Trial of remnant - Lion's den
+		3 (B) Trial of remnant - Fiery furnace
+		4:1-36 (C) Prophecy to pagan king leads to Nebuchadnezzar's repentance
+		4:37 (D) Pagan king's profession of faith
+		5 (C') Prophecy to the pagan king leads to humbling
+		6 (B') Trial of remnant - Lion's den
 		7 (A') Prophecy of the four kingdoms - Four beasts: Four empires
 	Hebrew Section - A message of hope for Israel's future
 		8 (A) Prophetic details of the second and third kingdoms
-			9:1-23 (B) Daniel's prayers for deliverance of his people
-				9:24-27 (C) The arrival and purpose of the Messiah's kingdom
-			10 (B') Daniel's prayers for deliverance of his people
+		9:1-23 (B) Daniel's prayers for deliverance of his people
+		9:24-27 (C) The arrival and purpose of the Messiah's kingdom
+		10 (B') Daniel's prayers for deliverance of his people
 		11 (A') Prophetic details of the second and third kingdoms
 
 Hosea
