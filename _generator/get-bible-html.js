@@ -1,23 +1,15 @@
-var parseReference = require('./parse-reference.js')
+const getBookStructureHtml = require('./get-book-structure-html.js')
 
-module.exports = function getBibleHtml(passageReference) {
-	if (! passageReference || passageReference === 'x') {
-		throw new Error('Invalid passage reference: "' + passageReference + '"')
-	}
-
-	var ref = parseReference(passageReference)
-	
-	var bookStructure = require('./bsp.json') //TODO
-
-	var bookObj = require('world-english-bible/json/' + ref.book + '.json')
+module.exports = function getBibleHtml(ref) {
+	var bookObj = require('world-english-bible/json/' + ref.bookSlug + '.json')
 
 	var intermediateWhatever = bookObj.filter(function (chunk, i, arr) {
-		return chunkWithinRange(ref, chunk) || (
+		return chunkWithinRef(chunk, ref) || (
 			chunk.type.slice(-6) === ' start' &&        // current chunk is a start tag
-			arr[i+1] && chunkWithinRange(ref, arr[i+1]) // and next chunk is in range
+			arr[i+1] && chunkWithinRef(arr[i+1], ref)   // and next chunk is in the reference
 		) || (
 			chunk.type.slice(-4) === ' end' &&          // current chunk is an end tag
-			arr[i-1] && chunkWithinRange(ref, arr[i-1]) // and previous chunk is in range
+			arr[i-1] && chunkWithinRef(arr[i-1], ref)   // and previous chunk is in the reference
 		)
 	})
 
@@ -44,17 +36,21 @@ module.exports = function getBibleHtml(passageReference) {
 	}).join(' ')
 
 	return `<div class="section">
-		<span class="header">${passageReference}</span>
-		<div class="book-structure">${bookStructure}</div>
-		${bibleText}
+		<span class="header">${ ref.original }</span>
+		<div class="section book-structure dark-bg">${ getBookStructureHtml(ref) }</div>
+		${ bibleText }
 	</div>`
 }
 
-function chunkWithinRange(ref, chunk) {
+function chunkWithinRef(chunk, ref) {
+	return chapterAndVerseWithinRef(chunk.chapterNumber, chunk.verseNumber, ref)
+}
+
+function chapterAndVerseWithinRef(chapter, verse, ref) {
 	return (
-		chunk.chapterNumber >= ref.startChapter &&
-		chunk.chapterNumber <= ref.endChapter &&
-		( chunk.chapterNumber !== ref.startChapter || chunk.verseNumber >= ref.startVerse ) &&
-		( chunk.chapterNumber !== ref.endChapter || chunk.verseNumber <= ref.endVerse )
+		chapter >= ref.startChapter &&
+		chapter <= ref.endChapter &&
+		( chapter !== ref.startChapter || verse >= ref.startVerse ) &&
+		( chapter !== ref.endChapter || verse <= ref.endVerse )
 	)
 }

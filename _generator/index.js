@@ -8,38 +8,23 @@ if (cliOpts.help || ! cliOpts.run) {
 
 const fs = require('fs')
 const path = require('path')
-const crypto = require('crypto')
 
 const mustache = require('art-template')
 
-var parseBookmarks = require('./bookmarks-parser.js')
-var getBibleHtml = require('./get-bible-html.js')
-var proudVsBroken = require('./constant/proud-vs-broken.json')
-var meditate = require('./constant/meditate.json')
+const parseBookmarks = require('./bookmarks-parser.js')
+const parseReference = require('./parse-reference.js')
+const getBibleHtml = require('./get-bible-html.js')
+const hashCss = require('./hash-css.js')
+const proudVsBroken = require('./constant/proud-vs-broken.json')
+const meditate = require('./constant/meditate.json')
 
-var bookmarksTxt = fs.readFileSync(__dirname + '/constant/bookmarks.txt', 'utf-8')
-var dtpm = parseBookmarks(bookmarksTxt)
+const bookmarksTxt = fs.readFileSync(__dirname + '/constant/bookmarks.txt', 'utf-8')
+const dtpm = parseBookmarks(bookmarksTxt)
 // console.log(JSON.stringify(dtpm, null, 2));process.exit()
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
-
-const rootDirFiles = fs.readdirSync(path.resolve(__dirname, '..'))
-const styleCssFiles = rootDirFiles.filter(filename => (filename.startsWith('style.') && filename.endsWith('.css')))
-styleCssFiles.forEach(cssFile => {
-	const cssPath = path.resolve(__dirname, '..', cssFile)
-	fs.unlinkSync(cssPath)
-})
-const sourceCssFileName = 'style.css'
-const sourceCssFilePath = path.resolve(__dirname, sourceCssFileName)
-const sourceCssContents = fs.readFileSync(sourceCssFilePath, 'utf-8')
-
-// https://github.com/sindresorhus/rev-hash/blob/master/index.js
-const revHash = crypto.createHash('md5').update(sourceCssContents).digest('hex').slice(0, 10)
-
-const newCssFileName = 'style.' + revHash + '.css'
-const newCssFilePath = path.resolve(__dirname, '..', newCssFileName)
-fs.writeFileSync(newCssFilePath, sourceCssContents, 'utf-8')
+const revHash = hashCss()
 
 writeSubtemplate('index.html', {
 	subtemplate: './calendar.art',
@@ -61,40 +46,48 @@ writeSubtemplate('prayer-for-filling-of-spirit.html', {
 
 for (var month = 1; month <= 12; month++) {
 	for (var day = 1; day <= expectedMonthLength[month]; day++) {
-		var backUrl = './' + (day - 1)
-		if (month === 1 && day === 1) {
-			backUrl = '../December/31'
-		} else if (day === 1) {
-			backUrl = '../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1]
-		}
-		var nextUrl = './' + (day + 1)
-		if (month === 12 && day === 31) {
-			nextUrl = '../January/1'
-		} else if (day === expectedMonthLength[month]) {
-			nextUrl = '../' + monthNames[month + 1] + '/1'
-		}
-
-		writeSubtemplate(monthNames[month] + '/' + day + '.html', {
-			subtemplate: './day.art',
-			title: monthNames[month] + ' ' + day + ' - Canon Daily',
-			revHash,
-			month,
-			day,
-			proudVsBroken: proudVsBroken[day - 1],
-			meditate: meditate[day - 1],
-			bibleHtml: dtpm.map( d => getBibleHtml(d[month][day]) ).join('\n'),
-			monthNames,
-			expectedMonthLength,
-			backUrl,
-			nextUrl,
-		})
+		generateDayHtml(month, day)
 
 		if (cliOpts.debug && day >= 3) { // debug
+			// generateDayHtml(12, 1)
+			// generateDayHtml(12, 2)
+			// generateDayHtml(12, 3)
 			console.log('\nSkipping the daily pages other than Jan 1,2,3')
 			console.log('Open localcanondaily.com in your browser.\n')
 			process.exit(0)
 		}
 	}
+}
+
+function generateDayHtml(month, day) {
+	let backUrl = './' + (day - 1)
+	if (month === 1 && day === 1) {
+		backUrl = '../December/31'
+	} else if (day === 1) {
+		backUrl = '../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1]
+	}
+	let nextUrl = './' + (day + 1)
+	if (month === 12 && day === 31) {
+		nextUrl = '../January/1'
+	} else if (day === expectedMonthLength[month]) {
+		nextUrl = '../' + monthNames[month + 1] + '/1'
+	}
+
+	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
+		subtemplate: './day.art',
+		title: monthNames[month] + ' ' + day + ' - Canon Daily',
+		revHash,
+		month,
+		day,
+		proudVsBroken: proudVsBroken[day - 1],
+		meditate: meditate[day - 1],
+		bibleHtml: dtpm.map( d => d[month][day] ).map(parseReference).map(getBibleHtml).join('\n'),
+		monthNames,
+		expectedMonthLength,
+		backUrl,
+		nextUrl,
+	})
+	
 }
 
 function parseCliOptions(args) {
@@ -112,7 +105,7 @@ function writeSubtemplate(resultName, data) {
 }
 
 function range(start, end) {
-	return Array(end - start + 1).fill().map((_, i) => i + start)
+	return Array(end - start + 1).fill().map((_, i) => i + start) // *new* Array?
 }
 
 function getDayOfWeekOffset() {

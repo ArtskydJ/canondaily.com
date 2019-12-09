@@ -1,6 +1,10 @@
-module.exports = function parseReference(passageReference) {
-	let book = passageReference.toLowerCase().replace(/(\w) \d.*/, '$1').replace(/\s+/g, '')
-	let reference = passageReference.replace(/.+\w (\d)/g, '$1')
+module.exports = function parseReference(passageRefStr) {
+	if (! passageRefStr || passageRefStr === 'x') {
+		throw new Error('Invalid passage reference: "' + passageRefStr + '"')
+	}
+	const book = passageRefStr.replace(/ \d.*/, '').trim()
+	const bookSlug = book.toLowerCase().replace(/ \d.*/, '').replace(/\s+/g, '')
+	let reference = passageRefStr.replace(/.+\w (\d)/g, '$1')
 
 	let startChapter = 1
 	let endChapter = Infinity
@@ -46,7 +50,9 @@ module.exports = function parseReference(passageReference) {
 	*/
 
 	return {
+		original: passageRefStr,
 		book,
+		bookSlug,
 		startChapter,
 		startVerse,
 		endChapter,

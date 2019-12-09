@@ -1,5 +1,5 @@
-module.exports = function parse(bookStructureTxt) {
-	return bookStructureTxt.split('\n').reduce(function (result, line) {
+module.exports = function parse(text) {
+	return text.split('\n').reduce(function (result, line) {
 		var text = line.replace(/^\t+/, '')
 		var tabCount = line.length - text.length
 		text = text.trim()
