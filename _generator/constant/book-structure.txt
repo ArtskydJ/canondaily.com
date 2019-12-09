@@ -43,6 +43,13 @@ Job
 	Prose - Confession and Historical
 		42:1-6 Job's Confession, Intercession, and rich blessings of God added
 		
+
+----------------------------------------------------
+-- These are commented out because I only support --
+-- 2 levels of depth in my current implementation --
+-- of the book structure viewer.                  --
+----------------------------------------------------
+
 Psalms
 --	Book 1 - Yahweh will save David and establish his throne in Zion
 --		1-2 Introduction
