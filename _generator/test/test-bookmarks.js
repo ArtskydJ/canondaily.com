@@ -1,10 +1,9 @@
 var fs = require('fs')
 var parse = require('../bookmarks-parser.js')
 var parseReference = require('../parse-reference.js')
+var expectedMonthLength = require('../constant/months.json').expectedMonthLength
 
-var expectedMonthLength = [,31,28,31,30,31,30,31,31,30,31,30,31]
-
-var bookmarksTxt = fs.readFileSync(__dirname + '/../bookmarks.txt', 'utf-8')
+var bookmarksTxt = fs.readFileSync(__dirname + '/../constant/bookmarks.txt', 'utf-8')
 var dtpm = parse(bookmarksTxt)
 
 var currRef = { book: null }
@@ -39,6 +38,7 @@ for (var part = 0; part < 4; part++) {
 		}
 	}
 }
+console.log('ok')
 
 function outputError(expectedStr) {
 	process.exitCode = 1
