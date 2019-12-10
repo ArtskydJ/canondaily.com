@@ -142,6 +142,10 @@ nav a:hover {
 #background-message {
 	margin-top: 40vh;
 }
+.book-structure > ul {
+	padding: 0;
+	padding-left: 1em;
+}
 
 .chapter, .verse {
 	display: none;
