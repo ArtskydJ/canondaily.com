@@ -3,17 +3,17 @@ Genesis
 
 Exodus
 	Rescue - Deliverance out of Egypt
-		1-4 Covenant
-		5-11 Confrontation
-		12-18 Power of God
+		1-4    Covenant
+		5-11   Confrontation
+		12-18  Power of God
 	Reconstruction - Giving of the Law
-		19-20 Commandments
-		21-23 Judgments
-		24 Ordinances
+		19-20  Commandments
+		21-23  Judgments
+		24     Ordinances
 	Fellowship - Instructions for the Tabernacle
-		25-31 Blueprints
-		32-34 False Worship
-		35-40 Completion
+		25-31  Blueprints
+		32-34  False Worship
+		35-40  Completion
 Leviticus
 Numbers
 Deuteronomy
@@ -31,18 +31,18 @@ Nehemiah
 Esther
 Job
 	Prose - Historical
-		1-2 Rich blessings of God removed
+		1-2  Rich blessings of God removed
 	Poetry - Theological Wrestling with the Problem of Pain
 		3 Lament
-		4-14 1st Debate Cycle
-		15-21 2nd Debate Cycle
-		22-26 3rd Debate Cycle
-		27-31 Job's wisdom and Lament
+		4-14   1st Debate Cycle
+		15-21  2nd Debate Cycle
+		22-26  3rd Debate Cycle
+		27-31  Job's wisdom and Lament
 	Prose and Poetry - Correction via Revelation
-		32-37 Prophetic introduction to God's viewpoint
-		38-41 God brings correction to Job
+		32-37  Prophetic introduction to God's viewpoint
+		38-41  God brings correction to Job
 	Prose - Confession and Historical
-		42:1-6 Job's Confession, Intercession, and rich blessings of God added
+		42:1-6  Job's Confession, Intercession, and rich blessings of God added
 		
 
 ----------------------------------------------------
@@ -186,54 +186,54 @@ Lamentations
 Ezekiel
 Daniel
 	Hebrew Section - A message of hope for remnant
-		1:1-2:3 Historical Prologue
+		1:1-2:3   Historical Prologue
 	Aramaic Section - A message of judgment on Gentile nations
-		2:4-2:49 (A) Prophecy of the four kingdoms - Four statue parts: Four empires
-		3 (B) Trial of remnant - Fiery furnace
-		4:1-36 (C) Prophecy to pagan king leads to Nebuchadnezzar's repentance
-		4:37 (D) Pagan king's profession of faith
-		5 (C') Prophecy to the pagan king leads to humbling
-		6 (B') Trial of remnant - Lion's den
-		7 (A') Prophecy of the four kingdoms - Four beasts: Four empires
+		2:4-2:49  (A) Prophecy of the four kingdoms - Four statue parts: Four empires
+		3         (B) Trial of remnant - Fiery furnace
+		4:1-36    (C) Prophecy to pagan king leads to Nebuchadnezzar's repentance
+		4:37      (D) Pagan king's profession of faith
+		5         (C') Prophecy to the pagan king leads to humbling
+		6         (B') Trial of remnant - Lion's den
+		7         (A') Prophecy of the four kingdoms - Four beasts: Four empires
 	Hebrew Section - A message of hope for Israel's future
-		8 (A) Prophetic details of the second and third kingdoms
-		9:1-23 (B) Daniel's prayers for deliverance of his people
-		9:24-27 (C) The arrival and purpose of the Messiah's kingdom
-		10 (B') Daniel's prayers for deliverance of his people
-		11 (A') Prophetic details of the second and third kingdoms
+		8         (A) Prophetic details of the second and third kingdoms
+		9:1-23    (B) Daniel's prayers for deliverance of his people
+		9:24-27   (C) The arrival and purpose of the Messiah's kingdom
+		10        (B') Daniel's prayers for deliverance of his people
+		11        (A') Prophetic details of the second and third kingdoms
 
 Hosea
 	Lawsuit 1 - Hosea's family life as a prophetic picture of Israel's backsliding and later restoration
-		1 The prophetic marriage of Hosea to Gomer
-		2 Prophetic application of Gomer's adultery
-		3 Prophetic application of Gomer's restoration to Hosea with Messiah as the solution
+		1   The prophetic marriage of Hosea to Gomer
+		2   Prophetic application of Gomer's adultery
+		3   Prophetic application of Gomer's restoration to Hosea with Messiah as the solution
 	Lawsuit 2 - Opening Complaints
-		4 A threefold indictment
-		5:1-7 Three guilty parties
-		5:8-15 A threefold alarm
-		6:1-3 A Messianic solution
-		6:4-7:16 Further descriptions of the evil that needs God's help
+		4         A threefold indictment
+		5:1-7     Three guilty parties
+		5:8-15    A threefold alarm
+		6:1-3     A Messianic solution
+		6:4-7:16  Further descriptions of the evil that needs God's help
 	Lawsuit 2 - Further charges and lessons
-		8 The lesson of the broken covenant
-		9:1-9 Application: Israel doomed
-		9:10-17 The lesson of unprofitable plants
-		1:1-8 Application: Israel is a wayward vine
-		10:9-11 The lesson of the heifer
-		10:12-15 Application: Sow righteousness in preparation for the Messianic kingdom
-		11 God's divine compassion
+		8         The lesson of the broken covenant
+		9:1-9     Application: Israel doomed
+		9:10-17   The lesson of unprofitable plants
+		1:1-8     Application: Israel is a wayward vine
+		10:9-11   The lesson of the heifer
+		10:12-15  Application: Sow righteousness in preparation for the Messianic kingdom
+		11        God's divine compassion
 	Lawsuit 3 - Deceitfulness
-		12:1-6 Deceitful deeds, and God's curse upon deceitfulness
-		13 Deceitful pride
-		14 The Messianic solution to this problem
+		12:1-6    Deceitful deeds, and God's curse upon deceitfulness
+		13        Deceitful pride
+		14        The Messianic solution to this problem
 
 Joel
 	Locust Plagues
-		1 The first locust plague
-		2:1-20 The second locust plague
+		1        The first locust plague
+		2:1-20   The second locust plague
 	Restoration
-		2:21-27 Restoration after the plagues
-		2:28-32 AD 30-70: The outpouring of the Holy Spirit
-		3 AD 70: The beginning of the new Jerusalem and new creation
+		2:21-27  Restoration after the plagues
+		2:28-32  AD 30-70: The outpouring of the Holy Spirit
+		3        AD 70: The beginning of the new Jerusalem and new creation
 
 Amos
 Obadiah
