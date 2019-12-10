@@ -20,7 +20,7 @@ module.exports = function parse(bookStructureTxt) {
 				return {
 					book: bookName,
 					reference: ref,
-					text: passage.text.slice(possibleReference.length + 1)
+					text: passage.text.slice(possibleReference.length).trim()
 				}
 			})
 			
