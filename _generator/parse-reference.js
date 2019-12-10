@@ -40,14 +40,12 @@ module.exports = function parseReference(passageRefStr) {
 		startVerse = parseInt(splitReference0[1])
 		endVerse = parseInt(splitReference1[1])
 	}
-	/*
 	if (startChapter > endChapter) {
 		throw new Error('Start Chapter is larger than End Chapter')
 	}
 	if (startChapter === endChapter && startVerse > endVerse) {
 		throw new Error('Start Verse is larger than End Verse')
 	}
-	*/
 
 	return {
 		original: passageRefStr,

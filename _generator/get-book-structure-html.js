@@ -21,7 +21,7 @@ module.exports = function getBookStructureHtml(ref) {
 			return li
 		}).join('') }
 	</ul>`
-		// <li><pre style="font-size:10pt;">${ JSON.stringify( bookStructure[ ref.book ], null, 1) }</pre></li> debug
+		//<li><pre style="font-size:10pt;">${ JSON.stringify( bookStructure[ ref.book ], null, 2) }</pre></li> debug
 }
 
 function refsOverlap(ref1, ref2) {
@@ -31,7 +31,10 @@ function refsOverlap(ref1, ref2) {
 		ref2.startChapter < ref1.startChapter && ref1.startChapter < ref2.endChapter ||
 		ref2.startChapter < ref1.endChapter && ref1.endChapter < ref2.endChapter ||
 		(
-			ref1.startChapter === ref2.startChapter && (
+			(
+				ref1.startChapter === ref2.startChapter ||
+				ref1.endChapter === ref2.endChapter
+			) && (
 				ref1.startVerse <= ref2.startVerse && ref2.startVerse <= ref1.endVerse ||
 				ref1.startVerse <= ref2.endVerse && ref2.endVerse <= ref1.endVerse ||
 				ref2.startVerse <= ref1.startVerse && ref1.startVerse <= ref2.endVerse ||
