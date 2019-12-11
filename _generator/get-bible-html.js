@@ -34,10 +34,15 @@ module.exports = function getBibleHtml(ref) {
 			return '<span class="' + chunk.type.replace(/ /g, '') + '">' + result + chunk.value + '</span>'
 		}
 	}).join(' ')
+	
+	var bookStructureHtml = getBookStructureHtml(ref)
+	if (bookStructureHtml) {
+		bookStructureHtml = `<div class="section book-structure">${ bookStructureHtml }</div>`
+	}
 
 	return `<div class="section">
 		<span class="header">${ ref.original }</span>
-		<div class="section book-structure dark-bg">${ getBookStructureHtml(ref) }</div>
+		${ bookStructureHtml }
 		${ bibleText }
 	</div>`
 }

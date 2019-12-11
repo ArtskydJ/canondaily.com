@@ -6,6 +6,8 @@ const bookStructureTxt = fs.readFileSync(path.resolve(__dirname, 'constant', 'bo
 const bookStructure = bookStructureParser( bookStructureTxt )
 
 module.exports = function getBookStructureHtml(ref) {
+	if (! bookStructure[ ref.book ].length) return ''
+
 	return `<ul>
 		${ bookStructure[ ref.book ].map( section => {
 			const inThisSection = refsOverlap(section.reference, ref)

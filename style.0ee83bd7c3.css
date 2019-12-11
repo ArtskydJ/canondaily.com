@@ -142,7 +142,14 @@ nav a:hover {
 #background-message {
 	margin-top: 40vh;
 }
+.book-structure {
+	border: 2px solid var(--dark-bg);
+	font-size: 0.8em;
+}
 .book-structure > ul {
+	margin: 0.25em;
+}
+.book-structure ul {
 	padding: 0;
 	padding-left: 1em;
 }
