@@ -236,6 +236,52 @@ Joel
 		3        AD 70: The beginning of the new Jerusalem and new creation
 
 Amos
+-- Flat structure
+--	Judgment on Nations
+--		1:1-5    Judgment of Damascus
+--		1:6-8    Judgment of Gaza
+--		1:9-10   Judgment of Tyre
+--		1:11-12  Judgment of Edom
+--		1:13-15  Judgment of Ammon
+--		2:1-3    Judgment of Moab
+--		2:4-5    Judgment of Judah
+--		2:6-16   Judgment of Israel
+--	Reasons
+--		3         Special privileges
+--		4         Refused to be corrected
+--		5:1-17    No repentance
+--		5:18-5:27 Hyprocrisy
+--		6:1-6:14  Complacency
+--	Results for Israel
+--		7:1-3   Locusts
+--		7:4-6   Fire
+--		7:7-9   Plumbline
+--		7:10-17 Exile of Israel in 722 BC
+--	Results for Judah
+--		8:1-3   Rotten fruit
+--		8:4-10  Exile of Judah in 607 BC
+--		8:11-14 400 years of silence starting in 400 BC
+--		9:1-10  Destruction in 70 AD
+--	Messianic glories
+--		9:11    A new Israel (church)
+--		9:12    Spread to Gentiles
+--		9:13    Millenial Glories
+--		9:14-15 Salvation of Israel
+		
+		
+-- Chiastic structure
+-- 1:1-2:3   (A) Coming judgment upon Israel's neighbors
+-- 2:4-2:5    (B) Coming judgment upon Judah
+-- 2:6-2:16    (C) Coming judgment upon Israel
+-- **** 3            (D) The prophet's compulsion - Destruction of Israel and Bethel's cult center
+-- 4             (E) Condemnation of wealthy Israelite women - Empty religious activity and Yahweh's judgment
+-- 5:1-17         (F) Call to repentance and lament
+-- 5:18-6:14     (E') Condemnation of wealthy Israelite men - Empty religious activity and coming judgment
+-- **** 7:1-8:3      (D') The prophet's compulsion - Destruction of Bethel's cult center
+-- **** 8:4-9:10    (C') Coming judgment upon Israel
+-- 8:4-9:10   (B') Coming judgment upon Judah
+-- 9:11-9:15 (A') Future restoration among the nations
+
 Obadiah
 Jonah
 Micah
@@ -273,71 +319,74 @@ James
 Jude
 Revelation
 	Introduction
-		1:1-11 How to read the book and submit to it
+		1:1-11     How to read the book and submit to it
 	First Septet - The seven churches - The church militant
-		1:12-20 Introduction to the seven churches - Christ is present with His church
-		2:1-7 Ephesus
-		2:8-11 Smyrna
-		2:12-17 Pergamos
-		2:18-29 Thyatira
-		3:1-6 Sardis
-		3:7-13 Philadelphia
-		3:14-22 Laodicea
+		1:12-20    Introduction to the seven churches - Christ is present with His church
+		2:1-7      Ephesus
+		2:8-11     Smyrna
+		2:12-17    Pergamos
+		2:18-29    Thyatira
+		3:1-6      Sardis
+		3:7-13     Philadelphia
+		3:14-22    Laodicea
 	Second Septet - The seven seals - Release of court judgments
-		4:1-5:14 Introduction to the seven seals - Christ is on His throne and is governing
-		6:1-2 Seal 1 - The white horse
-		6:3-4 Seal 2 - The red horse
-		6:5-6 Seal 3 - The black horse
-		6:7-8 Seal 4 - The yellowish-green horse
-		6:9-11 Seal 5 - The souls under the altar
-		6:12-17 Seal 6 - The earthquake
-		7:1-17 Interlude before the 7th seal: the 144,000 of the Jewish remnant and the innumerable multitude
-		8:1 Seal 7 introduces the seven trumpets and seems to comprise all of the third septet 
+		4:1-5:14   Introduction to the seven seals - Christ is on His throne and is governing
+		6:1-2      Seal 1 - The white horse
+		6:3-4      Seal 2 - The red horse
+		6:5-6      Seal 3 - The black horse
+		6:7-8      Seal 4 - The yellowish-green horse
+		6:9-11     Seal 5 - The souls under the altar
+		6:12-17    Seal 6 - The earthquake
+		7          Interlude before the 7th seal: the 144,000 of the Jewish remnant and the innumerable multitude
+-- The following (7:99) is a hack so Seal 7 will show up in the 2nd septet, and will never be bold in the 2nd septet
+		7:99       Seal 7 introduces the seven trumpets and seems to comprise all of the third septet
 	Third Septet - The seven visons - Punitive Judgments on Israel & Rome
-		8:1-6 - Introduction to the seven trumpets
-		8:7 Trumpet 1 - The land is set on fire
-		8:8-9 Trumpet 2 - The sea is turned to blood
-		8:10-12 Trumpet 3 - The rivers and springs become bitter
-		8:12-13 Trumpet 4 - The heavenly bodies are dimmed
-		9:1-12 Trumpet 5 - Demons released from the pit
-		9:13-21 Trumpet 6 - Demons released from Euphrates
+-- This is part of the hack. Since 8:1 is part of both septets, we don't want readers to see both the 2nd and the 3rd septet expanded simultaneously.
+		8:1        Seal 7 introduces the seven trumpets and seems to comprise all of the third septet
+		8:1-6      Introduction to the seven trumpets
+		8:7        Trumpet 1 - The land is set on fire
+		8:8-9      Trumpet 2 - The sea is turned to blood
+		8:10-12    Trumpet 3 - The rivers and springs become bitter
+		8:12-13    Trumpet 4 - The heavenly bodies are dimmed
+		9:1-12     Trumpet 5 - Demons released from the pit
+		9:13-21    Trumpet 6 - Demons released from Euphrates
 		10:1-11:14 Interlude before 7th trumpet: The closing off of prophecy & the nature of prophecy
-		11:15-19 Trumpet 7 seems to comprise all of the fourth septet
+		11:15-19   Trumpet 7 introduces the seven visions and seems to comprise all of the fourth septet
 	Fourth Septet - Christ victoriously advancing the New Covenant
-		12 Introduction to the seven visions
-		13:1-10 Vision 1 - The beast rising out of the sea
-		13:11-18 Vision 2 - The beast rising out of the land
-		14:1-5 Vision 3 - The 144,000 virgin (warriors) and the Lamb
-		14:6-13 Vision 4 - The seven angels
-		14:14-16 Vision 5 - The positive reaping of wheat
-		14:17-20 Vision 6 - The negative reaping of grapes
-		15:1 Vision 7 - The final "sign in heaven" seems to comprise all of the fifth septet
+		12         Introduction to the seven visions
+		13:1-10    Vision 1 - The beast rising out of the sea
+		13:11-18   Vision 2 - The beast rising out of the land
+		14:1-5     Vision 3 - The 144,000 virgin (warriors) and the Lamb
+		14:6-13    Vision 4 - The seven angels
+		14:14-16   Vision 5 - The positive reaping of wheat
+		14:17-20   Vision 6 - The negative reaping of grapes
+		15:1       Vision 7 - The final "sign in heaven" seems to comprise all of the fifth septet
 	Fifth Septet - Punitive Judgments on Israel & Rome
-		15:2-16:1 Introduction to the seven plagues - angels preparing for warfare; temple filled with God's glory
-		16:2 Bowl 1 - On the land
-		16:3 Bowl 2 - On the sea
-		16:4-7 Bowl 3 - On the waters
-		16:8-9 Bowl 4 - On the sun
-		16:10-11 Bowl 5 - On the throne of the beast
-		16:12-16 Bowl 6 - On the Euphrates
-		16:17 Bowl 7 - On the air - Note that this 7th bowl seems to introduce all of the next septet
+		15:2-16:1  Introduction to the seven plagues - angels preparing for warfare; temple filled with God's glory
+		16:2       Bowl 1 - On the land
+		16:3       Bowl 2 - On the sea
+		16:4-7     Bowl 3 - On the waters
+		16:8-9     Bowl 4 - On the sun
+		16:10-11   Bowl 5 - On the throne of the beast
+		16:12-16   Bowl 6 - On the Euphrates
+		16:17      Bowl 7 - On the air - Note that this 7th bowl seems to introduce all of the next septet
 	Sixth Septet - Legal court judgments
-		16:17-21 Introduction to the seven condemnations - Even with Roman support, Jerusalem is no match for Christ
-		17:1-6 1 - Blasphemy of the Harlot
-		17:7-18 2 - Harlots Pagan Alliance with Rome
-		18:1-8 3 - Spiritual fornications
-		18:9-20 4 - Ungodly statist/commercial alliance
-		18:21-24 5 - The finality of Babylon's fall
-		19:1-4 6 - All heaven agreeing with her judgment
-		19:5-10 7 - The death of the harlot is followed by the marriage of the Lamb
+		16:17-21   Introduction to the seven condemnations - Even with Roman support, Jerusalem is no match for Christ
+		17:1-6     Condemnation 1 - Blasphemy of the Harlot
+		17:7-18    Condemnation 2 - Harlots Pagan Alliance with Rome
+		18:1-8     Condemnation 3 - Spiritual fornications
+		18:9-20    Condemnation 4 - Ungodly statist/commercial alliance
+		18:21-24   Condemnation 5 - The finality of Babylon's fall
+		19:1-4     Condemnation 6 - All heaven agreeing with her judgment
+		19:5-10    Condemnation 7 - The death of the harlot is followed by the marriage of the Lamb
 	Seventh Septet - The church militant & triumphant
-		19:11-21 Introduction to the seven New Covenant visions - Jesus proves that He is King of kings and Lord of lords
-		20:1-3 Vision 1 - Satan's power bound
-		20:4-6 Vision 2 - Victory over death guaranteed - reign in life and in death
-		20:11-15 Vision 3 - Final judgment
-		21:1-8 Vision 4 - All things made new
-		21:9-27 Vision 5 - The New Jerusalem as the spotless bride
-		22:1-5 Vision 6 - The river of life
-		22:6-17 Vision 7 - Reiteration that Christ will come soon to finish the old and to continue the renewal of all things
+		19:11-21   Introduction to the seven New Covenant visions - Jesus proves that He is King of kings and Lord of lords
+		20:1-3     Vision 1 - Satan's power bound
+		20:4-6     Vision 2 - Victory over death guaranteed - reign in life and in death
+		20:11-15   Vision 3 - Final judgment
+		21:1-8     Vision 4 - All things made new
+		21:9-27    Vision 5 - The New Jerusalem as the spotless bride
+		22:1-5     Vision 6 - The river of life
+		22:6-17    Vision 7 - Reiteration that Christ will come soon to finish the old and to continue the renewal of all things
 	Epilogue
-		22:18-21 How to read the book and submit to it
+		22:18-21   How to read the book and submit to it

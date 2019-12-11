@@ -47,7 +47,7 @@ function refsOverlap(ref1, ref2) {
 function formatLi(sectionOrPassage, bold) {
 	const ref = sectionOrPassage.reference
 	const shortRefStr = ref.original.slice(ref.book.length + 1)
-	var line = sectionOrPassage.text + ' (' + shortRefStr + ')'
+	var line = sectionOrPassage.text // + ' (' + shortRefStr + ')'
 	if (bold) line = '<b>' + line + '</b>'
 	return '<li>' + line + '</li>'
 }

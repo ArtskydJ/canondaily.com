@@ -177,12 +177,14 @@ var expected = [
 
 
 var actual = tip(`Revelation
+-- comment on the root level
 	Introduction
 		1:1-11 How to read the book and submit to it
 	First Septet - The seven churches - The church militant
+    -- indented comment
 		1:12-20 Introduction to the seven churches - Christ is present with His church
 		2:1-7 Ephesus
-		2:8-11 Smyrna
+		2:8-11 Smyrna -- comment at the end of a line
 		2:12-17 Pergamos
 		2:18-29 Thyatira
 		3:1-6 Sardis

@@ -1,9 +1,8 @@
 const cliOpts = parseCliOptions( process.argv.slice(2) )
 
-if (cliOpts.help || ! cliOpts.run) {
-	console.log('Usage:')
-	console.log('node index { --help | --run [--debug] }')
-	process.exit( cliOpts.help ? 0 : 1)
+if (cliOpts.help) {
+	printUsage()
+	process.exit(0)
 }
 
 const fs = require('fs')
@@ -24,39 +23,70 @@ const dtpm = parseBookmarks(bookmarksTxt)
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
-const revHash = hashCss()
 
-writeSubtemplate('index.html', {
-	subtemplate: './calendar.art',
-	title: 'Canon Daily',
-	revHash,
-	range,
-	expectedMonthLength,
-	monthNames,
-	monthNamesJson: JSON.stringify(monthNames),
-	shortMonthNames,
-	dayOfWeek: getDayOfWeekOffset(),
-})
+if (cliOpts.debug) {
+	generateCommonFiles()
+	
+	generateDayHtml(1, 1)
+	generateDayHtml(1, 2)
+	generateDayHtml(1, 3)
+	console.log('\nSkipping the daily pages other than Jan 1,2,3')
+	console.log('Open localcanondaily.com in your browser.\n')
+	
+} else if (cliOpts.month) {
+	generateCommonFiles()
+	
+	var mMonth = parseInt(cliOpts.month, 10)
+	if (mMonth < 1 || mMonth > 12) throw new RangeError('Unexpected value for month cli argument')
 
-writeSubtemplate('prayer-for-filling-of-spirit.html', {
-	subtemplate: './prayer-for-filling-of-spirit.art',
-	title: 'Prayer for the Filling of the Spirit - Canon Daily',
-	revHash
-})
-
-for (var month = 1; month <= 12; month++) {
-	for (var day = 1; day <= expectedMonthLength[month]; day++) {
-		generateDayHtml(month, day)
-
-		if (cliOpts.debug && day >= 3) { // debug
-			// generateDayHtml(12, 1)
-			// generateDayHtml(12, 2)
-			// generateDayHtml(12, 3)
-			console.log('\nSkipping the daily pages other than Jan 1,2,3')
-			console.log('Open localcanondaily.com in your browser.\n')
-			process.exit(0)
+	for (var mDay = 1; mDay <= expectedMonthLength[mMonth]; mDay++) {
+		generateDayHtml(mMonth, mDay)
+	}
+	console.log('\nOnly generating for month ' + mMonth)
+	
+} else if (cliOpts.run) {
+	generateCommonFiles()
+	
+	for (var rMonth = 1; rMonth <= 12; rMonth++) {
+		for (var rDay = 1; rDay <= expectedMonthLength[rMonth]; rDay++) {
+			generateDayHtml(rMonth, rDay)
 		}
 	}
+
+} else {
+	printUsage()
+	process.exit(1)
+}
+
+function printUsage() {
+	console.log('Usage: node . [options]')
+	console.log('node . --help      Print this help text')
+	console.log('node . run         Run the generator')
+	console.log('node . debug       Skip generating all daily pages, except for January 1-3')
+	console.log('node . month=n     Generate for a month. n must be between 1 and 12')
+}
+
+function generateCommonFiles() {
+	const revHash = hashCss()
+	global.revHash = revHash
+
+	writeSubtemplate('index.html', {
+		subtemplate: './calendar.art',
+		title: 'Canon Daily',
+		revHash,
+		range,
+		expectedMonthLength,
+		monthNames,
+		monthNamesJson: JSON.stringify(monthNames),
+		shortMonthNames,
+		dayOfWeek: getDayOfWeekOffset(),
+	})
+
+	writeSubtemplate('prayer-for-filling-of-spirit.html', {
+		subtemplate: './prayer-for-filling-of-spirit.art',
+		title: 'Prayer for the Filling of the Spirit - Canon Daily',
+		revHash
+	})
 }
 
 function generateDayHtml(month, day) {
@@ -76,7 +106,7 @@ function generateDayHtml(month, day) {
 	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 		subtemplate: './day.art',
 		title: monthNames[month] + ' ' + day + ' - Canon Daily',
-		revHash,
+		revHash: global.revHash,
 		month,
 		day,
 		proudVsBroken: proudVsBroken[day - 1],
@@ -92,7 +122,8 @@ function generateDayHtml(month, day) {
 
 function parseCliOptions(args) {
 	return args.reduce((memo, arg) => {
-		memo[ arg.replace(/^--/, '').toLowerCase() ] = true
+		var parts = arg.replace(/^--/, '').split('=')
+		memo[ parts[0].toLowerCase() ] = parts[1] || true
 		return memo
 	}, {})
 }
