@@ -80,6 +80,7 @@ function generateCommonFiles() {
 		monthNamesJson: JSON.stringify(monthNames),
 		shortMonthNames,
 		dayOfWeek: getDayOfWeekOffset(),
+		leapYear: getLeapYear(),
 	})
 
 	writeSubtemplate('prayer-for-filling-of-spirit.html', {
@@ -144,4 +145,10 @@ function getDayOfWeekOffset() {
 	const jan1 = new Date(year, 0)
 	jan1.setUTCHours(0)
 	return (jan1.getDay() + 1) % 7
+}
+
+function getLeapYear() {
+	const year = new Date().getUTCFullYear()
+	// https://stackoverflow.com/a/16353241/1509389
+	return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)
 }

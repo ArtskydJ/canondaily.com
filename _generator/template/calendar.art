@@ -9,6 +9,9 @@
 				{{shortMonthNames[month]}}<br>{{day}}
 			</a>
 		{{/each}}
+		{{if month == 2 && leapYear}}
+			<div class="cal-date-leap-year">{{shortMonthNames[month]}}<br>29</div>
+		{{/if}}
 	{{/each}}
 </div>
 
