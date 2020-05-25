@@ -199,6 +199,7 @@ nav a:hover {
 	line-height: 1.25;
 }
 .cal-today,
+.cal-date-leap-year,
 .cal-date {
 	margin: 6px;
 	background-color: var(--dark-bg);
@@ -210,8 +211,6 @@ nav a:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-.cal-date {
 	font-size: 20pt;
 }
 .cal-today:hover,
@@ -220,6 +219,9 @@ nav a:hover {
 }
 .cal-date.completed {
 	background-color: var(--green); /*#1b1;*/
+}
+.cal-date-leap-year {
+	background-color: var(--lightgray-bg);
 }
 .cal-date-spacer {
 	grid-column-start: 1;
