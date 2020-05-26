@@ -16,10 +16,10 @@ for (var part = 0; part < 4; part++) {
 		for (var day = 1; day <= expectedMonthLength[month]; day++) {
 			lineNumber++
 			prevRef = currRef
-			var currentPassages = dtpm[month + '/' + day]
-			currRef = parseReference(currentPassages[part])
+			var currentPassages = dtpm[part][month][day]
+			currRef = parseReference(currentPassages)
 
-			var expectNextVerse = `${prevRef.book} ${prevRef.startChapter}:${prevRef.endVerse + 1}`
+			var expectNextVerse = `${prevRef.book} ${prevRef.startChapter}:${prevRef.endVerse && prevRef.endVerse + 1}`
 			var expectNextChapter = `${prevRef.book} ${prevRef.startChapter + 1}:1`
 
 			if (prevRef.book === currRef.book) {
@@ -38,12 +38,11 @@ for (var part = 0; part < 4; part++) {
 		}
 	}
 }
-console.log('ok')
+if (!process.exitCode) {
+	console.log('ok')
+}
 
 function outputError(expectedStr) {
 	process.exitCode = 1
-	console.error(`Line ${lineNumber}
-		Expected: ${expectedStr}
-		Actual: ${currentPassages[part]}
-	`)
+	console.error(`bookmarks.txt Line ${lineNumber}\n  Expected: ${expectedStr}\n  Actual: ${currentPassages}`)
 }
