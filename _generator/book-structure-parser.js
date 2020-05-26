@@ -34,8 +34,8 @@ module.exports = function parse(bookStructureTxt) {
 			let reference = {
 				original:
 					ref1.book + ' ' +
-					ref1.startChapter + ( ref1.startVerse !== 1 ? ':' + ref1.startVerse : '' ) + '-' +
-					ref2.endChapter + (ref2.endVerse !== Infinity ? ':' + ref2.endVerse : '' ),
+					ref1.startChapter + ( ref1.startVerse !== undefined ? ':' + ref1.startVerse : '' ) + '-' +
+					ref2.endChapter + (ref2.endVerse !== undefined ? ':' + ref2.endVerse : '' ),
 				book: ref1.book,
 				bookSlug: ref1.bookSlug,
 				startChapter: ref1.startChapter,

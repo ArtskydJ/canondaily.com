@@ -23,7 +23,7 @@ for (var part = 0; part < 4; part++) {
 			var expectNextChapter = `${prevRef.book} ${prevRef.startChapter + 1}:1`
 
 			if (prevRef.book === currRef.book) {
-				if ( currRef.startChapter === prevRef.endChapter + 1 && currRef.startVerse !== 1 ) {
+				if ( currRef.startChapter === prevRef.endChapter + 1 && currRef.startVerse !== undefined ) {
 					outputError(`${expectNextChapter}`)
 				}
 				if ( currRef.startChapter === prevRef.endChapter && currRef.startVerse !== prevRef.endVerse + 1 ) {
@@ -32,7 +32,7 @@ for (var part = 0; part < 4; part++) {
 				if ( currRef.startChapter !== prevRef.endChapter && currRef.startChapter !== prevRef.endChapter + 1 ) {
 					outputError(`${expectNextVerse} OR ${expectNextChapter}`)
 				}
-			} else if ( currRef.startChapter !== 1 || currRef.startVerse !== 1 ) {
+			} else if ( currRef.startChapter !== 1 || currRef.startVerse !== undefined ) {
 				outputError(`[Book after ${prevRef.book}] 1:1`)
 			}
 		}

@@ -16,11 +16,9 @@ module.exports = function parseReference(passageRefStr) {
 	
 	if (isOneChapterAndAllVerses) {
 		startChapter = endChapter = parseInt(reference)
-		startVerse = 1
 	} else if (isMultipleChaptersAndAllVerses) {
 		startChapter = parseInt(reference.split('-')[0])
 		endChapter = parseInt(reference.split('-')[1])
-		startVerse = 1
 	} else if (isOneChapterAndOneVerse) {
 		let splitReference = reference.split(':')
 		startChapter = endChapter = parseInt(splitReference[0])

@@ -27,29 +27,59 @@ module.exports = function getBookStructureHtml(ref) {
 }
 
 function refsOverlap(ref1, ref2) {
+	return refIsInside(ref1, ref2) || refIsInside(ref2, ref1)
+}
+function refIsInside(ref1, ref2) {
 	return (
-		ref1.startChapter < ref2.startChapter && ref2.startChapter < ref1.endChapter ||
-		ref1.startChapter < ref2.endChapter && ref2.endChapter < ref1.endChapter ||
-		ref2.startChapter < ref1.startChapter && ref1.startChapter < ref2.endChapter ||
-		ref2.startChapter < ref1.endChapter && ref1.endChapter < ref2.endChapter ||
-		(
-			(
-				ref1.startChapter === ref2.startChapter ||
-				ref1.endChapter === ref2.endChapter
-			) && (
-				ref1.startVerse <= ref2.startVerse && ref2.startVerse <= ref1.endVerse ||
-				ref1.startVerse <= ref2.endVerse && ref2.endVerse <= ref1.endVerse ||
-				ref2.startVerse <= ref1.startVerse && ref1.startVerse <= ref2.endVerse ||
-				ref2.startVerse <= ref1.endVerse && ref1.endVerse <= ref2.endVerse
-			)
+		partialChaptersOverlap(ref1, ref2) ||
+		fullChaptersOverlap(ref1, ref2)
+	)
+}
+function partialChaptersOverlap(ref1, ref2) {
+	return between(ref1.startChapter, ref2.startChapter, ref1.endChapter) || 
+		between(ref1.startChapter, ref2.endChapter, ref1.endChapter)
+}
+function fullChaptersOverlap(ref1, ref2) {
+	return (
+		ref1.startVerse === undefined &&
+		ref1.endVerse === undefined && (
+			ref1.startChapter === ref2.startChapter ||
+			ref1.endChapter   === ref2.startChapter ||
+			ref1.startChapter === ref2.endChapter   ||
+			ref1.endChapter   === ref2.endChapter
 		)
 	)
 }
+// function versesOverlap(ref1, ref2) {
+// 	return ref1.startChapter < ref2.startChapter && ref2.startChapter < ref1.endChapter ||
+// 		ref1.startChapter < ref2.endChapter && ref2.endChapter < ref1.endChapter ||
+// 		ref2.startChapter < ref1.startChapter && ref1.startChapter < ref2.endChapter ||
+// 		ref2.startChapter < ref1.endChapter && ref1.endChapter < ref2.endChapter ||
+// 		(
+// 			(
+// 				ref1.startChapter === ref2.startChapter ||
+// 				ref1.endChapter === ref2.endChapter
+// 			) && (
+// 				ref1.startVerse <= ref2.startVerse && ref2.startVerse <= ref1.endVerse ||
+// 				ref1.startVerse <= ref2.endVerse && ref2.endVerse <= ref1.endVerse ||
+// 				ref2.startVerse <= ref1.startVerse && ref1.startVerse <= ref2.endVerse ||
+// 				ref2.startVerse <= ref1.endVerse && ref1.endVerse <= ref2.endVerse
+// 			)
+// 		)
+// }
+
+function between(a, b, c) {
+	if (c === undefined) return a < b
+	return a < b && b < c
+}
+// function betweenInclusive(a, b, c) {
+// 	return a <= b && b <= c
+// }
 
 function formatLi(sectionOrPassage, bold) {
-	const ref = sectionOrPassage.reference
-	const shortRefStr = ref.original.slice(ref.book.length + 1)
-	var line = sectionOrPassage.text // + ' (' + shortRefStr + ')'
+	// const ref = sectionOrPassage.reference
+	// const shortRefStr = ref.original.slice(ref.book.length + 1)
+	let line = sectionOrPassage.text // + ' (' + shortRefStr + ')'
 	if (bold) line = '<b>' + line + '</b>'
 	return '<li>' + line + '</li>'
 }
