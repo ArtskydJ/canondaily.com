@@ -91,22 +91,22 @@ function generateCommonFiles() {
 }
 
 function generateDayHtml(month, day) {
-	let backUrl = './' + (day - 1)
+	let backUrl = `./${ day - 1 }`
 	if (month === 1 && day === 1) {
 		backUrl = '../December/31'
 	} else if (day === 1) {
-		backUrl = '../' + monthNames[month - 1] + '/' + expectedMonthLength[month - 1]
+		backUrl = `../${ monthNames[month - 1] }/${ expectedMonthLength[month - 1] }`
 	}
-	let nextUrl = './' + (day + 1)
+	let nextUrl = `./${ day + 1 }`
 	if (month === 12 && day === 31) {
 		nextUrl = '../January/1'
 	} else if (day === expectedMonthLength[month]) {
-		nextUrl = '../' + monthNames[month + 1] + '/1'
+		nextUrl = `../${ monthNames[month + 1] }/1`
 	}
 
 	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 		subtemplate: './day.art',
-		title: monthNames[month] + ' ' + day + ' - Canon Daily',
+		title: `${ monthNames[month] } ${ day } - Canon Daily`,
 		revHash: global.revHash,
 		month,
 		day,

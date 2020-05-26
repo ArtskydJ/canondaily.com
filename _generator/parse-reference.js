@@ -6,10 +6,7 @@ module.exports = function parseReference(passageRefStr) {
 	const bookSlug = book.toLowerCase().replace(/ \d.*/, '').replace(/\s+/g, '')
 	let reference = passageRefStr.replace(/.+\w (\d)/g, '$1')
 
-	let startChapter = 1
-	let endChapter = Infinity
-	let startVerse = 1
-	let endVerse = Infinity
+	let startChapter, endChapter, startVerse, endVerse
 
 	let isOneChapterAndAllVerses = /^\d+$/.test(reference)
 	let isMultipleChaptersAndAllVerses = /^\d+-\d+$/.test(reference)
@@ -19,9 +16,11 @@ module.exports = function parseReference(passageRefStr) {
 	
 	if (isOneChapterAndAllVerses) {
 		startChapter = endChapter = parseInt(reference)
+		startVerse = 1
 	} else if (isMultipleChaptersAndAllVerses) {
 		startChapter = parseInt(reference.split('-')[0])
 		endChapter = parseInt(reference.split('-')[1])
+		startVerse = 1
 	} else if (isOneChapterAndOneVerse) {
 		let splitReference = reference.split(':')
 		startChapter = endChapter = parseInt(splitReference[0])
