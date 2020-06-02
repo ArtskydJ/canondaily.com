@@ -238,6 +238,7 @@ nav a:hover {
 	#calendar {
 		grid-template-rows: repeat(54, calc(100vw / 7));
 	}
+	.cal-date-leap-year,
 	.cal-date {
 		font-size: 15pt;
 		margin: 1vw;
@@ -248,6 +249,7 @@ nav a:hover {
 	}
 }
 @media (max-width: 400px) { /* small phone screens */
+	.cal-date-leap-year,
 	.cal-date {
 		font-size: 10pt;
 	}
@@ -261,6 +263,7 @@ nav a:hover {
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
+	.cal-date-leap-year,
 	.cal-date {
 		width: 35px;
 		height: 35px;
