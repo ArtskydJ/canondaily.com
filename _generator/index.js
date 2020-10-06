@@ -1,4 +1,4 @@
-const cliOpts = parseCliOptions( process.argv.slice(2) )
+const cliOpts = parseCliOptions(process.argv.slice(2))
 
 if (cliOpts.help) {
 	printUsage()
@@ -26,33 +26,30 @@ const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant
 
 if (cliOpts.debug) {
 	generateCommonFiles()
-	
+
 	generateDayHtml(1, 1)
 	generateDayHtml(1, 2)
 	generateDayHtml(1, 3)
 	console.log('\nSkipping the daily pages other than Jan 1,2,3')
 	console.log('Open localcanondaily.com in your browser.\n')
-	
 } else if (cliOpts.month) {
 	generateCommonFiles()
-	
-	var mMonth = parseInt(cliOpts.month, 10)
+
+	const mMonth = parseInt(cliOpts.month, 10)
 	if (mMonth < 1 || mMonth > 12) throw new RangeError('Unexpected value for month cli argument')
 
-	for (var mDay = 1; mDay <= expectedMonthLength[mMonth]; mDay++) {
+	for (let mDay = 1; mDay <= expectedMonthLength[mMonth]; mDay++) {
 		generateDayHtml(mMonth, mDay)
 	}
 	console.log('\nOnly generating for month ' + mMonth)
-	
 } else if (cliOpts.run) {
 	generateCommonFiles()
-	
-	for (var rMonth = 1; rMonth <= 12; rMonth++) {
-		for (var rDay = 1; rDay <= expectedMonthLength[rMonth]; rDay++) {
+
+	for (let rMonth = 1; rMonth <= 12; rMonth++) {
+		for (let rDay = 1; rDay <= expectedMonthLength[rMonth]; rDay++) {
 			generateDayHtml(rMonth, rDay)
 		}
 	}
-
 } else {
 	printUsage()
 	process.exit(1)
@@ -112,18 +109,17 @@ function generateDayHtml(month, day) {
 		day,
 		proudVsBroken: proudVsBroken[day - 1],
 		meditate: meditate[day - 1],
-		bibleHtml: dtpm.map( d => d[month][day] ).map(parseReference).map(getBibleHtml).join('\n'),
+		bibleHtml: dtpm.map(d => d[month][day]).map(parseReference).map(getBibleHtml).join('\n'),
 		monthNames,
 		expectedMonthLength,
 		backUrl,
 		nextUrl,
 	})
-	
 }
 
 function parseCliOptions(args) {
 	return args.reduce((memo, arg) => {
-		var parts = arg.replace(/^--/, '').split('=')
+		const parts = arg.replace(/^--/, '').split('=')
 		memo[ parts[0].toLowerCase() ] = parts[1] || true
 		return memo
 	}, {})

@@ -131,24 +131,18 @@
 	function updateIsToday() {
 		var eleMonthAndDay = document.getElementById('month-and-day')
 
-
-		var thisPageDateStr = 'December 9'
-		if (getDateStr(-1) === thisPageDateStr) {
-			eleMonthAndDay.classList.add('yesterday')
-		} else if (getDateStr(0) === thisPageDateStr) {
-			eleMonthAndDay.classList.add('today')
-		} else if (getDateStr(1) === thisPageDateStr) {
-			eleMonthAndDay.classList.add('tomorrow')
-		}
+		eleMonthAndDay.classList[isRelativeDay(-1) ? 'add' : 'remove' ]('yesterday')
+		eleMonthAndDay.classList[isRelativeDay(0)  ? 'add' : 'remove' ]('today')
+		eleMonthAndDay.classList[isRelativeDay(1)  ? 'add' : 'remove' ]('tomorrow')
 	}
 
-	function getDateStr(offsetDays) {
+	function isRelativeDay(offsetDays) {
 		var offsetDate = new Date()
 		offsetDate.setDate(offsetDate.getDate() + offsetDays)
 		return offsetDate.toLocaleDateString('en-US', {
 			month: 'long',
 			day: 'numeric'
-		})
+		}) === 'December 9'
 	}
 
 	updateIsToday()
