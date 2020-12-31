@@ -23,7 +23,7 @@
 	</script>
 </head>
 <body>
-	<noscript>This page may nor work correctly without javascript.</noscript>
+	<noscript>This page may not work correctly without javascript.</noscript>
 	<nav>
 		<div class="container flex-left">
 			<a class="nav-title" href="/">Canon Daily</a>
@@ -75,8 +75,8 @@
 	<div class="subsubheader">Colossians 3:2 NKJV</div>
 	Set your mind on things above, not on things on the earth.
 </div>
-	
-<div class="section complete-button" onclick="markDayAsComplete(Number('6'), Number('15'))">
+
+<div class="section complete-button" onclick="window.markDayAsComplete(Number('6'), Number('15'))">
 	<div class="header">
 		Complete<span class="checkmark" id="cm"></span>
 	</div>
@@ -90,58 +90,11 @@
 	</div>
 </div>
 
+<script src="/day.f9eab31bf3.js"></script>
 <script>
-	function updateCheckbox(monthData, day) {
-		document.getElementById('cm').style.display = monthData[day] ? 'inline' : 'none'
-	}
-
-	function readSavedMonth(month) {
-		return JSON.parse(localStorage.getItem(month) || '[]')
-	}
-	function writeSavedMonth(month, monthData) {
-		localStorage.setItem(month, JSON.stringify(monthData))
-	}
-
-	function markDayAsComplete(month, day){
-		var monthData = readSavedMonth(month)
-		// var wasComplete = monthData[day] === 1
-		monthData[day] = 1
-		writeSavedMonth(month, monthData)
-		updateCheckbox(monthData, day)
-	}
-
-	function init(month, day) {
-		var monthData = readSavedMonth(month)
-		if (monthData.length === 0){
-			for (var i = 0; i <= 31; i++) { monthData.push(0) }
-			writeSavedMonth(month, monthData)
-		}
-		updateCheckbox(monthData, day)
-	}
-	init(Number('6'), Number('15'))
-
-	function updateIsToday() {
-		var eleMonthAndDay = document.getElementById('month-and-day')
-
-		eleMonthAndDay.classList[isRelativeDay(-1) ? 'add' : 'remove' ]('yesterday')
-		eleMonthAndDay.classList[isRelativeDay(0)  ? 'add' : 'remove' ]('today')
-		eleMonthAndDay.classList[isRelativeDay(1)  ? 'add' : 'remove' ]('tomorrow')
-	}
-
-	function isRelativeDay(offsetDays) {
-		var offsetDate = new Date()
-		offsetDate.setDate(offsetDate.getDate() + offsetDays)
-		return offsetDate.toLocaleDateString('en-US', {
-			month: 'long',
-			day: 'numeric'
-		}) === 'June 15'
-	}
-
-	updateIsToday()
-
-	setInterval(updateIsToday, 1000)
+	window.init(Number('6'), Number('15'))
 </script>
-	
+
 
 </body>
 </html>
