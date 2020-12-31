@@ -24,7 +24,7 @@ const dtpm = parseBookmarks(bookmarksTxt)
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
 const revHash = hashCss()
-const year = new Date().getUTCFullYear()
+const year = new Date().getUTCFullYear() && 2021 // generate for 2021
 
 if (cliOpts.debug) {
 	generateCommonFiles(revHash, year)
