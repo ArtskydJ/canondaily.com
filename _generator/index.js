@@ -13,7 +13,7 @@ const mustache = require('art-template')
 const parseBookmarks = require('./bookmarks-parser.js')
 const parseReference = require('./parse-reference.js')
 const getBibleHtml = require('./get-bible-html.js')
-const hashCss = require('./hash-css.js')
+const hashFile = require('./hash-file.js')
 const proudVsBroken = require('./constant/proud-vs-broken.json')
 const meditate = require('./constant/meditate.json')
 
@@ -23,33 +23,36 @@ const dtpm = parseBookmarks(bookmarksTxt)
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
-const revHash = hashCss()
-const year = new Date().getUTCFullYear() && 2021 // generate for 2021
+const opts = {
+	cssRevHash: hashFile('style', 'css'),
+	dayRevHash: hashFile('day', 'js'),
+	year: new Date().getUTCFullYear(),
+}
 
 if (cliOpts.debug) {
-	generateCommonFiles(revHash, year)
+	generateCommonFiles(opts)
 
-	generateDayHtml(revHash, 1, 1)
-	generateDayHtml(revHash, 1, 2)
-	generateDayHtml(revHash, 1, 3)
+	generateDayHtml(1, 1, opts)
+	generateDayHtml(1, 2, opts)
+	generateDayHtml(1, 3, opts)
 	console.log('\nSkipping the daily pages other than Jan 1,2,3')
 	console.log('Open localcanondaily.com in your browser.\n')
 } else if (cliOpts.month) {
-	generateCommonFiles(revHash, year)
+	generateCommonFiles(opts)
 
 	const mMonth = parseInt(cliOpts.month, 10)
 	if (mMonth < 1 || mMonth > 12) throw new RangeError('Unexpected value for month cli argument')
 
 	for (let mDay = 1; mDay <= expectedMonthLength[mMonth]; mDay++) {
-		generateDayHtml(revHash, mMonth, mDay)
+		generateDayHtml(mMonth, mDay, opts)
 	}
 	console.log('\nOnly generating for month ' + mMonth)
 } else if (cliOpts.run) {
-	generateCommonFiles(revHash, year)
+	generateCommonFiles(opts)
 
 	for (let rMonth = 1; rMonth <= 12; rMonth++) {
 		for (let rDay = 1; rDay <= expectedMonthLength[rMonth]; rDay++) {
-			generateDayHtml(revHash, rMonth, rDay)
+			generateDayHtml(rMonth, rDay, opts)
 		}
 	}
 } else {
@@ -65,28 +68,28 @@ function printUsage() {
 	console.log('node . month=n     Generate for a month. n must be between 1 and 12')
 }
 
-function generateCommonFiles(revHash, year) {
+function generateCommonFiles(opts) {
 	writeSubtemplate('index.html', {
 		subtemplate: './calendar.art',
 		title: 'Canon Daily',
-		revHash,
+		cssRevHash: opts.cssRevHash,
 		range,
 		expectedMonthLength,
 		monthNames,
 		monthNamesJson: JSON.stringify(monthNames),
 		shortMonthNames,
-		dayOfWeek: getDayOfWeekOffset(year),
-		leapYear: getLeapYear(year),
+		dayOfWeek: getDayOfWeekOffset(opts.year),
+		leapYear: getLeapYear(opts.year),
 	})
 
 	writeSubtemplate('prayer-for-filling-of-spirit.html', {
 		subtemplate: './prayer-for-filling-of-spirit.art',
 		title: 'Prayer for the Filling of the Spirit - Canon Daily',
-		revHash
+		cssRevHash: opts.cssRevHash,
 	})
 }
 
-function generateDayHtml(revHash, month, day) {
+function generateDayHtml(month, day, opts) {
 	let backUrl = `./${ day - 1 }`
 	if (month === 1 && day === 1) {
 		backUrl = '../December/31'
@@ -103,7 +106,8 @@ function generateDayHtml(revHash, month, day) {
 	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 		subtemplate: './day.art',
 		title: `${ monthNames[month] } ${ day } - Canon Daily`,
-		revHash,
+		cssRevHash: opts.cssRevHash,
+		dayRevHash: opts.dayRevHash,
 		month,
 		day,
 		proudVsBroken: proudVsBroken[day - 1],
