@@ -21,7 +21,7 @@ module.exports = function getBibleHtml(ref) {
 		if (chunk.type === 'stanza start')    return '<span class="stanza">'
 		if (chunk.type === 'stanza end')      return '</span>'
 		if (chunk.type === 'break')           return '<br>'
-		if (chunk.type === 'paragraph text' || chunk.type === 'line') {
+		if (chunk.type === 'paragraph text' || chunk.type === 'line' || chunk.type === 'line text') {
 			let result = ''
 			if (lastChapterNumber !== chunk.chapterNumber) {
 				lastChapterNumber = chunk.chapterNumber
@@ -34,7 +34,7 @@ module.exports = function getBibleHtml(ref) {
 			return `<span class="${ chunk.type.replace(/ /g, '') }">${ result + chunk.value }</span>`
 		}
 	}).join(' ')
-	
+
 	let bookStructureHtml = getBookStructureHtml(ref)
 	if (bookStructureHtml) {
 		bookStructureHtml = `<div class="section book-structure">${ bookStructureHtml }</div>`
