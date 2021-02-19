@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#404040">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>Bulk Edit - Canon Daily</title>
+	<link rel="manifest" href="/manifest.json">
+	<link rel="shortcut icon" href="/icons/bible.ico">
+	<link rel="stylesheet" type="text/css" href="/style.819f06a341.css">
+	<script type="text/javascript">
+	var _paq = _paq || [];
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="https://jlddata.com/";
+		_paq.push(['setTrackerUrl', u+'p.php']);
+		_paq.push(['setSiteId', '3']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'p.js'; s.parentNode.insertBefore(g,s);
+	})();
+	</script>
+</head>
+<body>
+	<noscript>This page may not work correctly without javascript.</noscript>
+	<nav>
+		<div class="container flex-left">
+			<a class="nav-title" href="/">Canon Daily</a>
+			<a href="/prayer-for-filling-of-spirit">Prayer</a>
+			<a href="/bulk-edit">Bulk Edit</a>
+			<!-- <a href="/settings">Settings</a> -->
+			<a href="https://github.com/ArtskydJ/canondaily.com">Github</a>
+		</div>
+	</nav>
+
+	<div class="section">
+	
+		<span class="paragraph">
+			Mark every day in January as
+			<span class="simple-button-green" onclick="markMonthAs(1,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(1,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in February as
+			<span class="simple-button-green" onclick="markMonthAs(2,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(2,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in March as
+			<span class="simple-button-green" onclick="markMonthAs(3,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(3,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in April as
+			<span class="simple-button-green" onclick="markMonthAs(4,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(4,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in May as
+			<span class="simple-button-green" onclick="markMonthAs(5,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(5,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in June as
+			<span class="simple-button-green" onclick="markMonthAs(6,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(6,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in July as
+			<span class="simple-button-green" onclick="markMonthAs(7,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(7,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in August as
+			<span class="simple-button-green" onclick="markMonthAs(8,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(8,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in September as
+			<span class="simple-button-green" onclick="markMonthAs(9,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(9,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in October as
+			<span class="simple-button-green" onclick="markMonthAs(10,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(10,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in November as
+			<span class="simple-button-green" onclick="markMonthAs(11,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(11,0)">Unread</span>
+		</span>
+	
+		<span class="paragraph">
+			Mark every day in December as
+			<span class="simple-button-green" onclick="markMonthAs(12,1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs(12,0)">Unread</span>
+		</span>
+	
+</div>
+
+
+<script>
+	function readSavedMonth(month) {
+		return JSON.parse(localStorage.getItem(month) || '[0' + ',0'.repeat(expectedMonthLength[month] - 1) + ']')
+	}
+	function writeSavedMonth(month, monthData) {
+		localStorage.setItem(month, JSON.stringify(monthData))
+	}
+
+	function markMonthAs(month, complete){
+		var monthData = readSavedMonth(month)
+		writeSavedMonth(month, monthData.map(() => complete ? 1 : 0))
+	}
+</script>
+
+
+
+</body>
+</html>

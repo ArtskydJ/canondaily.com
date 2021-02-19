@@ -1,0 +1,26 @@
+<div class="section">
+	{{each range(1, 12) month}}
+		<span class="paragraph">
+			Mark every day in {{monthNames[month]}} as
+			<span class="simple-button-green" onclick="markMonthAs({{month}},1)">Read</span>
+			or
+			<span class="simple-button-gray" onclick="markMonthAs({{month}},0)">Unread</span>
+		</span>
+	{{/each}}
+</div>
+
+
+<script>
+	function readSavedMonth(month) {
+		return JSON.parse(localStorage.getItem(month) || '[0' + ',0'.repeat(expectedMonthLength[month] - 1) + ']')
+	}
+	function writeSavedMonth(month, monthData) {
+		localStorage.setItem(month, JSON.stringify(monthData))
+	}
+
+	function markMonthAs(month, complete){
+		var monthData = readSavedMonth(month)
+		writeSavedMonth(month, monthData.map(() => complete ? 1 : 0))
+	}
+</script>
+

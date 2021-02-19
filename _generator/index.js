@@ -87,6 +87,15 @@ function generateCommonFiles(opts) {
 		title: 'Prayer for the Filling of the Spirit - Canon Daily',
 		cssRevHash: opts.cssRevHash,
 	})
+
+	writeSubtemplate('bulk-edit.html', {
+		subtemplate: './bulk-edit.art',
+		title: 'Bulk Edit - Canon Daily',
+		cssRevHash: opts.cssRevHash,
+		range,
+		expectedMonthLength,
+		monthNames,
+	})
 }
 
 function generateDayHtml(month, day, opts) {

@@ -28,6 +28,7 @@
 		<div class="container flex-left">
 			<a class="nav-title" href="/">Canon Daily</a>
 			<a href="/prayer-for-filling-of-spirit">Prayer</a>
+			<a href="/bulk-edit">Bulk Edit</a>
 			<!-- <a href="/settings">Settings</a> -->
 			<a href="https://github.com/ArtskydJ/canondaily.com">Github</a>
 		</div>

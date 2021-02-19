@@ -275,3 +275,27 @@ nav a:hover {
 		flex-basis: 100%;
 	}
 }
+
+/* Bulk Edit */
+.simple-button-green,
+.simple-button-gray {
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 0;
+	padding: .2em .5em;
+	user-select: none;
+}
+
+.simple-button-green {
+	background-color: var(--green);
+}
+.simple-button-green:hover {
+	background-color: var(--green-hover);
+}
+.simple-button-gray {
+	background-color: var(--dark-bg);
+}
+.simple-button-gray:hover {
+	background-color: var(--dark-bg-hover);
+}
