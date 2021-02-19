@@ -810,8 +810,8 @@ Bookmark 3
 		Matthew 18:1-9
 		Matthew 18:10-20
 		Matthew 18:21-35
-		Matthew 19:1-10
-		Matthew 19:11-22
+		Matthew 19:1-12
+		Matthew 19:13-22
 		Matthew 19:23-30
 		Matthew 20:1-16
 		Matthew 20:17-34
