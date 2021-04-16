@@ -1539,6 +1539,7 @@
 </div>
 
 
+<script src="/util.f3067291a7.js"></script>
 <script>
 	function updateToday() {
 		var eleToday = document.querySelector('a.cal-today')
@@ -1571,7 +1572,7 @@
 			ev.preventDefault()
 			ev.stopPropagation()
 			var completed = dateEle.classList.contains('completed')
-			markDayAs(dateEle.dataset.month, dateEle.dataset.day, !completed)
+			window.markDayAs(dateEle.dataset.month, dateEle.dataset.day, !completed)
 			if (completed) {
 				dateEle.classList.remove('completed')
 			} else {
@@ -1579,22 +1580,8 @@
 			}
 		}
 	}
-
-	function readSavedMonth(month) {
-		return JSON.parse(localStorage.getItem(month) || '[]')
-	}
-	function writeSavedMonth(month, monthData) {
-		localStorage.setItem(month, JSON.stringify(monthData))
-	}
-
-	function markDayAs(month, day, complete){
-		var monthData = readSavedMonth(month)
-		// var wasComplete = monthData[day] === 1
-		monthData[day] = complete ? 1 : 0
-		writeSavedMonth(month, monthData)
-	}
 </script>
-	
+
 
 
 </body>

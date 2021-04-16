@@ -25,7 +25,7 @@ const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant
 
 const opts = {
 	cssRevHash: hashFile('style', 'css'),
-	dayRevHash: hashFile('day', 'js'),
+	utilRevHash: hashFile('util', 'js'),
 	year: new Date().getUTCFullYear(),
 }
 
@@ -73,6 +73,7 @@ function generateCommonFiles(opts) {
 		subtemplate: './calendar.art',
 		title: 'Canon Daily',
 		cssRevHash: opts.cssRevHash,
+		utilRevHash: opts.utilRevHash,
 		range,
 		expectedMonthLength,
 		monthNames,
@@ -92,6 +93,7 @@ function generateCommonFiles(opts) {
 		subtemplate: './bulk-edit.art',
 		title: 'Bulk Edit - Canon Daily',
 		cssRevHash: opts.cssRevHash,
+		utilRevHash: opts.utilRevHash,
 		range,
 		expectedMonthLength,
 		monthNames,
@@ -116,7 +118,7 @@ function generateDayHtml(month, day, opts) {
 		subtemplate: './day.art',
 		title: `${ monthNames[month] } ${ day } - Canon Daily`,
 		cssRevHash: opts.cssRevHash,
-		dayRevHash: opts.dayRevHash,
+		utilRevHash: opts.utilRevHash,
 		month,
 		day,
 		proudVsBroken: proudVsBroken[day - 1],

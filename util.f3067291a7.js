@@ -3,11 +3,23 @@
 		document.getElementById('cm').style.display = bool ? 'inline' : 'none'
 	}
 
+	function ensureLength(monthData) {
+		while (monthData.length < 31) {
+			monthData.push(0)
+		}
+		return monthData
+	}
 	function readSavedMonth(month) {
-		return JSON.parse(localStorage.getItem(month) || '[]')
+		const monthJson = localStorage.getItem(month)
+		return ensureLength(monthJson ? JSON.parse(monthJson) : [])
 	}
 	function writeSavedMonth(month, monthData) {
-		localStorage.setItem(month, JSON.stringify(monthData))
+		localStorage.setItem(month, JSON.stringify(ensureLength(monthData)))
+	}
+
+	function markMonthAs(month, complete){
+		var monthData = readSavedMonth(month)
+		writeSavedMonth(month, monthData.map(() => complete ? 1 : 0))
 	}
 
 	function markDayAsComplete(month, day) {
@@ -18,14 +30,8 @@
 		updateCheckboxUI(monthData[day])
 	}
 
-	function init(month, day) {
+	function initDayPage(month, day) {
 		const monthData = readSavedMonth(month)
-		if (monthData.length === 0) {
-			for (let i = 0; i <= 31; i++) {
-				monthData.push(0)
-			}
-			writeSavedMonth(month, monthData)
-		}
 		updateCheckboxUI(monthData[day])
 
 		updateIsTodayUI(month, day)
@@ -47,6 +53,7 @@
 		return offsetDayString === month + '/' + day
 	}
 
+	window.markMonthAs = markMonthAs
 	window.markDayAsComplete = markDayAsComplete
-	window.init = init
+	window.initDayPage = initDayPage
 })()
