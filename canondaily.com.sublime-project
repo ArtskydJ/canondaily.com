@@ -1,4 +1,19 @@
 {
+	"build_systems": [
+		{
+			"name": "build canondaily",
+			"cmd": [
+				"node",
+				"./_generator/index.js",
+				"run"
+			],
+			"env": {
+				"DOTENV_CONFIG_PATH": "./.env"
+			},
+			"working_dir": "$project_path",
+			"file_patterns": [ "*.*" ]
+		}
+	],
 	"folders":
 	[
 		{
