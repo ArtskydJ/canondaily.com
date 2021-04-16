@@ -37,103 +37,102 @@
 	<div class="section">
 	
 		<span class="paragraph">
-			Mark every day in January as
-			<span class="simple-button-green" onclick="markMonthAs(1,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(1,0)">Unread</span>
+			Mark all of January as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(1,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(1,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in February as
-			<span class="simple-button-green" onclick="markMonthAs(2,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(2,0)">Unread</span>
+			Mark all of February as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(2,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(2,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in March as
-			<span class="simple-button-green" onclick="markMonthAs(3,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(3,0)">Unread</span>
+			Mark all of March as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(3,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(3,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in April as
-			<span class="simple-button-green" onclick="markMonthAs(4,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(4,0)">Unread</span>
+			Mark all of April as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(4,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(4,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in May as
-			<span class="simple-button-green" onclick="markMonthAs(5,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(5,0)">Unread</span>
+			Mark all of May as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(5,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(5,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in June as
-			<span class="simple-button-green" onclick="markMonthAs(6,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(6,0)">Unread</span>
+			Mark all of June as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(6,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(6,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in July as
-			<span class="simple-button-green" onclick="markMonthAs(7,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(7,0)">Unread</span>
+			Mark all of July as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(7,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(7,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in August as
-			<span class="simple-button-green" onclick="markMonthAs(8,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(8,0)">Unread</span>
+			Mark all of August as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(8,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(8,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in September as
-			<span class="simple-button-green" onclick="markMonthAs(9,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(9,0)">Unread</span>
+			Mark all of September as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(9,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(9,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in October as
-			<span class="simple-button-green" onclick="markMonthAs(10,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(10,0)">Unread</span>
+			Mark all of October as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(10,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(10,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in November as
-			<span class="simple-button-green" onclick="markMonthAs(11,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(11,0)">Unread</span>
+			Mark all of November as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(11,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(11,0)">Unread</span>
 		</span>
 	
 		<span class="paragraph">
-			Mark every day in December as
-			<span class="simple-button-green" onclick="markMonthAs(12,1)">Read</span>
-			or
-			<span class="simple-button-gray" onclick="markMonthAs(12,0)">Unread</span>
+			Mark all of December as:
+			<br />
+			<span class="simple-button-green" onclick="markMonth(12,1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(12,0)">Unread</span>
 		</span>
 	
 </div>
 
 
+<script src="/util.f3067291a7.js"></script>
 <script>
-	function readSavedMonth(month) {
-		return JSON.parse(localStorage.getItem(month) || '[0' + ',0'.repeat(expectedMonthLength[month] - 1) + ']')
-	}
-	function writeSavedMonth(month, monthData) {
-		localStorage.setItem(month, JSON.stringify(monthData))
-	}
+	function markMonth(month, read) {
+		window.markMonthAs(month, read)
 
-	function markMonthAs(month, complete){
-		var monthData = readSavedMonth(month)
-		writeSavedMonth(month, monthData.map(() => complete ? 1 : 0))
+		const originalHtml = this.innerHTML
+		this.innerHTML += ' ✓'
+		setTimeout(function(){
+			this.innerHTML = originalHtml
+		}, 2000)
 	}
 </script>
 
