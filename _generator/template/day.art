@@ -22,7 +22,7 @@
 	{{@ meditate.text}}
 </div>
 
-<div class="section complete-button" onclick="window.markDayAsComplete(Number('{{month}}'), Number('{{day}}'))">
+<div class="section complete-button" onclick="window.markDayAs(Number('{{month}}'), Number('{{day}}'), true)">
 	<div class="header">
 		Complete<span class="checkmark" id="cm"></span>
 	</div>

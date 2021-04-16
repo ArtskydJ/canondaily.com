@@ -1,6 +1,9 @@
 (function() {
 	function updateCheckboxUI(bool) {
-		document.getElementById('cm').style.display = bool ? 'inline' : 'none'
+		const checkmarkContainer = document.getElementById('cm')
+		if (checkmarkContainer) {
+			checkmarkContainer.style.display = bool ? 'inline' : 'none'
+		}
 	}
 
 	function ensureLength(monthData) {
@@ -22,10 +25,9 @@
 		writeSavedMonth(month, monthData.map(function(){ return complete ? 1 : 0 }))
 	}
 
-	function markDayAsComplete(month, day) {
+	function markDayAs(month, day, complete) {
 		const monthData = readSavedMonth(month)
-		// var wasComplete = monthData[day] === 1
-		monthData[day] = 1
+		monthData[day] = complete ? 1 : 0
 		writeSavedMonth(month, monthData)
 		updateCheckboxUI(monthData[day])
 	}
@@ -54,6 +56,6 @@
 	}
 
 	window.markMonthAs = markMonthAs
-	window.markDayAsComplete = markDayAsComplete
+	window.markDayAs = markDayAs
 	window.initDayPage = initDayPage
 })()
