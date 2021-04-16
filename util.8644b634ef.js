@@ -4,7 +4,7 @@
 	}
 
 	function ensureLength(monthData) {
-		while (monthData.length < 31) {
+		while (monthData.length <= 31) {
 			monthData.push(0)
 		}
 		return monthData
@@ -19,7 +19,7 @@
 
 	function markMonthAs(month, complete){
 		var monthData = readSavedMonth(month)
-		writeSavedMonth(month, monthData.map(() => complete ? 1 : 0))
+		writeSavedMonth(month, monthData.map(function(){ return complete ? 1 : 0 }))
 	}
 
 	function markDayAsComplete(month, day) {
