@@ -183,7 +183,7 @@ nav a:hover {
 	font-weight: normal;
 }
 .checkmark:after {
-	content: '√';
+	content: '✓';
 }
 .complete-button .checkmark {
 	padding-left: 15px;

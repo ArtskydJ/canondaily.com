@@ -3,8 +3,8 @@
 		<span class="paragraph">
 			Mark all of {{monthNames[month]}} as:
 			<br />
-			<span class="simple-button-green" onclick="markMonth({{month}},1)">Read</span>
-			<span class="simple-button-gray" onclick="markMonth({{month}},0)">Unread</span>
+			<span class="simple-button-green" onclick="markMonth(this, {{month}},1)">Read</span>
+			<span class="simple-button-gray" onclick="markMonth(this, {{month}},0)">Unread</span>
 		</span>
 	{{/each}}
 </div>
@@ -12,13 +12,13 @@
 
 <script src="/util.{{utilRevHash}}.js"></script>
 <script>
-	function markMonth(month, read) {
+	function markMonth(self, month, read) {
 		window.markMonthAs(month, read)
 
-		const originalHtml = this.innerHTML
-		this.innerHTML += ' ✓'
+		const originalHtml = self.innerHTML
+		self.innerHTML += ' ✓'
 		setTimeout(function(){
-			this.innerHTML = originalHtml
+			self.innerHTML = originalHtml
 		}, 2000)
 	}
 </script>
