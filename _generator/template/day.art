@@ -5,13 +5,13 @@
 {{@ bibleHtml }}
 
 <div class="section dark-bg">
-	<div class="subheader">Proud VS Broken</div>
+	<div class="subheader">Proud vs. Broken</div>
 	<div>
-		<div class="subsubheader">Proud</div>
+		<div class="subsubheader pvb">Proud</div>
 		{{proudVsBroken.proud}}
 	</div>
 	<div>
-		<div class="subsubheader">Broken</div>
+		<div class="subsubheader pvb">Broken</div>
 		{{proudVsBroken.broken}}
 	</div>
 </div>
