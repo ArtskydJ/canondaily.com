@@ -9,18 +9,6 @@
 	<link rel="manifest" href="/manifest.json">
 	<link rel="shortcut icon" href="/icons/bible.ico">
 	<link rel="stylesheet" type="text/css" href="/style.{{cssRevHash}}.css">
-	<script type="text/javascript">
-	var _paq = _paq || [];
-	_paq.push(['trackPageView']);
-	_paq.push(['enableLinkTracking']);
-	(function() {
-		var u="https://jlddata.com/";
-		_paq.push(['setTrackerUrl', u+'p.php']);
-		_paq.push(['setSiteId', '3']);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'p.js'; s.parentNode.insertBefore(g,s);
-	})();
-	</script>
 </head>
 <body>
 	<noscript>This page may not work correctly without javascript.</noscript>
