@@ -1,5 +1,16 @@
 -- The series was started at the beginning of 2019.
 Genesis
+	1:1-2:3      A. Prologue - creation
+	2:4-4:26     B. Generations of heaven and earth
+	5:1-6:8      C. Generations of Adam
+	6:9-9:29     D. Generations of Noah
+	10:1-11:9    E. Generations of the sons of Noah
+	11:10-26     F. Generations of Shem
+	11:27-25:11  G. Generations of Terah
+	25:12-18     H. Generations of Ishmael
+	25:19-35:29  I. Generations of Isaac
+	36:1-37:1    J. Generations of Esau
+	37:2-50:26   K. Generations of Jacob
 
 Exodus
 	Rescue - Deliverance out of Egypt
@@ -14,21 +25,165 @@ Exodus
 		25-31  Blueprints
 		32-34  False Worship
 		35-40  Completion
+
 Leviticus
+	The basis of fellowship with God
+		1-7 Laws of Devotion to God
+		8-10 Laws of Priests
+		11-15 Laws of Purity for people
+		16-17 Laws of National Atonement
+	The way of life before God as kings and priests
+		Sanctifying the people
+			18 Marriage
+			19 Culture
+			20 State intervention in previous spheres
+		21-22 Sanctifying the Priesthood
+		23-24 Sanctifying worship
+		25 Sanctifying the Land
+		26 Blessings and Curses
+		27 Sanctification through vows
+
 Numbers
+	The Army's Order Planned (Mt. Sinai)
+		1 Census
+		2 Army Camp
+		3-4 Chaplains
+		5:1-6:21 Regulations/Purity
+		6:22-9:14 God's/Israel's commitment to each other
+		9:15-10:36 God's guidance and signals
+	The Army's Disorder Dealt With (Wilderness)
+		11 The problem of discontent and complaining
+		12 The problem of Miriam's rebellion and Aaron's passivity
+		13-14 The problem of ten spies fomenting discouragement and people refusing to follow orders
+		15-16 The problem of Korah's rebellion
+		17-19 Re-establishing authority
+		20 The problem of lack of trust
+		21 A series of maturity tests in the wilderness
+		22-24 Tested with intimidation and demonic curses of Balaam
+		25 Tested self-discipline with sex
+	The Army Made Ready for Conquest (Plains of Moab)
+		26 The census of the second generation implies they are preparing for conquest
+		27:1-11 Fine details of inheritance
+		27:12-23 Authority lines in civics
+		28-29 Authority lines in church
+		30 Authority lines in family
+		31 Second generation tested in war again with Midianites
+		32 Beginning to inherit the land, yet testing the commitment of all to persevere
+		33:1-49 Reviewing the past helps us to not make the same mistakes
+		33:50-56 A call to conquer and instructions for conquest help to preclude further complications
+		34-35 Establishing the boundaries for the land gives anticipation and solidifies the goals for conquest
+		36 Instructions for inheritance and how they intersect with women's rights
+
 Deuteronomy
+	1:1-8     A. Transcendence - Who is in charge here?
+	1:9-4:49  B. Hierarchy - To whom do I report?
+	5:1-26:19 C. Ethics - What are the rules of this outfit?
+		5           1. The ten commandments are a summary of God’s moral law
+		6-11        2. Case law applications of the first commandment - Protecting true theology and the sanctity of God
+		12-13       3. Case law applications of the second commandment - Protecting true worship and the sanctity of devotion to God
+		14          4. Case law applications of the third commandment - Protecting God’s name and the sanctity of speech and of our testimony.
+		15:1-16:7   5. Case law applications of the fourth commandment - Protecting the Sabbath and the sanctity of time and dominion
+		16:18-18:22 6. Case law applications of the fifth commandment - Protecting the family and the sanctity of authority
+		19:1-22:12  7. Case law applications of the sixth commandment - Protecting life and the sanctity of the image of God in man
+		22:13-23:14 8. Case law applications of the seventh commandment - Protecting marriage and the sanctity of sex
+		23:15-24:22 9. Case law applications of the eighth commandment - Protecting private property and the sanctity of ownership
+		25          10. Case law applications of the ninth commandment - Protecting truth and the sanctity of our affirmations
+		26          11. Case law applications of the tenth commandment - Protecting the heart and the sanctity of contentment
+	27-30     D. Oath/Sanctions - What happens if I obey or disobey?
+	31-34     E. Covenant Succession - Does this outfit have a future?
+
 Joshua
+	1-5 Entering the land and preparing spiritually
+	6-13:7 Conquest of Canaan
+	13:8-33 Settlement East of Jordan
+	14-19 Settlement West of Jordan
+	20-21 Settlement of Levitical cities of refuge
+	22-24 Conditions for covenant succession
+
 Judges
+	Double introduction showing the principles at work
+		1 From faithfulness to failure
+		2:1-3:6 The principles at work
+	Cycles of bondage and deliverance
+		3:7-31 Othniel, Ehud, and Shamgar
+		4-5 Deborah and Barak
+		6-8 Gideon
+		9 Bondage under Abimelech
+		10:1-5 Deliverance through Tola and Jair
+		10:6-12:7 Jepthah
+		12:8-15 Ibzan, Elon, and Abdon
+		13-16 Samson
+	Double appendix to re-inforce the central warnings
+		17-18 The idolatry of Ephraim and Dan
+		19-21 The lawlessness of Benjamin
+
 Ruth
-1 Samuel
-2 Samuel
-1 Kings
-2 Kings
-1 Chronicles
-2 Chronicles
+	1 Background
+	2 Ruth meets Boaz
+	3 Ruth asks Boaz for redemption
+	4 Boaz redeems Ruth
+
+Samuel
+	1S1-7 A. Samuel succeeds elderly Eli and rules over all Israel
+	1S8-15 B. Saul's failure
+	1S16-20 C. David's initial rise to popularity in Saul's kingdom
+	1S21-31 D. The Lord reverses fortunes of Saul and David.  Saul seeks to kill David but is himself killed
+	2S1-8 C'. David's initial rise to power over all Israel
+	2S9-20 B'. David's failure
+	2S21-24 A'. Solomon succeeds elderly David; David's final years
+
+Kings
+	1K1:1-2:22 A. Last days of aged David, the first king of the Davidic dynasty
+	1K2:12-46 B. Executions of contenders sonsolidate Davidic dynasty
+	1K3-8 C. Temple and city built by wise young Solomon
+	1K9-12 D. Last days of united kingdom involve calling foreigners to see the glory of the kingdom followed by apostasy, conflict, and successors
+	1K13-16 E. Wars of Judah and Israel
+	1K17-2K1 F. The ministry of Elijah the prophet
+	2K2 G. The passing of prophetic mantle from Elijah to Elisha
+	2K3-13 F'. The ministry of Elisha the prophet
+	2K14-17 E'. Wars of Judah and Israel
+	2K18:1-24:7 D'. Last days of Judah with Hezekiah calling foreigners to see the glory of the kingdom followed by apostasy, conflict, and successors
+	2K24:8-25:21 C'. Temple and city destroyed by unwise young Jehoiachin
+	2K25:22-26 B'. Executions of contenders ruins Davidic dynasty
+	2K25:27-30 Last days of aged Jehoiachin, the last king of the Davidic dynasty
+
+Chronicles
+	1C1-9 Genealogies from Adam to Exile
+		1 A. Ancient non-tribal past
+		2:1-4:23 B. The royal tribe of Judah
+		4:24-5:26 C. Incidental tribes
+		6 D. Tribe of Levi, the priestly tribe
+		7 C'. Incidental tribes
+		8 B'. The royal tribe of Benjamin
+		9 A'. Present non-tribal situation
+	1C10-29 David
+	2C1-9 Solomon
+	2C10-36 Kings of the South
+
 Ezra
+	1 End of the Babylonian captivity
+	2 Captives who returned to Jerusalem
+	3-6 Worship, rebuilding the temple, and celebration
+	7:1-8:14 Arrival of Ezra
+	8:15-30 Preparation of the temple
+	8:31-36 Return to Jerusalem
+	9-10 Intermarriage with pagans
+
 Nehemiah
+	1-7 Restoration of the wall
+	8-13 Restoration of the covenant
+
 Esther
+	1 A. Greatness of Ahasuerus
+	2 B. Esther identifies as Gentile
+	3-4 C. Anti-Jewish edict
+	5 D. Esther's first banquet
+	6 E. Insomnia leads to honor and dishonor
+	7 D'. Esther's second banquet
+	8:1-14 C'. Pro-Jewish edict
+	8:15-17 B'. Gentiles identify as Jews
+	9-10 A'. Greatness of Ahasuerus and Mordecai
+
 Job
 	Prose - Historical
 		1-2  Rich blessings of God removed
@@ -43,147 +198,267 @@ Job
 		38-41  God brings correction to Job
 	Prose - Confession and Historical
 		42:1-6  Job's Confession, Intercession, and rich blessings of God added
-		
-
-----------------------------------------------------
--- These are commented out because I only support --
--- 2 levels of depth in my current implementation --
--- of the book structure viewer.                  --
-----------------------------------------------------
 
 Psalms
---	Book 1 - Yahweh will save David and establish his throne in Zion
---		1-2 Introduction
---		3-14 Enemy Psalms
---		15-24 Kingdom Psalms
---		25-34 Temple Psalms
---		35-41 Spiritual Warfare Psalms
---	Book 2 - Elohim will raise up David's Son for the nations
---		God's King ends lament and brings joy to Zion
---			Songs of Lament
---				42-43 Individual
---				44 Community
---			Covenant & Kingdom
---				45 Marriage
---				46 The King of the Hill
---			Songs of Zion
---				47-49
---		A rebuke of sin and prayer for salvation
---			A rebuke from Zion
---				50 YHWH speaks
---			Three kinds of Sinners
---				51 Covenant Breakers
---				52 Wicked Enemy
---				53 The Fool (Almost identical to Psalm 14)
---		Prayers seeking judgment against the nations
---			Seven Enemies of David
---				54 The Ziphites
---				55 Betrayal from a friend
---				56 The Philistines
---				57 Saul
---				58 Unjust Rulders
---				59 Saul's Henchmen
---				60 Distant Enemies
---		Prayers for salvation, and salvation of nations
---			Cries for Salvation
---				61-63
---			God Saves
---				64 God Intervenes
---			Salvation for the Nations
---				65-67 Let the Nations Praise!
---		The Throne of David passes to Solomon
---			Review of God's Faithfulness
---			68 God saves, the nations praise
---			69
---			70-71 David ages and dies
---		A Psalm for Solomon
---			72 Closing Doxology
---	Book 3 - From Exaltation to Exile: The Fall of David's Throne
---		Confusion based on Psalm 1
---			73
---		Cycle 1
---			74 Temple Desecrated (Rehoboam)
---			75 God's Judgment
---			76 Word of Repentance (Asa)
---			77 Cry for Help
---		Cycle Explained
---			78 The Psalm to Explain Book 3
---		Cycle 2
---			79 Temple Desecrated (Joash)
---			80 Cry for Help (A Messianic Psalm)
---			81 Word of Repentance
---			82 God's Judgment (Ahaz)
---		A petition based on Psalm 1
---			83
---		David's Final Stand
---			84 New Light - Life in the temple
---			85 Forgiveness
---			86 David's Return (Zion)
---			87 Ingathering
---		End of David's Covenant
---			88 Complete Darkness (Temple + Kingdom are Gone)
---			89 The End
---	Book 4 - Psalms of Exile: Looking from Moses' Rescue to the Rise of a New David
---	-- https://viaemmaus.files.wordpress.com/2017/08/book-4-infographic-copy.jpg?w=676
---		Moses, the Man of God
---			90
---			91
---		YHWH Reigns
---			92 (A) A Sabbath Psalm
---			93-94 (B) Nations Defeated
---			95-97 (C) Worshiping YHWH
---			98-99 (B') Nations Invited to Worship
---			100 (A') A Thanksgiving Psalm
---		A New David?
---			101 A just king defeats God's enemies
---			102 God dwells with the contrite & afflicted
---			103 A worshiping king abides in God's covenant mercy
---		Hallelujah Psalms
---			104 Creation
---			105 God's Faithfulness
---			106 Man's Wickedness
---	Book 5 - Psalms of Praise: The Son of David is David's Lord
---	-- https://kaysercommentary.com/Sermons/BibleSurvey/16%20PsalmBookFiveGraphic.png
---		107 Ingathering Introduction
---		108-110 A New David Arrives
---		Egyptian Hallel 3-1-3
---			111-113 Hallel Psalms
---			114 > A Psalm about Egypt
---			115-117 Hallel Psalms
---		Crown & Covenant
---			118-119
---		Songs of Ascent 7-1-7
---			120 Sojorning outside Israel
---			121 Help for the Journey
---			122 Entering Jerusalem
---			123 Trust in God
---			124 Thanksgiving
---			125 Security is found in Zion
---			126 The return to Zion is like a dream come true
---			127 > The Lord has built his house (Temple)
---			128 Blessings come to the covenant keeper
---			129 YHWH cut off the enemies of Zion
---			130 Forgiveness is granted to God's people
---			131 Israel is contented in the Lord
---			132 God established David's house
---			133 North & South Unite
---			134 Final Blessing 
---		Worship & War
---			135 Worhip YHWH Praise
---			136 Worship YHWH Thanksgiving
---			137 Worship followed by Warfare
---		David's Final Victory
---			138-145 David's Final Psalms
---		Infinite Praise
---			146-150
+	Book 1 - Yahweh will save David and establish his throne in Zion
+		1-2 Introduction
+		3-14 Enemy Psalms
+		15-24 Kingdom Psalms
+		25-34 Temple Psalms
+		35-41 Spiritual Warfare Psalms
+	Book 2 - Elohim will raise up David's Son for the nations
+		God's King ends lament and brings joy to Zion
+			Songs of Lament
+				42-43 Individual
+				44 Community
+			Covenant & Kingdom
+				45 Marriage
+				46 The King of the Hill
+			Songs of Zion
+				47-49
+		A rebuke of sin and prayer for salvation
+			A rebuke from Zion
+				50 YHWH speaks
+			Three kinds of Sinners
+				51 Covenant Breakers
+				52 Wicked Enemy
+				53 The Fool (Almost identical to Psalm 14)
+		Prayers seeking judgment against the nations
+			Seven Enemies of David
+				54 The Ziphites
+				55 Betrayal from a friend
+				56 The Philistines
+				57 Saul
+				58 Unjust Rulders
+				59 Saul's Henchmen
+				60 Distant Enemies
+		Prayers for salvation, and salvation of nations
+			Cries for Salvation
+				61-63
+			God Saves
+				64 God Intervenes
+			Salvation for the Nations
+				65-67 Let the Nations Praise!
+		The Throne of David passes to Solomon
+			Review of God's Faithfulness
+			68 God saves, the nations praise
+			69
+			70-71 David ages and dies
+		A Psalm for Solomon
+			72 Closing Doxology
+	Book 3 - From Exaltation to Exile: The Fall of David's Throne
+		Confusion based on Psalm 1
+			73
+		Cycle 1
+			74 Temple Desecrated (Rehoboam)
+			75 God's Judgment
+			76 Word of Repentance (Asa)
+			77 Cry for Help
+		Cycle Explained
+			78 The Psalm to Explain Book 3
+		Cycle 2
+			79 Temple Desecrated (Joash)
+			80 Cry for Help (A Messianic Psalm)
+			81 Word of Repentance
+			82 God's Judgment (Ahaz)
+		A petition based on Psalm 1
+			83
+		David's Final Stand
+			84 New Light - Life in the temple
+			85 Forgiveness
+			86 David's Return (Zion)
+			87 Ingathering
+		End of David's Covenant
+			88 Complete Darkness (Temple + Kingdom are Gone)
+			89 The End
+	Book 4 - Psalms of Exile: Looking from Moses' Rescue to the Rise of a New David
+	-- https://viaemmaus.files.wordpress.com/2017/08/book-4-infographic-copy.jpg?w=676
+		Moses, the Man of God
+			90
+			91
+		YHWH Reigns
+			92 (A) A Sabbath Psalm
+			93-94 (B) Nations Defeated
+			95-97 (C) Worshiping YHWH
+			98-99 (B') Nations Invited to Worship
+			100 (A') A Thanksgiving Psalm
+		A New David?
+			101 A just king defeats God's enemies
+			102 God dwells with the contrite & afflicted
+			103 A worshiping king abides in God's covenant mercy
+		Hallelujah Psalms
+			104 Creation
+			105 God's Faithfulness
+			106 Man's Wickedness
+	Book 5 - Psalms of Praise: The Son of David is David's Lord
+	-- https://kaysercommentary.com/Sermons/BibleSurvey/16%20PsalmBookFiveGraphic.png
+		107 Ingathering Introduction
+		108-110 A New David Arrives
+		Egyptian Hallel 3-1-3
+			111-113 Hallel Psalms
+			114 > A Psalm about Egypt
+			115-117 Hallel Psalms
+		Crown & Covenant
+			118-119
+		Songs of Ascent 7-1-7
+			120 Sojorning outside Israel
+			121 Help for the Journey
+			122 Entering Jerusalem
+			123 Trust in God
+			124 Thanksgiving
+			125 Security is found in Zion
+			126 The return to Zion is like a dream come true
+			127 > The Lord has built his house (Temple)
+			128 Blessings come to the covenant keeper
+			129 YHWH cut off the enemies of Zion
+			130 Forgiveness is granted to God's people
+			131 Israel is contented in the Lord
+			132 God established David's house
+			133 North & South Unite
+			134 Final Blessing 
+		Worship & War
+			135 Worhip YHWH Praise
+			136 Worship YHWH Thanksgiving
+			137 Worship followed by Warfare
+		David's Final Victory
+			138-145 David's Final Psalms
+		Infinite Praise
+			146-150
 
 Proverbs
+	1:1-9:18 Collection 1 - Solomon - Wisdom for youth
+		1:1-7 Intro
+		Fourteen lectures from an inspired father to a son - Wisdom for youth
+		1:18-19 Lecture one: father on peer pressure
+		1:20-33 Lecture two: Lady Wisdom on gullibility
+		2 Lecture three: father on safeguards
+		3:1-12 Lecture four: father on obligations
+		3:13-35 Lecture five: Lady Wisdom on the value of wisdom
+		4:1-9 Lecture six: father on generational wisdom
+		4:10-19 Lecture seven: father on avoiding the path of the ungodly
+		4:20-27 Lecture eight: father on guarding the heart prevents swerving from path
+		5 Lecture nine: father on sexual temptation, adultery, how to stay happily monogamous
+		6:1-19 Lecture ten: father on finances, laziness, bad associations, seven hateful things
+		6:20-35 Lecture eleven: father on guarding heart against lust and adultery
+		7 Lecture twelve: father on description of tactics of temptress and giving reverse tactics
+		8 Lecture thirteen: Lady Wisdom on the value of wisdom
+		9 Lecture fourteen: Lady Wisdom versus Lady Folly
+	10-24 Collections 2-4 - Wisdom for adults
+		10:1-22:16 Collection 2 - Solomon
+		22:17-24:22 Collection 3 - Sages
+		24:23-34 Collection 4 - Sages - ABCABC structure
+	25-29 Collection 5 - Solomon - Wisdom for leaders
+	30 Collection 6 - Agur - Wisdom for leaders
+	31 Collection 7 - Mother of Lemuel - Wisdom for leaders
+
 Ecclesiastes
+	Apologetics
+
 Song of Solomon
+	1:2-2:7 Wedding day 1 - How they relate to relatives and others
+	2:8-17 Wedding day 2 - A walk in the gardens
+	3:1-5 Wedding day 3 - Bad dream
+	3:6-4:15 Wedding day 4 - Praising groom and bride
+	4:16-5:1 Wedding day 4 - Sexual union and God's approval
+	5:2-6:3 Wedding day 5 - Bad dream
+	6:4-7:10 Wedding day 6 - Praising bride and groom
+	7:11-8:4 Wedding day 7 - A walk in the gardens
+	8:5-14 A later visit to the relatives
+
 Isaiah
+	1-39 Book of Judgments
+		1-12 Prophecies concerning Israel and Judah
+			1 Court case against Judah and Jerusalem
+			2:1-4 New Covenant blessing
+			2:5-4:1 Judgment against Judah
+			4:2-4:6 New Covenant blessing
+			5 Judgment against Judah
+			6 Isaiah’s commissioning (740 B.C.)
+			7-8 Near-term deliverance from Syria and Israel
+			9:1-7 Prophecy of Messiah’s kingdom
+			9:8-10:34 Judgment against Israel and Assyria
+			11-12 Prophecy of Messiah’s kingdom 
+		13-27 Oracles of judgment against the nations
+			13:1-14:27 Against Babylon 
+			14:28-32 Against Philistia 
+			15-16 Against Moab 
+			17 Against Damascus (Syria) and Israel 
+			18 Against Ethiopia 
+			19 Against Egypt 
+			20 Against Egypt and Ethiopia 
+			21:1-10 Against Babylon 
+			21:11-12 Against Edom 
+			21:13-17 Against Arabia 
+			22:1-14 Against Judah (Jerusalem) 
+			22:15-25 Against Shebna
+			23 Against Tyre 
+			24-27 World Judgment and Redemption of Judah
+		28−33 Six Woes
+			28 To the drunkards
+			29:1-14 To the formalists
+			29:15-24 To those who hide their plans from God
+			30 To those who trust in Egypt
+			31-32 To those who relay on horses and chariots
+			33-35 To the Assyrian destroyer
+		36−39 Historical transition
+			36:1-37:38 The invasion and defeat of Assyria (Sennacherib)
+			38:1-22 The sickness and recovery of Hezekiah
+			39:1-8 Hezekiah’s pride before Babylonian embassy
+	40-66 Book of Comfort
+		40-48 Divine deliverance from sin and captivity
+			40:1-41:29 Assurance of salvation
+			42:1-44:23 The riches of grace
+			44:24-47:15 God’s deliverance through Cyrus
+			48 God’s discipline of Israel
+		49-57 The Servant of Yehowah
+			A. The Servant and restoration ........ 49:1-26
+			B. The suffering Servant .......... 50
+			C. Deliverance in Zion ............. 51:1-52:12
+			D. The suffering and glory of the Servant ..... 52:13-53:12
+			E. The fullness and freedom of salvation ..... 54-55
+		56-66 Resistance to, growth, and consummation of the Servant’s kingdom
+			56-59 The dawning light
+			60 The spreading light
+			61 How this kingdom would begin
+			62-65:16 How it would perseveringly continue
+			65:17-25 How all of creation will be transformed
+			66:1-24 A summary statement of God’s sovereignty from the foundation of world to eternity future
+
 Jeremiah
+	1 A. Introduction - Jerimiah's call to destroy and plant begun
+	2-12 B. Oracles against Judah - invasion and disaster from the North
+	13-20 C. Judah's exile and suffering predicted
+	21-29 D. Judgments against specific kings and groups
+	30:1-31:22 E. Israel will return from captivity in preparation for Messiah
+	31:23-26 F. Israel will dwell in the land
+	31:27-30 G. Future restoration of individuals
+	31:31-34 H. New covenant
+	31:35-40 G'. Future restoration of nation
+	32 F'. Israel will dwell in the land
+	33 E'. Israel will return from captivity in preparation for Messiah
+	34-35 D'. Judgments against specific kings or groups
+	36-45 C'. Judah's suffering and exile accomplished
+	46-51 B'. Oracles against nations - invasion and disaster from the North
+	52 A'. Epilogue - Jeremiah's call to destroy and plant fulfilled
+
 Lamentations
+	1:1-11 A. Zion desolate
+	1:12-22 B. Zion betrayed
+	2:1-8 C. Yehowah's wrath did this
+	2:9-12 D. All suffer, from princes to infants
+	2:13-22 E. Exhortation to cry out to Yehowah
+	3:1-20 F. Yehowah afflicts in mercy
+	3:21-32 G. Yehowah's great love and faithfulness vv21-32)
+	3:33-39 F'. Yehowah afflicts in mercy
+	3:40-66 E'. Exhortation to cry out to Yehowah
+	4:1-10 D'. All suffer, from princes to infants
+	4:11-16 C'. Yehowah's wrath did this
+	4:17-22 B'. Zion betrayed
+	5 A'. Zion desolate
+
 Ezekiel
+	-- TODO
+
 Daniel
 	Hebrew Section - A message of hope for remnant
 		1:1-2:3   Historical Prologue
@@ -283,11 +558,40 @@ Amos
 -- 9:11-9:15 (A') Future restoration among the nations
 
 Obadiah
+	-- skipping since it's one chapter
+
 Jonah
+	1 Disobedience the the first call, judgment exacted
+	2 Righteous prayer of Jonah, God delivers
+	3 Obedience to the second call, judgment averted
+	4 Unrighteous prayer of Jonah, God rebukes
+
 Micah
+	1 A. Basis for future judgment by Assyria and Babylon
+	2 B. A corrupt nation, yet hope for nation after exile
+	3 C. Nothing but judgment left for corrupt leaders
+	4-5 D. Future victories after the exile and under the Messiah
+	6 C'. Nothing but judgment left for corrupt leaders
+	7:1-13 B'. A corrupt nation, yet hope for nation after exile
+	7:14-20 A'. Basis for reversal of future judgment by Assyria and Babylon
+
 Nahum
+	-- skipping since it's one chapter
+
 Habakkuk
+	1:1-4 A. Habakkuk's 1st complaint - How long must I wait for justice
+	1:5-11 B. God's answer - Judah's injustice to be punished by Babylon's army
+	1:12-17 C. Habakkuk's 2nd complaint - Babylon is more wicked than Israel
+	2:1-4 D. God's main exhortation - While waiting for justice, live by faith
+	2:5-20 C'. Habakkuk's 2nd complaint answered with woes against Babylon
+	3:1-15 B'. God's answer - Babylon's injustice to be punished by God's army
+	3:16-19 A'. Habakkuk's 1st complaint resolved - I will wait and trust as long as it takes
+
 Zephaniah
+	1:1 Intro
+	1:2-3:7 A near (587 BC) "day of the Lord"
+	3:8-20 A distant (70 AD) "day of the Lord" which will reverse history
+
 Haggai
 Zechariah
 Malachi
