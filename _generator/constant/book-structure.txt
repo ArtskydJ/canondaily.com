@@ -75,20 +75,20 @@ Numbers
 		36 Instructions for inheritance and how they intersect with women's rights
 
 Deuteronomy
-	1:1-8     A. Transcendence - Who is in charge here?
-	1:9-4:49  B. Hierarchy - To whom do I report?
-	5:1-26:19 C. Ethics - What are the rules of this outfit?
-		5           1. The ten commandments are a summary of God’s moral law
-		6-11        2. Case law applications of the first commandment - Protecting true theology and the sanctity of God
-		12-13       3. Case law applications of the second commandment - Protecting true worship and the sanctity of devotion to God
-		14          4. Case law applications of the third commandment - Protecting God’s name and the sanctity of speech and of our testimony.
-		15:1-16:7   5. Case law applications of the fourth commandment - Protecting the Sabbath and the sanctity of time and dominion
-		16:18-18:22 6. Case law applications of the fifth commandment - Protecting the family and the sanctity of authority
-		19:1-22:12  7. Case law applications of the sixth commandment - Protecting life and the sanctity of the image of God in man
-		22:13-23:14 8. Case law applications of the seventh commandment - Protecting marriage and the sanctity of sex
-		23:15-24:22 9. Case law applications of the eighth commandment - Protecting private property and the sanctity of ownership
-		25          10. Case law applications of the ninth commandment - Protecting truth and the sanctity of our affirmations
-		26          11. Case law applications of the tenth commandment - Protecting the heart and the sanctity of contentment
+	1:1-8     Transcendence - Who is in charge here?
+	1:9-4:49  Hierarchy - To whom do I report?
+	5-26      Ethics - What are the rules of this outfit?
+		5           Ten commandments - summary of God’s moral law
+		6-11        Case law applications of the first commandment - Protecting true theology and the sanctity of God
+		12-13       Case law applications of the second commandment - Protecting true worship and the sanctity of devotion to God
+		14          Case law applications of the third commandment - Protecting God’s name and the sanctity of speech and of our testimony.
+		15:1-16:7   Case law applications of the fourth commandment - Protecting the Sabbath and the sanctity of time and dominion
+		16:18-18:22 Case law applications of the fifth commandment - Protecting the family and the sanctity of authority
+		19:1-22:12  Case law applications of the sixth commandment - Protecting life and the sanctity of the image of God in man
+		22:13-23:14 Case law applications of the seventh commandment - Protecting marriage and the sanctity of sex
+		23:15-24:22 Case law applications of the eighth commandment - Protecting private property and the sanctity of ownership
+		25          Case law applications of the ninth commandment - Protecting truth and the sanctity of our affirmations
+		26          Case law applications of the tenth commandment - Protecting the heart and the sanctity of contentment
 	27-30     D. Oath/Sanctions - What happens if I obey or disobey?
 	31-34     E. Covenant Succession - Does this outfit have a future?
 
@@ -411,11 +411,11 @@ Isaiah
 			44:24-47:15 God’s deliverance through Cyrus
 			48 God’s discipline of Israel
 		49-57 The Servant of Yehowah
-			A. The Servant and restoration ........ 49:1-26
-			B. The suffering Servant .......... 50
-			C. Deliverance in Zion ............. 51:1-52:12
-			D. The suffering and glory of the Servant ..... 52:13-53:12
-			E. The fullness and freedom of salvation ..... 54-55
+			49 The Servant and restoration
+			50 The suffering Servant
+			51:1-52:12 Deliverance in Zion
+			52:13-53:12 The suffering and glory of the Servant
+			54-55 The fullness and freedom of salvation
 		56-66 Resistance to, growth, and consummation of the Servant’s kingdom
 			56-59 The dawning light
 			60 The spreading light
@@ -694,3 +694,4 @@ Revelation
 		22:6-17    Vision 7 - Reiteration that Christ will come soon to finish the old and to continue the renewal of all things
 	Epilogue
 		22:18-21   How to read the book and submit to it
+
