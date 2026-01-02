@@ -1,4 +1,3 @@
--- The series was started at the beginning of 2019.
 Genesis
 	1:1-2:3      A. Prologue - creation
 	2:4-4:26     B. Generations of heaven and earth
@@ -703,5 +702,6 @@ Revelation
 		22:6-17    Vision 7 - Reiteration that Christ will come soon to finish the old and to continue the renewal of all things
 	Epilogue
 		22:18-21   How to read the book and submit to it
+
 
 
