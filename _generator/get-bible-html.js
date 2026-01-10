@@ -1,4 +1,4 @@
-const getBookStructureHtml = require('./get-book-structure-html.js')
+// const getBookStructureHtml = require('./get-book-structure-html.js')
 
 module.exports = function getBibleHtml(ref) {
 	const bookObj = require('world-english-bible/json/' + ref.bookSlug + '.json')
@@ -35,7 +35,7 @@ module.exports = function getBibleHtml(ref) {
 		}
 	}).join(' ')
 
-	let bookStructureHtml = getBookStructureHtml(ref)
+	let bookStructureHtml = '' // getBookStructureHtml(ref)
 	if (bookStructureHtml) {
 		bookStructureHtml = `<div class="section book-structure">${ bookStructureHtml }</div>`
 	}
