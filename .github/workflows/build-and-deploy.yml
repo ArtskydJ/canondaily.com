@@ -45,6 +45,7 @@ jobs:
           cd generator
           npm install
           node index.js
+          ls ../_site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
