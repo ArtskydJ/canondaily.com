@@ -2,7 +2,9 @@
 	{{monthNames[month]}} {{day}}
 </div>
 
+<article>
 {{@ bibleHtml }}
+</article>
 
 <div class="section dark-bg">
 	<div class="subheader">Proud vs. Broken</div>
