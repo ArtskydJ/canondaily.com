@@ -143,9 +143,7 @@ function range(start, end) {
 }
 
 function getDayOfWeekOffset(year) {
-	const jan1 = new Date(year, 0)
-	jan1.setUTCHours(0)
-	return (jan1.getDay() + 1) % 7
+	return new Date(`${ year }-01-01`).getUTCDay()
 }
 
 function getLeapYear(year) {
