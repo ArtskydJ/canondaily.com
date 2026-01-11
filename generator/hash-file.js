@@ -2,25 +2,25 @@ const fs = require('fs')
 const path = require('path')
 const crypto = require('crypto')
 
-module.exports = function hashFile(prefix, suffix) {
-	fs.readdirSync(resolve('.'))
-		.filter(filename => filename.startsWith(`${prefix}.`) && filename.endsWith(`.${suffix}`) )
-		.forEach(filename => fs.unlinkSync( resolve(filename) ) )
+module.exports = function hashFile(sourceFilePath) {
+	const sourceFileContents = fs.readFileSync(sourceFilePath, 'utf-8')
 
-	const sourceFileContents = fs.readFileSync( resolve(`_generator/${prefix}.${suffix}`), 'utf-8')
+	const revHash = md5(sourceFileContents).slice(0, 10)
 
-	// https://github.com/sindresorhus/rev-hash/blob/master/index.js
-	const revHash = crypto
+	const sourceFileName = path.basename(sourceFilePath)
+	const destFileName = insertRevHash(sourceFileName, revHash)
+
+	return { sourceFileContents, destFileName }
+}
+
+function md5(sourceFileContents) {
+	return crypto
 		.createHash('md5')
 		.update(sourceFileContents)
 		.digest('hex')
-		.slice(0, 10)
-
-	fs.writeFileSync(resolve(`${prefix}.${revHash}.${suffix}`), sourceFileContents, 'utf-8')
-
-	return revHash
 }
 
-function resolve(relativePathFromRepoRoot) {
-	return path.resolve(__dirname, '..', relativePathFromRepoRoot)
+function insertRevHash(fileName, revHash) {
+	const extIndex = fileName.lastIndexOf('.')
+	return fileName.slice(0, extIndex + 1) + revHash + fileName.slice(extIndex)
 }

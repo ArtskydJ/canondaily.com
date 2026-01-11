@@ -10,7 +10,7 @@
 </div>
 
 
-<script src="/util.{{utilRevHash}}.js"></script>
+<script src="{{utilJsUrl}}"></script>
 <script>
 	function markMonth(self, month, read) {
 		window.markMonthAs(month, read)

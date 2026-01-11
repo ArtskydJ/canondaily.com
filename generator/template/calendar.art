@@ -5,7 +5,7 @@
 	{{/if}}
 	{{each range(1, 12) month}}
 		{{each range(1, expectedMonthLength[month]) day}}
-			<a class="cal-date" href="/{{monthNames[month]}}/{{day}}" data-month="{{month}}" data-day="{{day}}">
+			<a class="cal-date" href="./{{monthNames[month]}}/{{day}}" data-month="{{month}}" data-day="{{day}}">
 				{{shortMonthNames[month]}}<br>{{day}}
 			</a>
 		{{/each}}
@@ -16,7 +16,7 @@
 </div>
 
 
-<script src="/util.{{utilRevHash}}.js"></script>
+<script src="{{utilJsUrl}}"></script>
 <script>
 	function updateToday() {
 		var eleToday = document.querySelector('a.cal-today')

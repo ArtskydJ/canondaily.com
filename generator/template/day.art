@@ -36,7 +36,7 @@
 	</div>
 </div>
 
-<script src="/util.{{utilRevHash}}.js"></script>
+<script src="{{utilJsUrl}}"></script>
 <script>
 	window.initDayPage(Number('{{month}}'), Number('{{day}}'))
 </script>

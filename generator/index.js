@@ -1,10 +1,3 @@
-const cliOpts = parseCliOptions(process.argv.slice(2))
-
-if (cliOpts.help) {
-	printUsage()
-	process.exit(0)
-}
-
 const fs = require('fs')
 const path = require('path')
 
@@ -23,77 +16,60 @@ const dtpm = parseBookmarks(bookmarksTxt)
 
 const { monthNames, expectedMonthLength, shortMonthNames } = require('./constant/months.json')
 
-const opts = {
-	cssRevHash: hashFile('style', 'css'),
-	utilRevHash: hashFile('util', 'js'),
-	year: new Date().getUTCFullYear(),
-}
+const generatedSitePath = path.join(__dirname, '..', '_site')
 
-if (cliOpts.debug) {
-	generateCommonFiles(opts)
+generateSite()
 
-	generateDayHtml(1, 1, opts)
-	generateDayHtml(1, 2, opts)
-	generateDayHtml(1, 3, opts)
-	console.log('\nSkipping the daily pages other than Jan 1,2,3')
-	console.log('Open localcanondaily.com in your browser.\n')
-} else if (cliOpts.month) {
-	generateCommonFiles(opts)
+function generateSite() {
+	resetSiteDir()
 
-	const mMonth = parseInt(cliOpts.month, 10)
-	if (mMonth < 1 || mMonth > 12) throw new RangeError('Unexpected value for month cli argument')
-
-	for (let mDay = 1; mDay <= expectedMonthLength[mMonth]; mDay++) {
-		generateDayHtml(mMonth, mDay, opts)
+	const opts = {
+		styleCssFileName: hashAndCopyFile(path.join(__dirname, 'style.css'), generatedSitePath),
+		utilJsFileName: hashAndCopyFile(path.join(__dirname, 'util.js'), generatedSitePath),
 	}
-	console.log('\nOnly generating for month ' + mMonth)
-} else if (cliOpts.run) {
+
+	copyDir(path.join(__dirname, 'static'), generatedSitePath)
 	generateCommonFiles(opts)
 
 	for (let rMonth = 1; rMonth <= 12; rMonth++) {
+		fs.mkdirSync(path.join(generatedSitePath, monthNames[rMonth]))
 		for (let rDay = 1; rDay <= expectedMonthLength[rMonth]; rDay++) {
 			generateDayHtml(rMonth, rDay, opts)
 		}
 	}
-} else {
-	printUsage()
-	process.exit(1)
-}
-
-function printUsage() {
-	console.log('Usage: node . [options]')
-	console.log('node . --help      Print this help text')
-	console.log('node . run         Run the generator')
-	console.log('node . debug       Skip generating all daily pages, except for January 1-3')
-	console.log('node . month=n     Generate for a month. n must be between 1 and 12')
 }
 
 function generateCommonFiles(opts) {
+	const year = new Date().getUTCFullYear()
+	// relative URLs so it works locally and in prod
+	const styleCssUrl = `./${ opts.styleCssFileName }`
+	const utilJsUrl = `./${ opts.utilJsFileName }`
+
 	writeSubtemplate('index.html', {
 		subtemplate: './calendar.art',
 		title: 'Canon Daily',
-		cssRevHash: opts.cssRevHash,
-		utilRevHash: opts.utilRevHash,
+		styleCssUrl,
+		utilJsUrl,
 		range,
 		expectedMonthLength,
 		monthNames,
 		monthNamesJson: JSON.stringify(monthNames),
 		shortMonthNames,
-		dayOfWeek: getDayOfWeekOffset(opts.year),
-		leapYear: getLeapYear(opts.year),
+		dayOfWeek: getDayOfWeekOffset(year),
+		leapYear: getLeapYear(year),
 	})
 
 	writeSubtemplate('prayer-for-filling-of-spirit.html', {
 		subtemplate: './prayer-for-filling-of-spirit.art',
 		title: 'Prayer for the Filling of the Spirit - Canon Daily',
-		cssRevHash: opts.cssRevHash,
+		styleCssUrl,
 	})
 
 	writeSubtemplate('bulk-edit.html', {
 		subtemplate: './bulk-edit.art',
 		title: 'Bulk Edit - Canon Daily',
-		cssRevHash: opts.cssRevHash,
-		utilRevHash: opts.utilRevHash,
+		styleCssUrl,
+		utilJsUrl,
 		range,
 		expectedMonthLength,
 		monthNames,
@@ -101,49 +77,65 @@ function generateCommonFiles(opts) {
 }
 
 function generateDayHtml(month, day, opts) {
-	let backUrl = `./${ day - 1 }`
-	if (month === 1 && day === 1) {
-		backUrl = '../December/31'
-	} else if (day === 1) {
-		backUrl = `../${ monthNames[month - 1] }/${ expectedMonthLength[month - 1] }`
-	}
-	let nextUrl = `./${ day + 1 }`
-	if (month === 12 && day === 31) {
-		nextUrl = '../January/1'
-	} else if (day === expectedMonthLength[month]) {
-		nextUrl = `../${ monthNames[month + 1] }/1`
-	}
+	const prevMonth = ((month + 10) % 12) + 1
+	const nextMonth = (month % 12) + 1
+
+	// relative URLs so they work locally and in prod
+	const backUrl = day === 1
+		? `../${ monthNames[prevMonth] }/${ expectedMonthLength[prevMonth] }`
+		: `./${ day - 1 }`
+	const nextUrl = day === expectedMonthLength[month]
+		? `../${ monthNames[nextMonth] }/1`
+		: `./${ day + 1 }`
+	const styleCssUrl = `../${ opts.styleCssFileName }`
+	const utilJsUrl = `../${ opts.utilJsFileName }`
 
 	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 		subtemplate: './day.art',
 		title: `${ monthNames[month] } ${ day } - Canon Daily`,
-		cssRevHash: opts.cssRevHash,
-		utilRevHash: opts.utilRevHash,
+		styleCssUrl,
+		utilJsUrl,
 		month,
 		day,
 		proudVsBroken: proudVsBroken[day - 1],
 		meditate: meditate[day - 1],
 		bibleHtml: dtpm.map(d => d[month][day]).map(parseReference).map(getBibleHtml).join('\n'),
 		monthNames,
-		expectedMonthLength,
 		backUrl,
 		nextUrl,
 	})
 }
 
-function parseCliOptions(args) {
-	return args.reduce((memo, arg) => {
-		const parts = arg.replace(/^--/, '').split('=')
-		memo[ parts[0].toLowerCase() ] = parts[1] || true
-		return memo
-	}, {})
+function copyDir(fromDir, toDir) {
+	fs.readdirSync(fromDir, { withFileTypes: true })
+		.forEach(dirent => {
+			const from = path.join(fromDir, dirent.name)
+			const to = path.join(toDir, dirent.name)
+			if (dirent.isDirectory()) {
+				fs.mkdirSync(to)
+				copyDir(from, to)
+			} else {
+				fs.copyFileSync(from, to)
+			}
+		})
+}
+
+function resetSiteDir() {
+	fs.rmSync(generatedSitePath, { recursive: true, force: true })
+	fs.mkdirSync(generatedSitePath)
 }
 
 function writeSubtemplate(resultName, data) {
-	const templateHtmlPath = path.resolve(__dirname, 'template', 'master.art')
-	const resultHtmlPath = path.resolve(__dirname, '..', resultName)
+	const templateHtmlPath = path.join(__dirname, 'template', 'master.art')
+	const resultHtmlPath = path.join(generatedSitePath, resultName)
 	const resultHtml = mustache(templateHtmlPath, data)
 	fs.writeFileSync(resultHtmlPath, resultHtml, 'utf-8')
+}
+
+function hashAndCopyFile(sourceFilePath, destFileDir) {
+	const { sourceFileContents, destFileName } = hashFile(sourceFilePath)
+	fs.writeFileSync(path.join(destFileDir, destFileName), sourceFileContents, 'utf-8')
+	return destFileName
 }
 
 function range(start, end) {

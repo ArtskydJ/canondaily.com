@@ -8,7 +8,7 @@
 	<title>{{title}}</title>
 	<link rel="manifest" href="/manifest.json">
 	<link rel="shortcut icon" href="/icons/bible.ico">
-	<link rel="stylesheet" type="text/css" href="/style.{{cssRevHash}}.css">
+	<link rel="stylesheet" type="text/css" href="{{styleCssUrl}}">
 </head>
 <body>
 	<noscript>This page may not work correctly without javascript.</noscript>
