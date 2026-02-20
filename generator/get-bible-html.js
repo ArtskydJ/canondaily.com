@@ -1,7 +1,7 @@
 // const getBookStructureHtml = require('./get-book-structure-html.js')
 
 module.exports = function getBibleHtml(references) {
-	return '<div class="section">\n' +
+	return '<div class="container" style="text-align: center;">\n' +
 	references
 		.map(ref => `<a href="#${ ref.original.replace(/\W+/g, '-').toLowerCase() }" style="white-space: nowrap;">${ ref.original }</a>`)
 		.join(', ')
