@@ -90,6 +90,9 @@ function generateDayHtml(month, day, opts) {
 	const styleCssUrl = `../${ opts.styleCssFileName }`
 	const utilJsUrl = `../${ opts.utilJsFileName }`
 
+	const references = dtpm.map(d => d[month][day]).map(parseReference)
+	const bibleHtml = getBibleHtml(references)
+
 	writeSubtemplate(monthNames[month] + '/' + day + '.html', {
 		subtemplate: './day.art',
 		title: `${ monthNames[month] } ${ day } - Canon Daily`,
@@ -99,7 +102,7 @@ function generateDayHtml(month, day, opts) {
 		day,
 		proudVsBroken: proudVsBroken[day - 1],
 		meditate: meditate[day - 1],
-		bibleHtml: dtpm.map(d => d[month][day]).map(parseReference).map(getBibleHtml).join('\n'),
+		bibleHtml,
 		monthNames,
 		backUrl,
 		nextUrl,

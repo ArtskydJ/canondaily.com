@@ -1,6 +1,17 @@
 // const getBookStructureHtml = require('./get-book-structure-html.js')
 
-module.exports = function getBibleHtml(ref) {
+module.exports = function getBibleHtml(references) {
+	return '<div class="section">\n' +
+	references
+		.map(ref => `<a href="#${ ref.original.replace(/\W+/g, '-').toLowerCase() }" style="white-space: nowrap;">${ ref.original }</a>`)
+		.join(', ')
+	+ '</div>\n' +
+	references
+		.map(getPassageHtml)
+		.join('\n')
+}
+
+function getPassageHtml(ref) {
 	const bookObj = require('world-english-bible/json/' + ref.bookSlug + '.json')
 
 	const intermediateWhatever = bookObj.filter(function (chunk, i, arr) {
@@ -41,7 +52,7 @@ module.exports = function getBibleHtml(ref) {
 	}
 
 	return `<div class="section">
-		<span class="header">${ ref.original }</span>
+		<span class="header" id="${ ref.original.replace(/\W+/g, '-').toLowerCase() }">${ ref.original }</span>
 		${ bookStructureHtml }
 		${ bibleText }
 	</div>`

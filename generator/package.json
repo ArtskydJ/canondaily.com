@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "node index.js run",
     "test": "node test/test-bookmarks.js && node test/test-text-indentation-parser.js"
   },
   "repository": {
