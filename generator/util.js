@@ -32,9 +32,22 @@
 		updateCheckboxUI(monthData[day])
 	}
 
+	function saveJournal(key, value) {
+		localStorage.setItem(key, value)
+	}
+
+	function loadJournals() {
+		var textareas = document.querySelectorAll('.journal')
+		for (var i = 0; i < textareas.length; i++) {
+			var el = textareas[i]
+			el.value = localStorage.getItem(el.id) || ''
+		}
+	}
+
 	function initDayPage(month, day) {
 		const monthData = readSavedMonth(month)
 		updateCheckboxUI(monthData[day])
+		loadJournals()
 
 		updateIsTodayUI(month, day)
 		setInterval(updateIsTodayUI, 1000, month, day)
@@ -58,4 +71,5 @@
 	window.markMonthAs = markMonthAs
 	window.markDayAs = markDayAs
 	window.initDayPage = initDayPage
+	window.saveJournal = saveJournal
 })()

@@ -51,10 +51,12 @@ function getPassageHtml(ref) {
 		bookStructureHtml = `<div class="section book-structure">${ bookStructureHtml }</div>`
 	}
 
+	const slug = ref.original.replace(/\W+/g, '-').toLowerCase()
 	return `<div class="section">
-		<span class="header" id="${ ref.original.replace(/\W+/g, '-').toLowerCase() }">${ ref.original }</span>
+		<span class="header" id="${ slug }">${ ref.original }</span>
 		${ bookStructureHtml }
 		${ bibleText }
+		<textarea class="journal" id="journal-${ slug }" placeholder="Journal..." oninput="window.saveJournal('journal-${ slug }', this.value)"></textarea>
 	</div>`
 }
 

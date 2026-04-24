@@ -306,3 +306,13 @@ nav a:hover {
 .simple-button-gray:hover {
 	background-color: var(--dark-bg-hover);
 }
+.journal {
+	width: 100%;
+	min-height: 6em;
+	box-sizing: border-box;
+	margin-top: 0.75em;
+	font-family: inherit;
+	font-size: inherit;
+	resize: vertical;
+	field-sizing: content;
+}
