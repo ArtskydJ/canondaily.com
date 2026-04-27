@@ -1,7 +1,15 @@
 <div class="container">
 	<a class="home-today-btn" href="">Today</a>
-	<div class="home-stat" id="completed-count">— / 365 completed</div>
+
+	<div class="home-progress" id="completed-section" style="display:none">
+		<div class="home-progress-header">Completed:</div>
+		<ul class="home-progress-list" id="completed-list"></ul>
+	</div>
+
+	<ul class="home-progress-list" id="uncompleted-list" style="display:none"></ul>
+
 	<div class="home-stat" id="behind-status">—</div>
+
 	<div class="home-links">
 		<a href="/calendar">Calendar</a>
 		<a href="/bulk-edit">Bulk Edit</a>
@@ -20,37 +28,123 @@
 		return total
 	}
 
-	function readCompletedCount() {
-		var total = 0
+	function buildDayList() {
+		var days = []
 		for (var m = 1; m <= 12; m++) {
-			var json = localStorage.getItem(m)
-			if (!json) continue
-			var arr = JSON.parse(json)
 			for (var d = 1; d <= expectedMonthLength[m]; d++) {
-				if (arr[d] === 1) total++
+				days.push({ month: m, day: d })
 			}
 		}
-		return total
+		return days
+	}
+
+	function readMonthData() {
+		var data = {}
+		for (var m = 1; m <= 12; m++) {
+			var json = localStorage.getItem(m)
+			data[m] = json ? JSON.parse(json) : []
+		}
+		return data
+	}
+
+	function getCompletedRanges(days, monthData) {
+		var ranges = []
+		var current = null
+		for (var i = 0; i < days.length; i++) {
+			var d = days[i]
+			if (monthData[d.month][d.day] === 1) {
+				if (!current) current = { start: d, end: d }
+				else current.end = d
+			} else if (current) {
+				ranges.push(current)
+				current = null
+			}
+		}
+		if (current) ranges.push(current)
+		return ranges
+	}
+
+	function getUncompletedThroughToday(days, monthData, todayDoy) {
+		var result = []
+		for (var i = 0; i < todayDoy; i++) {
+			var d = days[i]
+			if (monthData[d.month][d.day] !== 1) result.push(d)
+		}
+		return result
 	}
 
 	function plural(n) {
 		return n === 1 ? 'day' : 'days'
 	}
 
+	function suffix(month, day, todayMonth, todayDay, yMonth, yDay) {
+		if (month === todayMonth && day === todayDay) return ' (Today)'
+		if (month === yMonth && day === yDay) return ' (Yesterday)'
+		return ''
+	}
+
+	function dayLabel(month, day, todayMonth, todayDay, yMonth, yDay) {
+		return monthNames[month] + ' ' + day + suffix(month, day, todayMonth, todayDay, yMonth, yDay)
+	}
+
+	function rangeText(range, todayMonth, todayDay, yMonth, yDay) {
+		var endLabel = dayLabel(range.end.month, range.end.day, todayMonth, todayDay, yMonth, yDay)
+		if (range.start === range.end) return endLabel
+		return monthNames[range.start.month] + ' ' + range.start.day + ' - ' + endLabel
+	}
+
+	function escapeHtml(s) {
+		return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+	}
+
 	function updatePage() {
-		var d = new Date()
-		var month = d.getMonth() + 1
-		var day = d.getDate()
-		// Feb 29 has no reading; clamp the Today button to Feb 28.
-		if (month === 2 && day === 29) day = 28
-		document.querySelector('a.home-today-btn').href = '/' + monthNames[month] + '/' + day
+		var now = new Date()
+		var todayMonth = now.getMonth() + 1
+		var todayDay = now.getDate()
 
-		var completed = readCompletedCount()
-		var todayDoy = readingDayOfYear(month, day)
-		var diff = completed - todayDoy
+		var yest = new Date()
+		yest.setDate(yest.getDate() - 1)
+		var yMonth = yest.getMonth() + 1
+		var yDay = yest.getDate()
 
-		document.getElementById('completed-count').textContent = completed + ' / 365 completed'
+		var btnDay = todayDay
+		if (todayMonth === 2 && btnDay === 29) btnDay = 28
+		document.querySelector('a.home-today-btn').href = '/' + monthNames[todayMonth] + '/' + btnDay
 
+		var days = buildDayList()
+		var monthData = readMonthData()
+		var ranges = getCompletedRanges(days, monthData)
+		var todayDoy = readingDayOfYear(todayMonth, todayDay)
+		var uncompleted = getUncompletedThroughToday(days, monthData, todayDoy)
+
+		var completedSection = document.getElementById('completed-section')
+		var completedList = document.getElementById('completed-list')
+		if (ranges.length === 0) {
+			completedSection.style.display = 'none'
+		} else {
+			completedSection.style.display = ''
+			completedList.innerHTML = ranges.map(function (r) {
+				return '<li>' + escapeHtml(rangeText(r, todayMonth, todayDay, yMonth, yDay)) + '</li>'
+			}).join('')
+		}
+
+		var uncompletedList = document.getElementById('uncompleted-list')
+		if (uncompleted.length === 0) {
+			uncompletedList.style.display = 'none'
+		} else {
+			uncompletedList.style.display = ''
+			uncompletedList.innerHTML = uncompleted.map(function (u) {
+				var href = '/' + monthNames[u.month] + '/' + u.day
+				var label = dayLabel(u.month, u.day, todayMonth, todayDay, yMonth, yDay)
+				return '<li><a href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a></li>'
+			}).join('')
+		}
+
+		var completedCount = 0
+		for (var i = 0; i < days.length; i++) {
+			if (monthData[days[i].month][days[i].day] === 1) completedCount++
+		}
+		var diff = completedCount - todayDoy
 		var statusEl = document.getElementById('behind-status')
 		if (diff > 0) statusEl.textContent = diff + ' ' + plural(diff) + ' ahead'
 		else if (diff < 0) statusEl.textContent = -diff + ' ' + plural(-diff) + ' behind'
