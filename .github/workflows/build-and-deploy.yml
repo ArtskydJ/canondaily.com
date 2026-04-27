@@ -46,7 +46,13 @@ jobs:
           npm install
           popd
 
-      - name: Install deps
+      # - name: Run tests
+      #   run: |
+      #     pushd generator
+      #     npm test
+      #     popd
+
+      - name: Build
         run: node generator/index.js
 
       - name: debug (ls _site)
