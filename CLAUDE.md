@@ -35,7 +35,7 @@ Static site generator that builds a year-round daily Bible-reading site. The who
 
 **Templates** are art-template files in `generator/template/` (`master.art` is the layout; `calendar.art`, `day.art`, `bulk-edit.art`, `prayer-for-filling-of-spirit.art` are the subtemplates). All rendering goes through `writeSubtemplate()` which always renders `master.art` and uses the `subtemplate` key to pick the body via `{{include subtemplate}}`.
 
-**Client-side** (`generator/util.js`, runs in the browser): keeps per-day completion state and journal text in `localStorage` keyed by month name (e.g. `January`) → `[null, day1, day2, ...]` (also 1-indexed) for completion, and `journal-<slug>` for journals. `initDayPage()` polls every second so the "today/yesterday/tomorrow" CSS classes update across midnight without a reload.
+**Client-side** (`generator/util.js`, runs in the browser): keeps per-day completion state and journal text in `localStorage` keyed by numeric month (`"1"` through `"12"`, stringified by `localStorage`) → `[null, day1, day2, ...]` (also 1-indexed) for completion, and `journal-<slug>` for journals. `initDayPage()` polls every second so the "today/yesterday/tomorrow" CSS classes update across midnight without a reload.
 
 **Test invariants:**
 

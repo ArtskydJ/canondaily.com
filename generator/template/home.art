@@ -23,7 +23,7 @@
 	function readCompletedCount() {
 		var total = 0
 		for (var m = 1; m <= 12; m++) {
-			var json = localStorage.getItem(monthNames[m])
+			var json = localStorage.getItem(m)
 			if (!json) continue
 			var arr = JSON.parse(json)
 			for (var d = 1; d <= expectedMonthLength[m]; d++) {
