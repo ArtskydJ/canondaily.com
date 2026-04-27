@@ -1,0 +1,62 @@
+<div class="container">
+	<a class="home-today-btn" href="">Today</a>
+	<div class="home-stat" id="completed-count">— / 365 completed</div>
+	<div class="home-stat" id="behind-status">—</div>
+	<div class="home-links">
+		<a href="/calendar">Calendar</a>
+		<a href="/bulk-edit">Bulk Edit</a>
+		<a href="https://github.com/ArtskydJ/canondaily.com">Github</a>
+	</div>
+</div>
+
+<script>
+	var monthNames = {{@ monthNamesJson }}
+	var expectedMonthLength = {{@ expectedMonthLengthJson }}
+
+	// Reading day-of-year always treats February as 28 days (no Feb 29 reading exists).
+	function readingDayOfYear(month, day) {
+		var total = Math.min(day, expectedMonthLength[month])
+		for (var m = 1; m < month; m++) total += expectedMonthLength[m]
+		return total
+	}
+
+	function readCompletedCount() {
+		var total = 0
+		for (var m = 1; m <= 12; m++) {
+			var json = localStorage.getItem(monthNames[m])
+			if (!json) continue
+			var arr = JSON.parse(json)
+			for (var d = 1; d <= expectedMonthLength[m]; d++) {
+				if (arr[d] === 1) total++
+			}
+		}
+		return total
+	}
+
+	function plural(n) {
+		return n === 1 ? 'day' : 'days'
+	}
+
+	function updatePage() {
+		var d = new Date()
+		var month = d.getMonth() + 1
+		var day = d.getDate()
+		// Feb 29 has no reading; clamp the Today button to Feb 28.
+		if (month === 2 && day === 29) day = 28
+		document.querySelector('a.home-today-btn').href = '/' + monthNames[month] + '/' + day
+
+		var completed = readCompletedCount()
+		var todayDoy = readingDayOfYear(month, day)
+		var diff = completed - todayDoy
+
+		document.getElementById('completed-count').textContent = completed + ' / 365 completed'
+
+		var statusEl = document.getElementById('behind-status')
+		if (diff > 0) statusEl.textContent = diff + ' ' + plural(diff) + ' ahead'
+		else if (diff < 0) statusEl.textContent = -diff + ' ' + plural(-diff) + ' behind'
+		else statusEl.textContent = 'Caught up'
+	}
+
+	updatePage()
+	setInterval(updatePage, 1000)
+</script>

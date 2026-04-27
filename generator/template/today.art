@@ -1,0 +1,9 @@
+<div class="container">
+	<noscript>JavaScript is required to redirect to today's reading.</noscript>
+</div>
+
+<script>
+	var d = new Date()
+	var monthNames = {{@ monthNamesJson }}
+	window.location.replace('/' + monthNames[ d.getMonth() + 1 ] + '/' + d.getDate())
+</script>

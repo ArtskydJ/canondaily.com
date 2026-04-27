@@ -46,8 +46,16 @@ function generateCommonFiles(opts) {
 	const utilJsUrl = `./${ opts.utilJsFileName }`
 
 	writeSubtemplate('index.html', {
-		subtemplate: './calendar.art',
+		subtemplate: './home.art',
 		title: 'Canon Daily',
+		styleCssUrl,
+		monthNamesJson: JSON.stringify(monthNames),
+		expectedMonthLengthJson: JSON.stringify(expectedMonthLength),
+	})
+
+	writeSubtemplate('calendar.html', {
+		subtemplate: './calendar.art',
+		title: 'Calendar - Canon Daily',
 		styleCssUrl,
 		utilJsUrl,
 		range,
@@ -63,6 +71,13 @@ function generateCommonFiles(opts) {
 		subtemplate: './prayer-for-filling-of-spirit.art',
 		title: 'Prayer for the Filling of the Spirit - Canon Daily',
 		styleCssUrl,
+	})
+
+	writeSubtemplate('today.html', {
+		subtemplate: './today.art',
+		title: 'Today - Canon Daily',
+		styleCssUrl,
+		monthNamesJson: JSON.stringify(monthNames),
 	})
 
 	writeSubtemplate('bulk-edit.html', {

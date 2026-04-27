@@ -196,6 +196,54 @@ nav a:hover {
 	padding-left: 15px;
 }
 
+/* Home */
+.home-today-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--dark-bg);
+	color: var(--body-bg);
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 40pt;
+	padding: 0.4em 0;
+	margin: 12px 0;
+}
+.home-today-btn:hover {
+	background-color: var(--dark-bg-hover);
+}
+.home-stat {
+	text-align: center;
+	font-size: 1.6em;
+	margin: 0.5em 0;
+}
+.home-links {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 2em;
+}
+.home-links a,
+.home-links a:visited {
+	background-color: var(--dark-bg);
+	color: var(--body-bg);
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0.5em 1em;
+	font-size: 1.2em;
+}
+.home-links a:hover {
+	background-color: var(--dark-bg-hover);
+}
+@media (max-width: 640px) {
+	.home-today-btn { font-size: 30pt; }
+}
+@media (max-width: 400px) {
+	.home-today-btn { font-size: 22pt; }
+	.home-stat { font-size: 1.3em; }
+}
+
 /* Calendar */
 #calendar {
 	display: grid;
