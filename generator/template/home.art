@@ -5,8 +5,6 @@
 		<ul class="home-progress-list" id="progress-list" style="display:none"></ul>
 	</div>
 
-	<div class="home-stat" id="behind-status">—</div>
-
 	<div class="home-links">
 		<a href="/calendar">Calendar</a>
 		<a href="/bulk-edit">Bulk Edit</a>
@@ -68,10 +66,6 @@
 		return runs
 	}
 
-	function plural(n) {
-		return n === 1 ? 'day' : 'days'
-	}
-
 	function suffix(month, day, todayMonth, todayDay, yMonth, yDay) {
 		if (month === todayMonth && day === todayDay) return ' (Today)'
 		if (month === yMonth && day === yDay) return ' (Yesterday)'
@@ -82,18 +76,24 @@
 		return monthNames[month] + ' ' + day + suffix(month, day, todayMonth, todayDay, yMonth, yDay)
 	}
 
-	function rangeText(runDays, todayMonth, todayDay, yMonth, yDay) {
-		var start = runDays[0]
-		var end = runDays[runDays.length - 1]
-		var endLabel = dayLabel(end.month, end.day, todayMonth, todayDay, yMonth, yDay)
-		if (start === end) return endLabel + ' ✓'
-		return monthNames[start.month] + ' ' + start.day + ' - ' + endLabel + ' ✓'
+	// Completed runs read as plain text; unread runs link each endpoint to its day page.
+	function runHtml(run, todayMonth, todayDay, yMonth, yDay) {
+		var start = run.days[0]
+		var end = run.days[run.days.length - 1]
+		var render = run.completed ? dayPlain : dayLinked
+		var endHtml = render(end, todayMonth, todayDay, yMonth, yDay)
+		var body = start === end ? endHtml : render(start, todayMonth, todayDay, yMonth, yDay) + ' - ' + endHtml
+		return body + (run.completed ? ' ✓' : '')
 	}
 
-	// Long runs of missed days are collapsed to first two, ellipsis, last two.
-	function collapse(list) {
-		if (list.length < 6) return list
-		return [ list[0], list[1], { hidden: list.length - 4 }, list[list.length - 2], list[list.length - 1] ]
+	function dayPlain(d, todayMonth, todayDay, yMonth, yDay) {
+		return escapeHtml(dayLabel(d.month, d.day, todayMonth, todayDay, yMonth, yDay))
+	}
+
+	function dayLinked(d, todayMonth, todayDay, yMonth, yDay) {
+		var href = '/' + monthNames[d.month] + '/' + d.day
+		return '<a href="' + escapeHtml(href) + '">' +
+			escapeHtml(dayLabel(d.month, d.day, todayMonth, todayDay, yMonth, yDay)) + '</a>'
 	}
 
 	function escapeHtml(s) {
@@ -125,27 +125,9 @@
 		} else {
 			progressList.style.display = ''
 			progressList.innerHTML = runs.map(function (run) {
-				if (run.completed) {
-					return '<li>' + escapeHtml(rangeText(run.days, todayMonth, todayDay, yMonth, yDay)) + '</li>'
-				}
-				return collapse(run.days).map(function (u) {
-					if (u.hidden) return '<li class="home-progress-ellipsis">' + u.hidden + ' more …</li>'
-					var href = '/' + monthNames[u.month] + '/' + u.day
-					var label = dayLabel(u.month, u.day, todayMonth, todayDay, yMonth, yDay)
-					return '<li><a href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a></li>'
-				}).join('')
+				return '<li>' + runHtml(run, todayMonth, todayDay, yMonth, yDay) + '</li>'
 			}).join('')
 		}
-
-		var completedCount = 0
-		for (var i = 0; i < days.length; i++) {
-			if (monthData[days[i].month][days[i].day] === 1) completedCount++
-		}
-		var diff = completedCount - todayDoy
-		var statusEl = document.getElementById('behind-status')
-		if (diff > 0) statusEl.textContent = diff + ' ' + plural(diff) + ' ahead'
-		else if (diff < 0) statusEl.textContent = -diff + ' ' + plural(-diff) + ' behind'
-		else statusEl.textContent = 'Caught up'
 	}
 
 	updatePage()
