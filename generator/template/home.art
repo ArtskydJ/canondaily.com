@@ -76,14 +76,15 @@
 		return monthNames[month] + ' ' + day + suffix(month, day, todayMonth, todayDay, yMonth, yDay)
 	}
 
-	// Completed runs read as plain text; unread runs link each endpoint to its day page.
+	// Completed runs read as plain text behind a closed book; unread runs open with an open
+	// book and link each endpoint to its day page.
 	function runHtml(run, todayMonth, todayDay, yMonth, yDay) {
 		var start = run.days[0]
 		var end = run.days[run.days.length - 1]
 		var render = run.completed ? dayPlain : dayLinked
 		var endHtml = render(end, todayMonth, todayDay, yMonth, yDay)
 		var body = start === end ? endHtml : render(start, todayMonth, todayDay, yMonth, yDay) + ' - ' + endHtml
-		return body + (run.completed ? ' ✓' : '')
+		return '<span class="home-progress-icon">' + (run.completed ? '📕' : '📖') + '</span> ' + body
 	}
 
 	function dayPlain(d, todayMonth, todayDay, yMonth, yDay) {
