@@ -1,12 +1,9 @@
 <div class="container">
 	<a class="home-today-btn" href="">Today</a>
 
-	<div class="home-progress" id="completed-section" style="display:none">
-		<div class="home-progress-header">Completed:</div>
-		<ul class="home-progress-list" id="completed-list"></ul>
+	<div class="home-progress">
+		<ul class="home-progress-list" id="progress-list" style="display:none"></ul>
 	</div>
-
-	<ul class="home-progress-list" id="uncompleted-list" style="display:none"></ul>
 
 	<div class="home-stat" id="behind-status">—</div>
 
@@ -47,30 +44,28 @@
 		return data
 	}
 
-	function getCompletedRanges(days, monthData) {
-		var ranges = []
-		var current = null
+	// Chronological runs of same-completion days, e.g. [ completed Jan 1, missed Jan 2, completed Jan 3 ].
+	// Stops at today, or at the last completed day if reading ahead.
+	function getRuns(days, monthData, todayDoy) {
+		var lastCompleted = 0
 		for (var i = 0; i < days.length; i++) {
-			var d = days[i]
-			if (monthData[d.month][d.day] === 1) {
-				if (!current) current = { start: d, end: d }
-				else current.end = d
-			} else if (current) {
-				ranges.push(current)
-				current = null
+			if (monthData[days[i].month][days[i].day] === 1) lastCompleted = i + 1
+		}
+		var end = Math.max(todayDoy, lastCompleted)
+
+		var runs = []
+		var current = null
+		for (var j = 0; j < end; j++) {
+			var d = days[j]
+			var done = monthData[d.month][d.day] === 1
+			if (current && current.completed === done) {
+				current.days.push(d)
+			} else {
+				current = { completed: done, days: [ d ] }
+				runs.push(current)
 			}
 		}
-		if (current) ranges.push(current)
-		return ranges
-	}
-
-	function getUncompletedThroughToday(days, monthData, todayDoy) {
-		var result = []
-		for (var i = 0; i < todayDoy; i++) {
-			var d = days[i]
-			if (monthData[d.month][d.day] !== 1) result.push(d)
-		}
-		return result
+		return runs
 	}
 
 	function plural(n) {
@@ -87,10 +82,18 @@
 		return monthNames[month] + ' ' + day + suffix(month, day, todayMonth, todayDay, yMonth, yDay)
 	}
 
-	function rangeText(range, todayMonth, todayDay, yMonth, yDay) {
-		var endLabel = dayLabel(range.end.month, range.end.day, todayMonth, todayDay, yMonth, yDay)
-		if (range.start === range.end) return endLabel
-		return monthNames[range.start.month] + ' ' + range.start.day + ' - ' + endLabel
+	function rangeText(runDays, todayMonth, todayDay, yMonth, yDay) {
+		var start = runDays[0]
+		var end = runDays[runDays.length - 1]
+		var endLabel = dayLabel(end.month, end.day, todayMonth, todayDay, yMonth, yDay)
+		if (start === end) return endLabel + ' ✓'
+		return monthNames[start.month] + ' ' + start.day + ' - ' + endLabel + ' ✓'
+	}
+
+	// Long runs of missed days are collapsed to first two, ellipsis, last two.
+	function collapse(list) {
+		if (list.length < 6) return list
+		return [ list[0], list[1], { hidden: list.length - 4 }, list[list.length - 2], list[list.length - 1] ]
 	}
 
 	function escapeHtml(s) {
@@ -113,30 +116,24 @@
 
 		var days = buildDayList()
 		var monthData = readMonthData()
-		var ranges = getCompletedRanges(days, monthData)
 		var todayDoy = readingDayOfYear(todayMonth, todayDay)
-		var uncompleted = getUncompletedThroughToday(days, monthData, todayDoy)
+		var runs = getRuns(days, monthData, todayDoy)
 
-		var completedSection = document.getElementById('completed-section')
-		var completedList = document.getElementById('completed-list')
-		if (ranges.length === 0) {
-			completedSection.style.display = 'none'
+		var progressList = document.getElementById('progress-list')
+		if (runs.length === 0) {
+			progressList.style.display = 'none'
 		} else {
-			completedSection.style.display = ''
-			completedList.innerHTML = ranges.map(function (r) {
-				return '<li>' + escapeHtml(rangeText(r, todayMonth, todayDay, yMonth, yDay)) + '</li>'
-			}).join('')
-		}
-
-		var uncompletedList = document.getElementById('uncompleted-list')
-		if (uncompleted.length === 0) {
-			uncompletedList.style.display = 'none'
-		} else {
-			uncompletedList.style.display = ''
-			uncompletedList.innerHTML = uncompleted.map(function (u) {
-				var href = '/' + monthNames[u.month] + '/' + u.day
-				var label = dayLabel(u.month, u.day, todayMonth, todayDay, yMonth, yDay)
-				return '<li><a href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a></li>'
+			progressList.style.display = ''
+			progressList.innerHTML = runs.map(function (run) {
+				if (run.completed) {
+					return '<li>' + escapeHtml(rangeText(run.days, todayMonth, todayDay, yMonth, yDay)) + '</li>'
+				}
+				return collapse(run.days).map(function (u) {
+					if (u.hidden) return '<li class="home-progress-ellipsis">' + u.hidden + ' more …</li>'
+					var href = '/' + monthNames[u.month] + '/' + u.day
+					var label = dayLabel(u.month, u.day, todayMonth, todayDay, yMonth, yDay)
+					return '<li><a href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a></li>'
+				}).join('')
 			}).join('')
 		}
 

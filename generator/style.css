@@ -221,10 +221,6 @@ nav a:hover {
 	text-align: center;
 	margin: 1.5em 0;
 }
-.home-progress-header {
-	font-weight: bold;
-	font-size: 1.4em;
-}
 .home-progress-list {
 	list-style: none;
 	padding: 0;
@@ -233,8 +229,12 @@ nav a:hover {
 	font-size: 1.2em;
 	line-height: 1.6;
 }
-#uncompleted-list {
+#progress-list {
 	margin: 1.5em 0;
+}
+.home-progress-ellipsis {
+	color: var(--dark-bg-hover);
+	user-select: none;
 }
 .home-links {
 	display: flex;
@@ -261,7 +261,6 @@ nav a:hover {
 @media (max-width: 400px) {
 	.home-today-btn { font-size: 22pt; }
 	.home-stat { font-size: 1.3em; }
-	.home-progress-header { font-size: 1.2em; }
 	.home-progress-list { font-size: 1.1em; }
 }
 
